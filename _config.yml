@@ -18,6 +18,7 @@ tags_path : tags.html
 BASE_PATH : http://lovingcode.top
 
 description : 深沉的意志，恢宏的想象和炽热的情感
+company : 聚米科技
 title : Ivan
 logo : /assets/images/avatar.jpg
 #cover : /assets/images/background-cover.jpg
