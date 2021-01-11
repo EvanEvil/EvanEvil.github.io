@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Android知识总结 | Ivan的博客</title><meta name="keywords" content="Android"><meta name="author" content="Ivan"><meta name="copyright" content="Ivan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="第一章：常用技巧1.1 常用adb命令查看当前Activity 1234568.1之前window 通过adb shell dumpsys activity | findstr “mFocus”Linux 通过adb shell dumpsys activity | grep “mFocus”8.1之后window 通过adb shell dumpsys activity | findstr “m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android知识总结">
+<meta property="og:url" content="https://evancola.gitee.io/2021/01/09/Android%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Ivan的博客">
+<meta property="og:description" content="第一章：常用技巧1.1 常用adb命令查看当前Activity 1234568.1之前window 通过adb shell dumpsys activity | findstr “mFocus”Linux 通过adb shell dumpsys activity | grep “mFocus”8.1之后window 通过adb shell dumpsys activity | findstr “m">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1718973710,1699713116&fm=26&gp=0.jpg">
+<meta property="article:published_time" content="2021-01-08T17:25:03.000Z">
+<meta property="article:modified_time" content="2021-01-11T00:53:52.522Z">
+<meta property="article:author" content="Ivan">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1718973710,1699713116&fm=26&gp=0.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://evancola.gitee.io/2021/01/09/Android%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-11 08:53:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1718973710,1699713116&amp;fm=26&amp;gp=0.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ivan的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Android知识总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-08T17:25:03.000Z" title="发表于 2021-01-09 01:25:03">2021-01-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-11T00:53:52.522Z" title="更新于 2021-01-11 08:53:52">2021-01-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Android/">Android</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第一章：常用技巧"><a href="#第一章：常用技巧" class="headerlink" title="第一章：常用技巧"></a>第一章：常用技巧</h1><h2 id="1-1-常用adb命令"><a href="#1-1-常用adb命令" class="headerlink" title="1.1 常用adb命令"></a>1.1 常用adb命令</h2><p><strong>查看当前Activity</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">8.1之前</span><br><span class="line">window 通过adb shell dumpsys activity | findstr “mFocus”</span><br><span class="line">Linux 通过adb shell dumpsys activity | grep “mFocus”</span><br><span class="line">8.1之后</span><br><span class="line">window 通过adb shell dumpsys activity | findstr “mResume”</span><br><span class="line">Linux 通过adb shell dumpsys activity | grep “mResume”</span><br></pre></td></tr></table></figure>
+<p><strong>连接模拟器</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb connect 127.0.0.1:21503 &#x2F;&#x2F;逍遥浏览器</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;网易木木浏览器</span><br><span class="line">adb connect 127.0.0.1:7555 (Windows上)</span><br><span class="line">adb connect 127.0.0.1:5555 (Mac上)</span><br></pre></td></tr></table></figure>
+<p>指定设备安装apk</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb -s 设备id  install xxx.apk</span><br></pre></td></tr></table></figure>
+<h1 id="第二章-基础知识"><a href="#第二章-基础知识" class="headerlink" title="第二章 基础知识"></a>第二章 基础知识</h1><blockquote>
+<p>在本章节，主要包括如下内容</p>
+<ul>
+<li>shape，layer-list</li>
+</ul>
+</blockquote>
+<h2 id="2-1-shape"><a href="#2-1-shape" class="headerlink" title="2.1 shape"></a>2.1 shape</h2><p><strong>基础属性</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>shape</td>
+<td>定义形状：如 rectangle，ring,oval</td>
+</tr>
+<tr>
+<td>corners</td>
+<td>定义圆角</td>
+</tr>
+<tr>
+<td>solid</td>
+<td>定义内部填充色</td>
+</tr>
+<tr>
+<td>stroke</td>
+<td>定义边框</td>
+</tr>
+<tr>
+<td>gradient</td>
+<td>渐变色</td>
+</tr>
+</tbody></table>
+<p><strong>常用shape</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;shape xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;</span><br><span class="line">    android:shape&#x3D;&quot;rectangle&quot;&gt;</span><br><span class="line">    &lt;corners android:radius&#x3D;&quot;8dp&quot;&#x2F;&gt;</span><br><span class="line">    &lt;solid android:color&#x3D;&quot;#F2F2F2&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;shape&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-layer-list图层"><a href="#2-2-layer-list图层" class="headerlink" title="2.2 layer-list图层"></a>2.2 layer-list图层</h2><blockquote>
+<p> layer-list和shape不同的是，layer-list可以放多个item，每个item下可以放shape等</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;layer-list xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;</span><br><span class="line">    &lt;item&gt;</span><br><span class="line">        &lt;shape</span><br><span class="line">            android:shape&#x3D;&quot;rectangle&quot;&gt;</span><br><span class="line">            &lt;corners android:radius&#x3D;&quot;8dp&quot;&#x2F;&gt;</span><br><span class="line">            &lt;solid android:color&#x3D;&quot;#FF4C00&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;shape&gt;</span><br><span class="line">    &lt;&#x2F;item&gt;</span><br><span class="line"></span><br><span class="line">    &lt;item android:left&#x3D;&quot;2dp&quot; android:right&#x3D;&quot;2dp&quot; android:top&#x3D;&quot;2dp&quot; android:bottom&#x3D;&quot;2dp&quot;&gt;</span><br><span class="line">        &lt;shape</span><br><span class="line">            android:shape&#x3D;&quot;rectangle&quot;&gt;</span><br><span class="line">            &lt;corners android:radius&#x3D;&quot;6dp&quot;&#x2F;&gt;</span><br><span class="line">            &lt;stroke android:color&#x3D;&quot;@color&#x2F;color_white&quot; android:width&#x3D;&quot;1dp&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;shape&gt;</span><br><span class="line">    &lt;&#x2F;item&gt;</span><br><span class="line">&lt;&#x2F;layer-list&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-3-Android-studio"><a href="#2-3-Android-studio" class="headerlink" title="2.3 Android studio"></a>2.3 Android studio</h2><h4 id="2-3-1-阿里云仓库"><a href="#2-3-1-阿里云仓库" class="headerlink" title="2.3.1 阿里云仓库"></a>2.3.1 阿里云仓库</h4><p>替换jcenter()，修改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jcenter()&#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;jcenter&#39;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-2-编译速度优化"><a href="#2-3-2-编译速度优化" class="headerlink" title="2.3.2 编译速度优化"></a>2.3.2 编译速度优化</h4><p><strong>gradle离线模式</strong></p>
+<p><strong>初次打开的时候不让它连接谷歌进行更新</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">找到studio安装目录，找到idea.properties文件，打开，加上下面一行配置，作用是在初次打开的时候不让它连接谷歌进行更新</span><br><span class="line">disable.android.first.run&#x3D;true</span><br></pre></td></tr></table></figure>
+<p><strong>更改studio的VM大小</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-Xms 是JVM启动的起始堆内存，堆内存是分配给对象的内存</span><br><span class="line">-Xmx 是 Java 虚拟机启动时的参数，用于限制最大堆内存</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第三章-Android实战开发"><a href="#第三章-Android实战开发" class="headerlink" title="第三章 Android实战开发"></a>第三章 Android实战开发</h1><h2 id="2-1RecyclerView相关"><a href="#2-1RecyclerView相关" class="headerlink" title="2.1RecyclerView相关"></a>2.1RecyclerView相关</h2><p><strong>RecyclerView嵌套滑动卡顿</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">粗暴解决方式：</span><br><span class="line">rv.setItemViewCacheSize(200);</span><br><span class="line">&#x2F;&#x2F;继续粗暴</span><br><span class="line">rv.setHasFixedSize(true);        rv.setNestedScrollingEnabled(false);</span><br></pre></td></tr></table></figure>
+<p><strong>RecyclerView 网格布局，分割线</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration &#123;</span><br><span class="line"></span><br><span class="line">    private int spanCount;</span><br><span class="line">    private int spacing;</span><br><span class="line">    private boolean includeEdge;</span><br><span class="line"></span><br><span class="line">    public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) &#123;</span><br><span class="line">        this.spanCount &#x3D; spanCount;</span><br><span class="line">        this.spacing &#x3D; spacing;</span><br><span class="line">        this.includeEdge &#x3D; includeEdge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) &#123;</span><br><span class="line">        int position &#x3D; parent.getChildAdapterPosition(view);</span><br><span class="line">        int column &#x3D; position % spanCount;</span><br><span class="line">        if (includeEdge) &#123;</span><br><span class="line">            outRect.left &#x3D; spacing - column * spacing &#x2F; spanCount;</span><br><span class="line">            outRect.right &#x3D; (column + 1) * spacing &#x2F; spanCount;</span><br><span class="line">            if (position &lt; spanCount) &#123;</span><br><span class="line">                outRect.top &#x3D; spacing;</span><br><span class="line">            &#125;</span><br><span class="line">            outRect.bottom &#x3D; spacing;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            outRect.left &#x3D; column * spacing &#x2F; spanCount;</span><br><span class="line">            outRect.right &#x3D; spacing - (column + 1) * spacing &#x2F; spanCount;</span><br><span class="line">            if (position &lt; spanCount) &#123;</span><br><span class="line">                outRect.top &#x3D; spacing;</span><br><span class="line">            &#125;</span><br><span class="line">            outRect.bottom &#x3D; spacing;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-自定义view"><a href="#2-2-自定义view" class="headerlink" title="2.2 自定义view"></a>2.2 自定义view</h2><p><strong>自定义长宽比ViewGroup</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;长宽比1.4</span><br><span class="line">class RatioLayout @JvmOverloads constructor(</span><br><span class="line">    context: Context, attrs: AttributeSet? &#x3D; null, defStyleAttr: Int &#x3D; 0</span><br><span class="line">) : LinearLayout(context, attrs, defStyleAttr) &#123;</span><br><span class="line"></span><br><span class="line">    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) &#123;</span><br><span class="line">        setMeasuredDimension(getDefaultSize(0, widthMeasureSpec), getDefaultSize(0, heightMeasureSpec))</span><br><span class="line"></span><br><span class="line">        val childWidthSize &#x3D; measuredWidth</span><br><span class="line">        val mWidthMeasureSpec &#x3D; MeasureSpec.makeMeasureSpec(childWidthSize, MeasureSpec.EXACTLY)</span><br><span class="line">        val mHeightMeasureSpec &#x3D; MeasureSpec.makeMeasureSpec((childWidthSize * 1.4).toInt(), MeasureSpec.EXACTLY)</span><br><span class="line"></span><br><span class="line">        super.onMeasure(mWidthMeasureSpec, mHeightMeasureSpec);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-AAR"><a href="#2-3-AAR" class="headerlink" title="2.3 AAR"></a>2.3 AAR</h2><p><strong>打包AAR</strong></p>
+<p>当我们代码写好后，如何打包AAR呢？找到右侧gradle，找到library-&gt; Tasks -&gt; build -&gt; assemble</p>
+<p>AAR包生成目录:library-&gt;build-&gt;outputs-&gt;aar下</p>
+<p><strong>AAR引用第三方库</strong></p>
+<p>如果在aar中引用了第三方库，那么需要在APP中手动引入aar，因为aar中并不能依赖传递</p>
+<p><strong>AAR发布</strong></p>
+<p>AAR可以发布到Jcenter或者国内仓库，如阿里云maven(云效)</p>
+<h2 id="2-4-XML转JSON"><a href="#2-4-XML转JSON" class="headerlink" title="2.4 XML转JSON"></a>2.4 XML转JSON</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;smart-fun&#x2F;XmlToJson</span><br><span class="line">implementation &#39;com.github.smart-fun:XmlToJson:1.4.5&#39;</span><br></pre></td></tr></table></figure>
+<p>注意：如果xml中要解析list数据，必须设置强制解析成list，因为当list只有一条数据的时候，框架根本不知道xml里面，是解析成对象，还是list，所以必须手动指定</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://github.com/smart-fun/XmlToJson#force-a-tag-to-be-a-list">https://github.com/smart-fun/XmlToJson#force-a-tag-to-be-a-list</a></p>
+<h1 id="第四章-APP常用开发功能"><a href="#第四章-APP常用开发功能" class="headerlink" title="第四章 APP常用开发功能"></a>第四章 APP常用开发功能</h1><h2 id="4-1版本适配"><a href="#4-1版本适配" class="headerlink" title="4.1版本适配"></a>4.1版本适配</h2><h3 id="7-0-fileProvider适配"><a href="#7-0-fileProvider适配" class="headerlink" title="7.0 fileProvider适配"></a>7.0 fileProvider适配</h3><p>主要分为以下几步：</p>
+<ul>
+<li>1.创建file_paths文件，配置共享目录，注意命名不要和其他三方的冲突</li>
+<li>2.在aplication节点下添加Provider，指定file_paths</li>
+<li>3.根据版本获取不同的URI</li>
+</ul>
+<p><strong>实战：打开文件</strong></p>
+<p>首先配置file_paths</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;paths&gt;</span><br><span class="line">        &lt;!--ppt存放路径--&gt;</span><br><span class="line">        &lt;external-files-path name&#x3D;&quot;resource&quot; path&#x3D;&quot;ppt&#x2F;&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;paths&gt;</span><br><span class="line">&lt;&#x2F;resources&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的external-files-path，对应getExternalFilesDir()</p>
+<p>name是取一个别名，只要唯一字符串即可，path是真实目录,可以看出，这里使用resource隐藏了真实目录ppt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">content:&#x2F;&#x2F;com.yijieyuanyoutongllyfeng1.app.fileProvider&#x2F;resource&#x2F;xxx.ppt</span><br></pre></td></tr></table></figure>
+
+
+<p>然后配置provider</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;provider</span><br><span class="line">  android:name&#x3D;&quot;androidx.core.content.FileProvider&quot;</span><br><span class="line">  android:authorities&#x3D;&quot;$&#123;applicationId&#125;.fileProvider&quot;</span><br><span class="line">  android:exported&#x3D;&quot;false&quot;</span><br><span class="line">  android:grantUriPermissions&#x3D;&quot;true&quot;</span><br><span class="line">  tools:replace&#x3D;&quot;name,authorities,exported,grantUriPermissions&quot;&gt;</span><br><span class="line">  &lt;meta-data</span><br><span class="line">  android:name&#x3D;&quot;android.support.FILE_PROVIDER_PATHS&quot;</span><br><span class="line">  android:resource&#x3D;&quot;@xml&#x2F;file_provider&quot;</span><br><span class="line">  tools:replace&#x3D;&quot;name,resource&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;provider&gt;</span><br></pre></td></tr></table></figure>
+<p>根据版本获取不同的URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun getUriFromFile(ctx: Context,file:File):Uri&#123;</span><br><span class="line">    return if (Build.VERSION.SDK_INT &gt;&#x3D; 24)&#123;</span><br><span class="line">        &#x2F;&#x2F;provider authorities</span><br><span class="line">        FileProvider.getUriForFile(ctx, ctx.packageName + &quot;.fileProvider&quot;, file)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        Uri.fromFile(file)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用URI打开文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fun openFile(ctx:Context,file:File)&#123;</span><br><span class="line">    val intent &#x3D; Intent(ACTION_GET_CONTENT)</span><br><span class="line">    val uri &#x3D; getUriFromFile(ctx,file)</span><br><span class="line">    Log.d(&quot;uri:&quot;,uri.toString())</span><br><span class="line">    intent.setDataAndType(uri,&quot;file&#x2F;*&quot;)</span><br><span class="line"></span><br><span class="line">    intent.action &#x3D; Intent.ACTION_VIEW </span><br><span class="line">    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) </span><br><span class="line">    intent.addCategory(Intent.CATEGORY_DEFAULT)</span><br><span class="line">    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)</span><br><span class="line">    try &#123;</span><br><span class="line">        ctx.startActivity(intent)</span><br><span class="line">    &#125;catch (e:Exception)&#123;</span><br><span class="line">        e.printStackTrace()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-友盟统计"><a href="#4-2-友盟统计" class="headerlink" title="4.2 友盟统计"></a>4.2 友盟统计</h2><p>添加仓库和依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">maven &#123; url &#39;https:&#x2F;&#x2F;dl.bintray.com&#x2F;umsdk&#x2F;release&#39; &#125;&#x2F;&#x2F;友盟</span><br><span class="line">api &quot;com.umeng.umsdk:common:9.3.0&quot; &#x2F;&#x2F;（必选）</span><br><span class="line">api &quot;com.umeng.umsdk:asms:1.1.3&quot; &#x2F;&#x2F; asms包依赖(必选)</span><br></pre></td></tr></table></figure>
+<p>初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private fun initUmeng() &#123;</span><br><span class="line">        val chanel &#x3D; WalleChannelReader.getChannel(this)</span><br><span class="line">        UMConfigure.init(this,Constant.UMENG_KEY,chanel?:&quot;测试&quot;,UMConfigure.DEVICE_TYPE_PHONE,null)</span><br><span class="line">        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)</span><br><span class="line">        &#x2F;&#x2F;友盟日志</span><br><span class="line">        UMConfigure.setLogEnabled(Constant.UMENG_LOG)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意：这里渠道使用的美团walle渠道包技术，关于walle，在下一节walle渠道包讲解</p>
+<h2 id="4-3-多渠道打包"><a href="#4-3-多渠道打包" class="headerlink" title="4.3 多渠道打包"></a>4.3 多渠道打包</h2><p>使用美团walle + python 实现多渠道打包</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Meituan-Dianping/walle">美团walle</a></p>
+<p>第一步：添加插件依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath &#39;com.meituan.android.walle:plugin:1.1.7&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二步：在build.gradle中应用插件，添加读取渠道号的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &#39;walle&#39;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile &#39;com.meituan.android.walle:library:1.1.7&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步：配置walle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">walle &#123;</span><br><span class="line">    &#x2F;&#x2F; 指定渠道包的输出路径</span><br><span class="line">    apkOutputFolder &#x3D; new File(&quot;$&#123;project.buildDir&#125;&#x2F;outputs&#x2F;channels&quot;);</span><br><span class="line">    &#x2F;&#x2F; 定制渠道包的APK的文件名称</span><br><span class="line">    apkFileNameFormat &#x3D; &#39;$&#123;appName&#125;-$&#123;packageName&#125;-$&#123;channel&#125;-$&#123;buildType&#125;-v$&#123;versionName&#125;-$&#123;versionCode&#125;-$&#123;buildTime&#125;.apk&#39;;</span><br><span class="line">    &#x2F;&#x2F; 渠道配置文件</span><br><span class="line">    channelFile &#x3D; new File(&quot;$&#123;project.getProjectDir()&#125;&#x2F;channel&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>感觉这个可要可不要，因为我们主要是打未加固的包，然后使用360加固，然后使用python打渠道包</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chengxuyuanchaochao/article/details/92764902">美团walle+python多渠道打包</a></p>
+<h2 id="4-4-多module集中管理"><a href="#4-4-多module集中管理" class="headerlink" title="4.4 多module集中管理"></a>4.4 多module集中管理</h2><ul>
+<li>1.在项目的根目录下新建extraModule文件夹</li>
+<li>2.把所需要依赖的module都放在该目录下</li>
+<li>3.在setting.gradle中将原有的所有的moduleName改为:extraModule:moduleName，点击同步，即可</li>
+</ul>
+<h1 id="第五章-开源项目"><a href="#第五章-开源项目" class="headerlink" title="第五章 开源项目"></a>第五章 开源项目</h1><h2 id="4-1-日历"><a href="#4-1-日历" class="headerlink" title="4.1 日历"></a>4.1 日历</h2><p><strong><a target="_blank" rel="noopener" href="https://github.com/wenzhihao123/Android-CalendarView-master">Android-CalendarView-master</a></strong>:实现方式  GridView</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Ivan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://evancola.gitee.io/2021/01/09/Android%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">https://evancola.gitee.io/2021/01/09/Android%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://evancola.gitee.io" target="_blank">Ivan的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Android/">Android</a></div><div class="post_share"><div class="social-share" data-image="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1718973710,1699713116&amp;fm=26&amp;gp=0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/01/09/Android%20studio/"><img class="prev-cover" src="https://gank.io/images/e56da642238a43c4971f12d4e3395f30" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Android studio常见问题</div></div></a></div><div class="next-post pull-right"><a href="/2021/01/09/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><img class="next-cover" src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hexo博客搭建</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1718973710,1699713116&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Ivan</div><div class="author-info__description">一个Android开发者，来自重庆，努力为人生第一个一百万奋斗ing</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>联系我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:http://loabc24@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎大家分享，交流Flutter,SpringBoot，大前端技术！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-text">第一章：常用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4"><span class="toc-text">1.1 常用adb命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">第二章 基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-shape"><span class="toc-text">2.1 shape</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-layer-list%E5%9B%BE%E5%B1%82"><span class="toc-text">2.2 layer-list图层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Android-studio"><span class="toc-text">2.3 Android studio</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-%E9%98%BF%E9%87%8C%E4%BA%91%E4%BB%93%E5%BA%93"><span class="toc-text">2.3.1 阿里云仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-%E7%BC%96%E8%AF%91%E9%80%9F%E5%BA%A6%E4%BC%98%E5%8C%96"><span class="toc-text">2.3.2 编译速度优化</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-Android%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91"><span class="toc-text">第三章 Android实战开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1RecyclerView%E7%9B%B8%E5%85%B3"><span class="toc-text">2.1RecyclerView相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%87%AA%E5%AE%9A%E4%B9%89view"><span class="toc-text">2.2 自定义view</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-AAR"><span class="toc-text">2.3 AAR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-XML%E8%BD%ACJSON"><span class="toc-text">2.4 XML转JSON</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-APP%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%8A%9F%E8%83%BD"><span class="toc-text">第四章 APP常用开发功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1%E7%89%88%E6%9C%AC%E9%80%82%E9%85%8D"><span class="toc-text">4.1版本适配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-0-fileProvider%E9%80%82%E9%85%8D"><span class="toc-text">7.0 fileProvider适配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%8F%8B%E7%9B%9F%E7%BB%9F%E8%AE%A1"><span class="toc-text">4.2 友盟统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85"><span class="toc-text">4.3 多渠道打包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%A4%9Amodule%E9%9B%86%E4%B8%AD%E7%AE%A1%E7%90%86"><span class="toc-text">4.4 多module集中管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE"><span class="toc-text">第五章 开源项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%97%A5%E5%8E%86"><span class="toc-text">4.1 日历</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/01/11/Gradle%E7%AC%94%E8%AE%B0/" title="Gradle笔记"><img src="https://gank.io/images/882afc997ad84f8ab2a313f6ce0f3522" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gradle笔记"/></a><div class="content"><a class="title" href="/2021/01/11/Gradle%E7%AC%94%E8%AE%B0/" title="Gradle笔记">Gradle笔记</a><time datetime="2021-01-11T08:58:00.000Z" title="发表于 2021-01-11 16:58:00">2021-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/09/Android%20studio/" title="Android studio常见问题"><img src="https://gank.io/images/e56da642238a43c4971f12d4e3395f30" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Android studio常见问题"/></a><div class="content"><a class="title" href="/2021/01/09/Android%20studio/" title="Android studio常见问题">Android studio常见问题</a><time datetime="2021-01-08T17:25:03.000Z" title="发表于 2021-01-09 01:25:03">2021-01-09</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2021/01/09/Android%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" title="Android知识总结">Android知识总结</a><time datetime="2021-01-08T17:25:03.000Z" title="发表于 2021-01-09 01:25:03">2021-01-09</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2021/01/09/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="Hexo博客搭建">Hexo博客搭建</a><time datetime="2021-01-08T17:25:03.000Z" title="发表于 2021-01-09 01:25:03">2021-01-09</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2021/01/09/SpringBoot%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91/" title="SpringBoot博客开发">SpringBoot博客开发</a><time datetime="2021-01-08T17:25:03.000Z" title="发表于 2021-01-09 01:25:03">2021-01-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Ivan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script></div></body></html>
