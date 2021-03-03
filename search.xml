@@ -284,6 +284,21 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Gradle笔记</title>
+    <url>/2021/01/11/Gradle%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="第一章-Gradle-必备基础"><a href="#第一章-Gradle-必备基础" class="headerlink" title="第一章 Gradle 必备基础"></a>第一章 Gradle 必备基础</h1><h2 id="1-1-Gradle常用命令"><a href="#1-1-Gradle常用命令" class="headerlink" title="1.1 Gradle常用命令"></a>1.1 Gradle常用命令</h2><p><strong>检查依赖是否冲突</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gradle dependencies</span><br></pre></td></tr></table></figure>
+<p><strong>检查清单文件是否有重复或者其他问题</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gradlew processDebugManifest --stacktrace</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Gradle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客搭建</title>
     <url>/2021/01/09/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
@@ -303,21 +318,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Gradle笔记</title>
-    <url>/2021/01/11/Gradle%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="第一章-Gradle-必备基础"><a href="#第一章-Gradle-必备基础" class="headerlink" title="第一章 Gradle 必备基础"></a>第一章 Gradle 必备基础</h1><h2 id="1-1-Gradle常用命令"><a href="#1-1-Gradle常用命令" class="headerlink" title="1.1 Gradle常用命令"></a>1.1 Gradle常用命令</h2><p><strong>检查依赖是否冲突</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gradle dependencies</span><br></pre></td></tr></table></figure>
-<p><strong>检查清单文件是否有重复或者其他问题</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gradlew processDebugManifest --stacktrace</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>Gradle</tag>
       </tags>
   </entry>
   <entry>
