@@ -276,12 +276,18 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/03/01/Flutter%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</url>
+    <title>Flutter常见问题处理</title>
+    <url>/2021/01/09/Flutter%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h1 id="常见问题处理"><a href="#常见问题处理" class="headerlink" title="常见问题处理"></a>常见问题处理</h1><h2 id="第一章-View相关"><a href="#第一章-View相关" class="headerlink" title="第一章 View相关"></a>第一章 View相关</h2><p>1.1ListView嵌套GridView 报错</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A RenderFlex overflowed by 20 pixels on the bottom.</span><br></pre></td></tr></table></figure>
 <p>这个报错位置为GridView的item，在GridView中的元素无法设置其宽高，主要通过childAspectRatio来设置其比例，通过比例来显示其大小</p>
 ]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+      <tags>
+        <tag>Flutter常见问题</tag>
+      </tags>
   </entry>
   <entry>
     <title>Gradle笔记</title>
@@ -567,6 +573,28 @@
 <p>启动IOS模拟器：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">open -a Simulator</span><br></pre></td></tr></table></figure>
 <h4 id="4-创建项目"><a href="#4-创建项目" class="headerlink" title="4.创建项目"></a>4.创建项目</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flutter create my_app</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-Flutter-for-Desktop"><a href="#1-2-Flutter-for-Desktop" class="headerlink" title="1.2 Flutter for Desktop"></a>1.2 Flutter for Desktop</h2><p>官方文档：<a href="https://flutter.dev/desktop">https://flutter.dev/desktop</a></p>
+<h3 id="Windows版"><a href="#Windows版" class="headerlink" title="Windows版"></a>Windows版</h3><p>环境：Visual Studio 2019，添加C++支持</p>
+<p>添加桌面支持，打开控制台：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flutter config --enable-windows-desktop</span><br><span class="line">flutter config --enable-macos-desktop</span><br><span class="line">flutter config --enable-linux-desktop</span><br></pre></td></tr></table></figure>
+<p>查看是否有支持的桌面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flutter devices</span><br><span class="line">1 connected device:</span><br><span class="line"></span><br><span class="line">Windows (desktop) • windows • windows-x64 • Microsoft Windows [Version 10.0.18362.1082]</span><br><span class="line">macOS (desktop)   • macos   • darwin-x64  • macOS 11.2 20D64 darwin-x64</span><br><span class="line">Linux (desktop)   • linux   • linux-x64   • Linux</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>检测环境是否正常,以下是Windows</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PS &gt; flutter doctor                                                                     </span><br><span class="line">Doctor summary (to see all details, run flutter doctor -v):                                           </span><br><span class="line">[√] Flutter (Channel beta, 1.27.0-1.0.pre, on Microsoft Windows [Version 10.0.19042.782], locale en-AU)</span><br><span class="line">[√] Android toolchain - develop for Android devices (Android SDK version 30.0.3)                     </span><br><span class="line">[√] Chrome - develop for the web                                                                     </span><br><span class="line">[√] Visual Studio - develop for Windows (Visual Studio Community 2019 16.7.7)                         </span><br><span class="line">[√] Android Studio (version 4.1.0)                                                                   </span><br><span class="line">[√] VS Code (version 1.51.1)                                                                         </span><br><span class="line">[√] Connected device (3 available)                                                                    </span><br></pre></td></tr></table></figure>
+<p>支持已有项目：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flutter create --platforms&#x3D;windows,macos,linux .</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flutter run -d windows</span><br><span class="line">flutter run -d macos</span><br><span class="line">flutter run -d linux</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-Flutter-for-Web"><a href="#1-3-Flutter-for-Web" class="headerlink" title="1.3 Flutter for Web"></a>1.3 Flutter for Web</h2><p>官方文档：<a href="https://flutter.dev/docs/get-started/web">https://flutter.dev/docs/get-started/web</a></p>
+<p>检测是否有chrome环境：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flutter devices</span><br><span class="line">1 connected device:</span><br><span class="line">Chrome (web) • chrome • web-javascript • Google Chrome 88.0.4324.150</span><br></pre></td></tr></table></figure>
+<p>支持已有项目：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flutter create .</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通运行: flutter build web</span><br><span class="line">指定端口和ip运行：flutter run -d chrome --web-port&#x3D;8080 --web-hostname&#x3D;127.0.0.1</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="1-4-响应式App"><a href="#1-4-响应式App" class="headerlink" title="1.4 响应式App"></a>1.4 响应式App</h2><p>官网文档：<a href="https://flutter.dev/docs/development/ui/layout/adaptive-responsive">https://flutter.dev/docs/development/ui/layout/adaptive-responsive</a></p>
 <h1 id="第二章-Dart基础"><a href="#第二章-Dart基础" class="headerlink" title="第二章 Dart基础"></a>第二章 Dart基础</h1><p>Dart入门参考学习资料：<a href="https://www.dartcn.com/guides/language/language-tour">https://www.dartcn.com/guides/language/language-tour</a></p>
 <h3 id="1-基础数据类型"><a href="#1-基础数据类型" class="headerlink" title="1.基础数据类型"></a>1.基础数据类型</h3><ul>
 <li>数字 <ul>
@@ -1224,8 +1252,8 @@
 <td>创建项目，如：flutter create -i swift -a kotlin xxapp</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>flutter pub deps</td>
+<td>依赖关系查看</td>
 </tr>
 <tr>
 <td></td>
