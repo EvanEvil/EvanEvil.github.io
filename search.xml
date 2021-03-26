@@ -252,6 +252,10 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool isAgreement &#x3D; sp.getBool(DString.SP_IS_AGREEMENT);</span><br></pre></td></tr></table></figure>
 <p><strong>设置值：</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sp.setBool(DString.SP_IS_AGREEMENT, true);</span><br></pre></td></tr></table></figure>
+<h2 id="1-5-图片选择"><a href="#1-5-图片选择" class="headerlink" title="1.5 图片选择"></a>1.5 图片选择</h2><p>使用官方库：<strong>image_picker</strong></p>
+<p>仓库地址：<a href="https://pub.flutter-io.cn/packages/image_picker">https://pub.flutter-io.cn/packages/image_picker</a></p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">Future _getImage(bool isTakePhoto) async &#123;</span><br><span class="line">    Navigator.pop(context);</span><br><span class="line">    <span class="keyword">var</span> image = await ImagePicker().getImage(</span><br><span class="line">      source: isTakePhoto ? ImageSource.camera : ImageSource.gallery,</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">if</span> (image != <span class="literal">null</span>) &#123;</span><br><span class="line">      setState(() &#123;</span><br><span class="line">        _images.add(File(image.path));</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>使用案例：<a href="https://gitee.com/evancola/flutter_study/blob/master/lib/page/image_picker_page.dart">https://gitee.com/evancola/flutter_study/blob/master/lib/page/image_picker_page.dart</a></p>
 <h1 id="Flutter技巧"><a href="#Flutter技巧" class="headerlink" title="Flutter技巧"></a>Flutter技巧</h1><h2 id="1-1-Charles抓包"><a href="#1-1-Charles抓包" class="headerlink" title="1.1 Charles抓包"></a>1.1 Charles抓包</h2><blockquote>
 <p>必须在代码中手动设置代理，charles才能抓包，仅在模拟器或手机设置代理，flutter APP也不会走模拟器或手机的系统代理</p>
 <p><strong>注意</strong>：上线前必须关闭代理，否则将造成严重后果(用户将无法访问网络)</p>
@@ -1364,7 +1368,7 @@
 <p><strong>返回HTML</strong></p>
 <p>在上面的例子中，返回的是字符串或者说JSON格式的数据，如果是要返回一个HTML，应该怎么做呢？这里就需要用到thymeleaf</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>然后不能使用@RestController,应该使用@Controller</p>
+<p>然后不能使用@RestController,应该使用@Controller，html文件在resources/templates下新建</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Controller</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&quot;)</span><br><span class="line">class BookListController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">    fun getBookList():String&#123;</span><br><span class="line">        return &quot;bookList&quot; &#x2F;&#x2F;这里并不是返回bookList字符串，而是bookList.html</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @RequestMapping(&quot;&#x2F;getAll&quot;)</span><br><span class="line">    @ResponseBody &#x2F;&#x2F;如果要返回字符串数据，则这里就要使用@ResponseBody</span><br><span class="line">    fun  getAll():String &#x3D; &quot;get All&quot; &#x2F;&#x2F;这里返回的就是字符串数据</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="2-2参数处理"><a href="#2-2参数处理" class="headerlink" title="2.2参数处理"></a>2.2参数处理</h2><blockquote>
 <p>知识预览</p>
