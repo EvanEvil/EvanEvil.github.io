@@ -335,7 +335,6 @@
 <p>消息机制预计共分为两篇，本篇为第一篇，基础篇，消息机制是在面试中必问的知识点，虽然现在在实际工作中，已经没怎么使用到handler，如我们可以使用rxjava来做线程切换，但其实其内部核心仍然是handler，只是做了一层高级封装，下面我们就来深入分析handler消息机制原理</p>
 </blockquote>
 <hr>
-<p>[TOC]</p>
 <p>handler消息机制所涉及到的类大致有以下五个</p>
 <ul>
 <li>handler</li>
@@ -351,7 +350,9 @@
 <li>Looper是如何轮询消息队列的？</li>
 <li>消息取出后，是如何分发到handler的handleMessage进行处理的？</li>
 </ul>
-<h3 id="一-handler是如何将消息发送到消息队列messageQueue的？"><a href="#一-handler是如何将消息发送到消息队列messageQueue的？" class="headerlink" title="一. handler是如何将消息发送到消息队列messageQueue的？"></a>一. handler是如何将消息发送到消息队列messageQueue的？</h3><p>方法执行流程：sendMessage() –&gt; sendMessageDelayed() –&gt; sendMessageAtTime() –&gt; enqueueMessage() –&gt; queue.enqueueMessage() </p>
+<h3 id="一-handler是如何将消息发送到消息队列messageQueue的？"><a href="#一-handler是如何将消息发送到消息队列messageQueue的？" class="headerlink" title="一. handler是如何将消息发送到消息队列messageQueue的？"></a>一. handler是如何将消息发送到消息队列messageQueue的？</h3><p>我们最常使用的发送消息的sendMessage()，或者延迟发送sendMessageDelayed()最终都会走到enqueueMessage()方法</p>
+<p>方法执行流程如下：</p>
+<p>sendMessage() –&gt; sendMessageDelayed() –&gt; sendMessageAtTime() –&gt; enqueueMessage() –&gt; queue.enqueueMessage() </p>
 <p>最终handler会调用messageQueue的enqueueMessage()方法，传入message，添加到消息队列中</p>
 <p><strong>sendMessage</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">sendMessage</span><span class="params">(<span class="meta">@NonNull</span> Message msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sendMessageDelayed(msg, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
