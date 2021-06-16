@@ -334,6 +334,8 @@
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
 <p>消息机制预计共分为两篇，本篇为第一篇，基础篇，消息机制是在面试中必问的知识点，虽然现在在实际工作中，已经没怎么使用到handler，如我们可以使用rxjava来做线程切换，但其实其内部核心仍然是handler，只是做了一层高级封装，下面我们就来深入分析handler消息机制原理</p>
 </blockquote>
+<hr>
+<p>[TOC]</p>
 <p>handler消息机制所涉及到的类大致有以下五个</p>
 <ul>
 <li>handler</li>
