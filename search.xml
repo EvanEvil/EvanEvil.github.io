@@ -37,7 +37,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="/2021/06/09/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="深入浅出并发编程">深入浅出并发编程</a></td>
+<td><a href="/2021/06/09/JavaEE/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="深入浅出并发编程">深入浅出并发编程</a></td>
 <td>1篇</td>
 <td>规划中</td>
 </tr>
@@ -49,7 +49,7 @@
   </entry>
   <entry>
     <title>设计模式(一) 面向对象六大原则</title>
-    <url>/2021/06/18/2-1%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/</url>
+    <url>/2021/06/18/designpatterns/1-principle/</url>
     <content><![CDATA[<h2 id="面向对象6大原则"><a href="#面向对象6大原则" class="headerlink" title="面向对象6大原则"></a>面向对象6大原则</h2><h3 id="1-单一职责原则"><a href="#1-单一职责原则" class="headerlink" title="1 单一职责原则"></a>1 单一职责原则</h3><p>一个类的职责尽量单一，不要都写到一起，太臃肿，面向对象最基本的原则</p>
 <h3 id="2-开闭原则"><a href="#2-开闭原则" class="headerlink" title="2  开闭原则"></a>2  开闭原则</h3><p>一个类，对于修改是封闭的，对于扩展是开放的，这是面向对象最重要的原则。频繁的修改一个类，也很容易出问题，通过扩展，不影响原有的功能，当然，完全不修改一个类是不可能的，但是我们一开始就应该多去考虑整个类的功能</p>
 <h3 id="3-里氏替换原则"><a href="#3-里氏替换原则" class="headerlink" title="3  里氏替换原则"></a>3  里氏替换原则</h3><p> 理解一：子类可以实现父类的抽象方法，但是不可以实现非抽象方法，父类的非抽象方法一般都是设计好了的，重写非抽象方法，会破坏整个继承体系</p>
@@ -76,8 +76,30 @@
       </tags>
   </entry>
   <entry>
+    <title>设计模式(六) 模板设计模式</title>
+    <url>/2021/06/23/designpatterns/6-template/</url>
+    <content><![CDATA[<h2 id="一、模式介绍"><a href="#一、模式介绍" class="headerlink" title="一、模式介绍"></a>一、模式介绍</h2><p>模板设计模式文章</p>
+<p>辉哥：<a href="https://www.jianshu.com/p/949f44243963">https://www.jianshu.com/p/949f44243963</a></p>
+<p><a href="https://github.com/simple-android-framework/android_design_patterns_analysis/tree/master/template-method/mr.simple">https://github.com/simple-android-framework/android_design_patterns_analysis/tree/master/template-method/mr.simple</a></p>
+<p>定义：定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
+<p><img src="https://gitee.com/evancola/pic-go-repository/raw/master/img/20210623085413.png"></p>
+<h3 id="角色介绍"><a href="#角色介绍" class="headerlink" title="角色介绍"></a>角色介绍</h3><ul>
+<li>AbstractClass : 抽象类，定义了一套算法框架。</li>
+<li>ConcreteClass1 : 具体实现类1；</li>
+<li>ConcreteClass2： 具体实现类2；</li>
+</ul>
+<h2 id="二、源码分析"><a href="#二、源码分析" class="headerlink" title="二、源码分析"></a>二、源码分析</h2><p>在Android源码中，哪些地方能体现出模板设计模式呢？这里总结如下两点</p>
+<h3 id="1-AsyncTask"><a href="#1-AsyncTask" class="headerlink" title="1.AsyncTask"></a>1.AsyncTask</h3><h3 id="2-Activity"><a href="#2-Activity" class="headerlink" title="2.Activity"></a>2.Activity</h3>]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设计模式(五) 装饰器模式</title>
-    <url>/2021/06/18/2-5%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/</url>
+    <url>/2021/06/18/designpatterns/5-decorator/</url>
     <content><![CDATA[<p>定义：装饰器模式是继承的一种替代方案，但是比继承更加灵活</p>
 <h2 id="二、源码分析"><a href="#二、源码分析" class="headerlink" title="二、源码分析"></a>二、源码分析</h2><h3 id="2-1Context"><a href="#2-1Context" class="headerlink" title="2.1Context"></a>2.1Context</h3><p>Context是一个抽象类，它的实现类是ContextImpl，但是如果有些功能ContextImpl实现不了，需要扩展ContextImpl的功能时，ContextWrapper就出现了，ContextWrapper持有ContextImpl，Application,Service，Activity都直接或者间接的继承ContextWrapper，这就体现出装饰器模式了，ContextWrapper装饰了ContextImpl</p>
 <p><img src="https://gitee.com/evancola/pic-go-repository/raw/master/img/20210622163610.png"></p>
@@ -93,7 +115,7 @@
   </entry>
   <entry>
     <title>设计模式(四) 工厂模式</title>
-    <url>/2021/06/18/2-4%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82/</url>
+    <url>/2021/06/18/designpatterns/4-factory/</url>
     <content><![CDATA[<h1 id="设计模式-四-工厂模式"><a href="#设计模式-四-工厂模式" class="headerlink" title="设计模式(四) 工厂模式"></a>设计模式(四) 工厂模式</h1><blockquote>
 <p>工厂模式主要分为三种</p>
 <ul>
@@ -127,7 +149,7 @@
   </entry>
   <entry>
     <title>设计模式(三) Builder建造者模式</title>
-    <url>/2021/06/18/2-3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-Builder%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
+    <url>/2021/06/18/designpatterns/3-builder/</url>
     <content><![CDATA[<h2 id="Builder建造者模式"><a href="#Builder建造者模式" class="headerlink" title="Builder建造者模式"></a>Builder建造者模式</h2><blockquote>
 <p>Builder建造者模式，主要用于构建一个复杂的对象，将对象的构建与表示分离，在不使用建造者模式的时候，我们构建一个复杂的对象，可能构造方法的参数都很七八个，如果是可选参数，那么可能会重载多个构造方法，当用户使用该类的时候，需要仔细观察，需要哪个构造方法，才能满足需求。使用Builder建造者模式就可以解决这个痛点</p>
 </blockquote>
@@ -159,7 +181,7 @@
   </entry>
   <entry>
     <title>设计模式(二) 单例模式</title>
-    <url>/2021/06/18/2-2%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+    <url>/2021/06/18/designpatterns/2-singleTon/</url>
     <content><![CDATA[<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><h4 id="1-1饿汉式"><a href="#1-1饿汉式" class="headerlink" title="1.1饿汉式"></a>1.1饿汉式</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 单例模式-饿汉式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTon1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingleTon1 mInstance = <span class="keyword">new</span> SingleTon1();</span><br><span class="line">	</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingleTon1</span><span class="params">()</span> </span>&#123;<span class="comment">//私有构造方法</span></span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTon1 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;<span class="comment">//提供静态方法，获取对象实例</span></span><br><span class="line">        <span class="keyword">return</span> mInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -266,7 +288,7 @@
   </entry>
   <entry>
     <title>深入浅出并发编程</title>
-    <url>/2021/06/09/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</url>
+    <url>/2021/06/09/JavaEE/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<blockquote>
 <p>这是深入浅出并发编程，详细讲解并发编程的方方面面，在以后Android面试中，遇到并发问题，不再担忧，同时这些知识，也适用于Java开发</p>
 </blockquote>
@@ -785,7 +807,7 @@
   </entry>
   <entry>
     <title>Dart知识总结与技巧</title>
-    <url>/2021/03/31/Dart%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E4%B8%8E%E6%8A%80%E5%B7%A7/</url>
+    <url>/2021/03/31/flutter/Dart%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E4%B8%8E%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<h1 id="Dart知识总结与技巧"><a href="#Dart知识总结与技巧" class="headerlink" title="Dart知识总结与技巧"></a>Dart知识总结与技巧</h1><h2 id="第一章-List"><a href="#第一章-List" class="headerlink" title="第一章 List"></a>第一章 List</h2><h3 id="第一节-List常用方法"><a href="#第一节-List常用方法" class="headerlink" title="第一节 List常用方法"></a>第一节 List常用方法</h3><blockquote>
 <p>增加：4个方法 add(), addAll(),insert(), insertAll()<br>删除：6个方法 remove(), removeAt(), removeLast(), clear(), removeWhere(),removeRange(start,end)含头不含尾<br>修改：5个方法<br>    list[index]，其他四个很少用，这里不介绍<br>查询：20个方法<br>    elementAt(), contains(),<br>    indexOf(), lastIndexOf(), where(), indexWhere(), lastIndexWhere(),<br>    where():根据指定条件，函数筛选每个元素，符合条件的元素组成一个新的 Iterable<br>    join():用指定字符连接数组中每个元素，返回 String<br>    generate，shuffle</p>
 </blockquote>
@@ -808,7 +830,7 @@
   </entry>
   <entry>
     <title>Flutter自定义view</title>
-    <url>/2021/03/30/Flutter%E8%87%AA%E5%AE%9A%E4%B9%89view/</url>
+    <url>/2021/03/30/flutter/Flutter%E8%87%AA%E5%AE%9A%E4%B9%89view/</url>
     <content><![CDATA[<h1 id="Flutter自定义View"><a href="#Flutter自定义View" class="headerlink" title="Flutter自定义View"></a>Flutter自定义View</h1><h2 id="第一章-入门案例"><a href="#第一章-入门案例" class="headerlink" title="第一章 入门案例"></a>第一章 入门案例</h2><p>我们来画一个饼状图</p>
 <figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="comment">///<span class="markdown">第一个自定义view，需事先两个方法</span></span></span><br><span class="line"><span class="comment">/// <span class="markdown">paint方法，在这里实现绘制逻辑</span></span></span><br><span class="line"><span class="comment">/// <span class="markdown">shouldRepaint() 是否需要重绘</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WheelView</span> <span class="keyword">extends</span> <span class="title">CustomPainter</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="keyword">void</span> paint(Canvas canvas, Size size) &#123;</span><br><span class="line">    <span class="built_in">double</span> wheelSize = min(size.width, size.height) / <span class="number">2</span>; <span class="comment">//取宽高的最小值</span></span><br><span class="line">    <span class="built_in">double</span> count = <span class="number">6</span>;</span><br><span class="line">    <span class="built_in">double</span> radius = <span class="number">2</span> * pi / count; <span class="comment">//角度</span></span><br><span class="line">    Rect rect = Rect.fromCircle(</span><br><span class="line">        center: Offset(wheelSize, wheelSize), radius: wheelSize);</span><br><span class="line">    <span class="comment">//每次画 1/6 个圆弧</span></span><br><span class="line">    <span class="comment">///<span class="markdown">参数1：rect:基于矩形内部绘制圆弧</span></span></span><br><span class="line">    <span class="comment">///<span class="markdown">参数2：startAngle 参数3：sweepAngle 参数4：useCenter 参数5：Paint</span></span></span><br><span class="line">    canvas.drawArc(rect, <span class="number">0</span>, radius, <span class="keyword">true</span>, getPaint(Colors.orange));</span><br><span class="line">    canvas.drawArc(rect, radius, radius, <span class="keyword">true</span>, getPaint(Colors.black38));</span><br><span class="line">    canvas.drawArc(rect, radius * <span class="number">2</span>, radius, <span class="keyword">true</span>, getPaint(Colors.green));</span><br><span class="line">    canvas.drawArc(rect, radius * <span class="number">3</span>, radius, <span class="keyword">true</span>, getPaint(Colors.red));</span><br><span class="line">    canvas.drawArc(rect, radius * <span class="number">4</span>, radius, <span class="keyword">true</span>, getPaint(Colors.blue));</span><br><span class="line">    canvas.drawArc(rect, radius * <span class="number">5</span>, radius, <span class="keyword">true</span>, getPaint(Colors.pink));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="built_in">bool</span> shouldRepaint(<span class="keyword">covariant</span> CustomPainter oldDelegate) =&gt;</span><br><span class="line">      oldDelegate != <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">  Paint getPaint(Color color) &#123;</span><br><span class="line">    Paint paint = Paint();</span><br><span class="line">    paint.color = color;</span><br><span class="line">    <span class="keyword">return</span> paint;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>将饼状图包装成一个新的控件</p>
@@ -840,7 +862,7 @@
   </entry>
   <entry>
     <title>Flutter思考与心得</title>
-    <url>/2021/03/29/Flutter%E6%80%9D%E8%80%83%E4%B8%8E%E5%BF%83%E5%BE%97/</url>
+    <url>/2021/03/29/flutter/Flutter%E6%80%9D%E8%80%83%E4%B8%8E%E5%BF%83%E5%BE%97/</url>
     <content><![CDATA[<h1 id="Flutter思考与心得"><a href="#Flutter思考与心得" class="headerlink" title="Flutter思考与心得"></a>Flutter思考与心得</h1><h2 id="第一章-Dart"><a href="#第一章-Dart" class="headerlink" title="第一章 Dart"></a>第一章 Dart</h2><h3 id="1-1-Dart中的const和final有什么区别？"><a href="#1-1-Dart中的const和final有什么区别？" class="headerlink" title="1.1 Dart中的const和final有什么区别？"></a>1.1 Dart中的const和final有什么区别？</h3><h3 id="1-2-Dart中的var-Object-dynamic三者之间的区别？"><a href="#1-2-Dart中的var-Object-dynamic三者之间的区别？" class="headerlink" title="1.2 Dart中的var,Object,dynamic三者之间的区别？"></a>1.2 Dart中的var,Object,dynamic三者之间的区别？</h3><h3 id="1-3-Dart中有无发射？Flutter是否支持dart反射？"><a href="#1-3-Dart中有无发射？Flutter是否支持dart反射？" class="headerlink" title="1.3 Dart中有无发射？Flutter是否支持dart反射？"></a>1.3 Dart中有无发射？Flutter是否支持dart反射？</h3><h3 id="1-4-Dart支持扩展方法吗？"><a href="#1-4-Dart支持扩展方法吗？" class="headerlink" title="1.4 Dart支持扩展方法吗？"></a>1.4 Dart支持扩展方法吗？</h3><h3 id="1-5-请说明-三者之间的却别？"><a href="#1-5-请说明-三者之间的却别？" class="headerlink" title="1.5 请说明?. ??=  ?? 三者之间的却别？"></a>1.5 请说明<code>?.</code> <code>??=</code>  <code>??</code> 三者之间的却别？</h3><h2 id="第二章Flutter"><a href="#第二章Flutter" class="headerlink" title="第二章Flutter"></a>第二章Flutter</h2><h3 id="2-1-说一下StatelessWidget和StatefulWidget的生命周期？"><a href="#2-1-说一下StatelessWidget和StatefulWidget的生命周期？" class="headerlink" title="2.1 说一下StatelessWidget和StatefulWidget的生命周期？"></a>2.1 说一下<code>StatelessWidget</code>和<code>StatefulWidget</code>的生命周期？</h3><h3 id="2-2-说一下Widget-Element-RenderObject这三者之间的理解？"><a href="#2-2-说一下Widget-Element-RenderObject这三者之间的理解？" class="headerlink" title="2.2 说一下Widget,Element,RenderObject这三者之间的理解？"></a>2.2 说一下<code>Widget</code>,<code>Element</code>,<code>RenderObject</code>这三者之间的理解？</h3><h3 id="2-3-为什么会设计Element，而不是直接widget操作renderObject"><a href="#2-3-为什么会设计Element，而不是直接widget操作renderObject" class="headerlink" title="2.3 为什么会设计Element，而不是直接widget操作renderObject?"></a>2.3 为什么会设计<code>Element</code>，而不是直接widget操作renderObject?</h3>]]></content>
       <categories>
         <category>Flutter</category>
@@ -851,7 +873,7 @@
   </entry>
   <entry>
     <title>Flutter常用插件</title>
-    <url>/2021/01/26/Flutter%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</url>
+    <url>/2021/01/26/flutter/Flutter%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="Flutter常用插件"><a href="#Flutter常用插件" class="headerlink" title="Flutter常用插件"></a>Flutter常用插件</h1><h2 id="第一章：官方插件"><a href="#第一章：官方插件" class="headerlink" title="第一章：官方插件"></a>第一章：官方插件</h2><h3 id="1-1-url-launcher"><a href="#1-1-url-launcher" class="headerlink" title="1.1 url_launcher"></a>1.1 url_launcher</h3><p>作用：打开第三方应用</p>
 <p>仓库地址：<a href="https://pub.flutter-io.cn/packages/url_launcher">https://pub.flutter-io.cn/packages/url_launcher</a></p>
 <h3 id="1-2-image-picker"><a href="#1-2-image-picker" class="headerlink" title="1.2 image_picker"></a>1.2 image_picker</h3><p>作用：从相册/相机中获取图片</p>
@@ -870,7 +892,7 @@
   </entry>
   <entry>
     <title>Flutter实战开发</title>
-    <url>/2021/01/23/Flutter%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/</url>
+    <url>/2021/01/23/flutter/Flutter%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/</url>
     <content><![CDATA[<h1 id="Flutter实战开发"><a href="#Flutter实战开发" class="headerlink" title="Flutter实战开发"></a>Flutter实战开发</h1><h2 id="1-1-冷启动优化"><a href="#1-1-冷启动优化" class="headerlink" title="1.1 冷启动优化"></a>1.1 冷启动优化</h2><p>冷启动分为安卓和iOS两个平台，我们主要针对安卓平台的冷启动优化，优化方式主要是通过在启动主题进行设置</p>
 <p>打开安卓项目下的清单文件会看到默认的启动主题</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">android:theme&#x3D;&quot;@style&#x2F;LaunchTheme&quot;</span><br></pre></td></tr></table></figure>
@@ -1168,26 +1190,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flutter常见问题处理</title>
-    <url>/2021/01/09/Flutter%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<h1 id="常见问题处理"><a href="#常见问题处理" class="headerlink" title="常见问题处理"></a>常见问题处理</h1><h2 id="1-1ListView嵌套GridView-报错"><a href="#1-1ListView嵌套GridView-报错" class="headerlink" title="1.1ListView嵌套GridView 报错"></a>1.1ListView嵌套GridView 报错</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A RenderFlex overflowed by 20 pixels on the bottom.</span><br></pre></td></tr></table></figure>
-<p>这个报错位置为GridView的item，在GridView中的元素无法设置其宽高，主要通过childAspectRatio来设置其比例，通过比例来显示其大小</p>
-<h2 id="1-2-Flutter-for-Web"><a href="#1-2-Flutter-for-Web" class="headerlink" title="1.2 Flutter for Web"></a>1.2 Flutter for Web</h2><p>flutter web https 请求无法使用dio.httpClientAdapter as DefaultHttpClientAdapter </p>
-<p>地址：<a href="https://github.com/flutterchina/dio/issues/733">https://github.com/flutterchina/dio/issues/733</a></p>
-<p>Flutter Web 跨域解决方案：<a href="https://juejin.cn/post/6844904080179986440">https://juejin.cn/post/6844904080179986440</a></p>
-<h2 id="1-3-热重载失效"><a href="#1-3-热重载失效" class="headerlink" title="1.3 热重载失效"></a>1.3 热重载失效</h2><p>现象：AS Flutter Hot Reload 热加载无效、代码效果并未更新的问题</p>
-<p>解决：我这里的问题原因是拖动某个dart文件到其他包里面，导致该文件在其他文件的引入中发生了改变，删除导包，重新导入</p>
-<p>参考博客：<a href="https://blog.csdn.net/qq_35469691/article/details/114629889">https://blog.csdn.net/qq_35469691/article/details/114629889</a></p>
-<h2 id="1-4-vscode编写dart代码无提示"><a href="#1-4-vscode编写dart代码无提示" class="headerlink" title="1.4 vscode编写dart代码无提示"></a>1.4 vscode编写dart代码无提示</h2><p>解决办法：<strong>只需将一个.dart文件保存在一个文件夹内，然后在VScode中打开这个文件夹。再编写代码就可以获得提示。</strong></p>
-]]></content>
-      <categories>
-        <category>Flutter</category>
-      </categories>
-      <tags>
-        <tag>Flutter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客搭建</title>
     <url>/2021/01/09/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
@@ -1210,8 +1212,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Flutter常见问题处理</title>
+    <url>/2021/01/09/flutter/Flutter%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h1 id="常见问题处理"><a href="#常见问题处理" class="headerlink" title="常见问题处理"></a>常见问题处理</h1><h2 id="1-1ListView嵌套GridView-报错"><a href="#1-1ListView嵌套GridView-报错" class="headerlink" title="1.1ListView嵌套GridView 报错"></a>1.1ListView嵌套GridView 报错</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A RenderFlex overflowed by 20 pixels on the bottom.</span><br></pre></td></tr></table></figure>
+<p>这个报错位置为GridView的item，在GridView中的元素无法设置其宽高，主要通过childAspectRatio来设置其比例，通过比例来显示其大小</p>
+<h2 id="1-2-Flutter-for-Web"><a href="#1-2-Flutter-for-Web" class="headerlink" title="1.2 Flutter for Web"></a>1.2 Flutter for Web</h2><p>flutter web https 请求无法使用dio.httpClientAdapter as DefaultHttpClientAdapter </p>
+<p>地址：<a href="https://github.com/flutterchina/dio/issues/733">https://github.com/flutterchina/dio/issues/733</a></p>
+<p>Flutter Web 跨域解决方案：<a href="https://juejin.cn/post/6844904080179986440">https://juejin.cn/post/6844904080179986440</a></p>
+<h2 id="1-3-热重载失效"><a href="#1-3-热重载失效" class="headerlink" title="1.3 热重载失效"></a>1.3 热重载失效</h2><p>现象：AS Flutter Hot Reload 热加载无效、代码效果并未更新的问题</p>
+<p>解决：我这里的问题原因是拖动某个dart文件到其他包里面，导致该文件在其他文件的引入中发生了改变，删除导包，重新导入</p>
+<p>参考博客：<a href="https://blog.csdn.net/qq_35469691/article/details/114629889">https://blog.csdn.net/qq_35469691/article/details/114629889</a></p>
+<h2 id="1-4-vscode编写dart代码无提示"><a href="#1-4-vscode编写dart代码无提示" class="headerlink" title="1.4 vscode编写dart代码无提示"></a>1.4 vscode编写dart代码无提示</h2><p>解决办法：<strong>只需将一个.dart文件保存在一个文件夹内，然后在VScode中打开这个文件夹。再编写代码就可以获得提示。</strong></p>
+]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringBoot博客开发</title>
-    <url>/2021/01/09/SpringBoot%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91/</url>
+    <url>/2021/01/09/JavaEE/SpringBoot%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91/</url>
     <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="SpringBoot博客开发"><a href="#SpringBoot博客开发" class="headerlink" title="SpringBoot博客开发"></a>SpringBoot博客开发</h1><h2 id="第一章-首页开发"><a href="#第一章-首页开发" class="headerlink" title="第一章 首页开发"></a>第一章 首页开发</h2><h3 id="1-1-创建项目和文件目录"><a href="#1-1-创建项目和文件目录" class="headerlink" title="1.1 创建项目和文件目录"></a>1.1 创建项目和文件目录</h3><p><strong>创建项目</strong></p>
 <p>使用webstrom,创建项目，选择empty project，输入项目名称blog</p>
 <p>创建文件目录</p>
@@ -1434,8 +1456,570 @@
       </tags>
   </entry>
   <entry>
+    <title>spring-boot入门笔记</title>
+    <url>/2021/01/09/JavaEE/spring-boot%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="第一章-HelloWorld"><a href="#第一章-HelloWorld" class="headerlink" title="第一章 HelloWorld"></a>第一章 HelloWorld</h1><h2 id="1-0-idea工具破解"><a href="#1-0-idea工具破解" class="headerlink" title="1.0 idea工具破解"></a>1.0 idea工具破解</h2><p>参考博客：<a href="https://www.cnblogs.com/sujw/p/14025767.html">https://www.cnblogs.com/sujw/p/14025767.html</a></p>
+<ul>
+<li>下载安装</li>
+<li>启动IDEA,首次启动，选择第二个选项，然后<strong>OK</strong>，选择免费试用，进入软件界面，创建一个新项目</li>
+<li>然后直接将刚才解压好的**<code>jetbrains-agent.jar</code><strong>文件用鼠标</strong><code>拖进</code><strong>idea 界面，出现如下界面，点击</strong>Restart**</li>
+<li>重启成功后，会跳出如下界面，直接点击**<code>为IDEA安装</code><strong>，继续点击</strong><code>是</code>**安装，破解就成功了</li>
+</ul>
+<h2 id="1-1创建项目"><a href="#1-1创建项目" class="headerlink" title="1.1创建项目"></a>1.1创建项目</h2><p>springboot入门，我们从一个hello world开始入门，首先我们新建一个springboot项目</p>
+<ul>
+<li>新建项目，选择Spring Initializer,SDK选择Java1.8，Service URL就使用默认的，配置项目信息</li>
+<li>Group:包名  Artifact:项目名称；</li>
+<li>依赖部分：选择Web - Spring Web</li>
+<li>配置项目名称和路径</li>
+</ul>
+<p><strong>idea和maven版本问题</strong></p>
+<p>如果版本不一致，则可能无法使用maven下载依赖，我们可以使用idea提供的默认maven(会显示出版本号)</p>
+<p><strong>端口号被占用问题</strong></p>
+<p>可以使用如下命令查找被占用8080端口的pid，然后杀掉</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lsof -i tcp:8080  查找8080端口</span><br><span class="line">kill 999 或者 kill -9 999 杀掉查找出来的pid</span><br></pre></td></tr></table></figure>
+<p>手动修改端口号：</p>
+<p>在Mac下占用8080端口的pid老是杀不掉，杀死了又重启，所以这里选择修改版本号，在application.properties中配置如下语句：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server.port&#x3D;8081</span><br></pre></td></tr></table></figure>
+<h2 id="1-2配置国内仓库"><a href="#1-2配置国内仓库" class="headerlink" title="1.2配置国内仓库"></a>1.2配置国内仓库</h2><p>打开idea的设置maven，有如下三个设置</p>
+<ul>
+<li>Maven home directory：maven路径</li>
+<li>User setting file：配置文件，我们可以复制一份源文件，放在我们自己定义的目录，配置国内仓库也是修改这个文件</li>
+<li>local repository：下载依赖本地存放路径，这个路径，我们最好自己定义</li>
+</ul>
+<p>settings.xml里面如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">   &lt;mirror&gt;  </span><br><span class="line">		&lt;id&gt;alimaven&lt;&#x2F;id&gt;  </span><br><span class="line">		&lt;name&gt;aliyun maven&lt;&#x2F;name&gt;  </span><br><span class="line">		&lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt;  </span><br><span class="line">		&lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;          </span><br><span class="line">    &lt;&#x2F;mirror&gt;  </span><br><span class="line">  &lt;&#x2F;mirrors&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="1-3HelloWorld"><a href="#1-3HelloWorld" class="headerlink" title="1.3HelloWorld"></a>1.3HelloWorld</h2><p>创建一个包controller,创建HelloController，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&quot;)</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;&#x2F;say&quot;)</span><br><span class="line">    public String sayHello()&#123;</span><br><span class="line">        return &quot;hello springboot&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建kotlin版本</p>
+<p><strong>启动类</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">class SpringBootKotlinApplication</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    runApplication&lt;SpringBootKotlinApplication&gt;(*args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>controller</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&quot;)</span><br><span class="line">class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;&#x2F;say&quot;)</span><br><span class="line">    fun sayHello():String&#123;</span><br><span class="line">        return &quot;hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第二章-请求响应"><a href="#第二章-请求响应" class="headerlink" title="第二章 请求响应"></a>第二章 请求响应</h1><h2 id="2-1注解讲解"><a href="#2-1注解讲解" class="headerlink" title="2.1注解讲解"></a>2.1注解讲解</h2><p>在上面的例子中，我们使用了两个注解</p>
+<p>@RestController: 这个注解相当于@ResponseBody ＋ @Controller合在一起的作用，即两个作用：首先表示该类是一个controller，第二，它可以返回JSON数据</p>
+<p>@RequestMapping：定义请求的URL路径，可以标识在controller上面，也可以标识在方法上面</p>
+<p>在上面的例子中，如果我们要在浏览器里访问sayHello方法，请求的URL地址为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;say</span><br></pre></td></tr></table></figure>
+<p><strong>请求类型</strong></p>
+<p>@RequestMapping可以定义请求的类型，是GET请求，还是POST请求，PUT请求，DELETE请求，如果省略不写，则默认支持所有类型的请求，显示定义请求类型</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RequestMapping(value &#x3D; [&quot;&#x2F;say&quot;],method &#x3D; [RequestMethod.GET])</span><br></pre></td></tr></table></figure>
+<p>简写形式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@PostMapping(&quot;&#x2F;say&quot;)  &#x2F;&#x2F;POST请求</span><br><span class="line">@GetMapping(&quot;&#x2F;say&quot;)  &#x2F;&#x2F;GET请求</span><br></pre></td></tr></table></figure>
+<p><strong>返回HTML</strong></p>
+<p>在上面的例子中，返回的是字符串或者说JSON格式的数据，如果是要返回一个HTML，应该怎么做呢？这里就需要用到thymeleaf</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>然后不能使用@RestController,应该使用@Controller，html文件在resources/templates下新建</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Controller</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&quot;)</span><br><span class="line">class BookListController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">    fun getBookList():String&#123;</span><br><span class="line">        return &quot;bookList&quot; &#x2F;&#x2F;这里并不是返回bookList字符串，而是bookList.html</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @RequestMapping(&quot;&#x2F;getAll&quot;)</span><br><span class="line">    @ResponseBody &#x2F;&#x2F;如果要返回字符串数据，则这里就要使用@ResponseBody</span><br><span class="line">    fun  getAll():String &#x3D; &quot;get All&quot; &#x2F;&#x2F;这里返回的就是字符串数据</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2参数处理"><a href="#2-2参数处理" class="headerlink" title="2.2参数处理"></a>2.2参数处理</h2><blockquote>
+<p>知识预览</p>
+<p>在本小节，你将学习到如何获取get请求和post请求的参数，主要使用以下两个注解</p>
+<ul>
+<li>@PathVariable：处理路径参数，如/{id}</li>
+<li>@RequestParam：获取post请求表单数据，get请求？参数</li>
+</ul>
+</blockquote>
+<p><strong>PathVariable 案例一：获取请求参数</strong></p>
+<p>需求分析：如下是一个restful风格的请求，请求URL如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;v1&#x2F;book&#x2F;&#123;id&#125;  如：http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;v1&#x2F;book&#x2F;12</span><br></pre></td></tr></table></figure>
+<p>在后端我们需要解析出末尾值为12的id参数，需要使用@PathVariable这个注解，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&#x2F;v1&quot;)</span><br><span class="line">class BookController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    fun getOne(@PathVariable id:Long):Map&lt;String,String&gt;&#123;</span><br><span class="line"></span><br><span class="line">        var map &#x3D; HashMap&lt;String,String&gt;()</span><br><span class="line">        map[&quot;name&quot;] &#x3D; &quot;Flutter开发指南&quot;</span><br><span class="line">        map[&quot;money&quot;] &#x3D; &quot;13.14&quot;</span><br><span class="line">        return map</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是参数路径中的名称需要和方法中的参数名称一致，否则无法解析，如果确实需要不一致，需要在注解中声明</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">		&#x2F;&#x2F;这里因为id和ids不一致，所以必须在注解中声明</span><br><span class="line">    fun getOne(@PathVariable(&quot;id&quot;) ids:Long):Map&lt;String,String&gt;&#123;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>RequestParam 案例一</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;创建一本书</span><br><span class="line">    @PostMapping(&quot;&#x2F;book&quot;)</span><br><span class="line">    fun crateBook(@RequestParam book: String,</span><br><span class="line">                  @RequestParam price: String,</span><br><span class="line">                  @RequestParam isbn: String): Map&lt;String, String&gt; &#123;</span><br><span class="line"></span><br><span class="line">        return mapOf(</span><br><span class="line">                &quot;name&quot; to book,</span><br><span class="line">                &quot;price&quot; to price,</span><br><span class="line">                &quot;isbn&quot; to isbn</span><br><span class="line">        ).apply &#123; println(this) &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>在浏览器中输入：127.0.0.1:8080/api/v1/book，添加表单参数：book，price,isbn,请求成功，返回数据：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;name&quot;: &quot;Flutter第一行代码&quot;,</span><br><span class="line">    &quot;price&quot;: &quot;68.0&quot;,</span><br><span class="line">    &quot;isbn&quot;: &quot;124646455612&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>RequestParam 案例二</strong></p>
+<p>如何获取请求url后面跟着？的参数呢？如：?page=2&amp;pageNum=10，请看代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;获取书单列表</span><br><span class="line">@GetMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">fun getBookList(@RequestParam page: Int, @RequestParam pageNum:Int):Map&lt;String,Any&gt;&#123;</span><br><span class="line">    val map &#x3D; mapOf(</span><br><span class="line">            &quot;name&quot; to &quot;Flutter第一行代码&quot;,</span><br><span class="line">            &quot;price&quot; to 68.0,</span><br><span class="line">            &quot;isbn&quot; to &quot;124564545654&quot;</span><br><span class="line">    )</span><br><span class="line">    val bookList &#x3D; listOf&lt;Map&lt;String,Any&gt;&gt;(</span><br><span class="line">            map,</span><br><span class="line">            map</span><br><span class="line">    )</span><br><span class="line">    return mapOf(</span><br><span class="line">            &quot;page&quot; to page,</span><br><span class="line">            &quot;pageNum&quot; to pageNum,</span><br><span class="line">            &quot;data&quot; to bookList</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在浏览器如何访问呢？输入：127.0.0.1:8080/api/v1/bookList?page=2&amp;pageNum=10，得到 响应：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;page&quot;: 2,</span><br><span class="line">    &quot;pageNum&quot;: 10,</span><br><span class="line">    &quot;data&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Flutter第一行代码&quot;,</span><br><span class="line">            &quot;price&quot;: 68.0,</span><br><span class="line">            &quot;isbn&quot;: &quot;124564545654&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Flutter第一行代码&quot;,</span><br><span class="line">            &quot;price&quot;: 68.0,</span><br><span class="line">            &quot;isbn&quot;: &quot;124564545654&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<p>参数正则表达式**</p>
+<p>需求：现在要求末尾请求参数为小写字母和下划线</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正确的请求路径：http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;v1&#x2F;book&#x2F;12&#x2F;ivan_</span><br><span class="line">错误的请求路径：http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;v1&#x2F;book&#x2F;12&#x2F;ivan_123</span><br></pre></td></tr></table></figure>
+<p>那么应该如何做呢？</p>
+<p>路径参数的正则表达式规则：{路径参数名:正则表达式}</p>
+<p>请看代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&#x2F;v1&quot;)</span><br><span class="line">class BookController &#123;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;username使用正则表达式,限制为小写字母和下划线</span><br><span class="line">    @GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&#x2F;&#123;username:[a-z_]+&#125;&quot;)</span><br><span class="line">    fun getOne(@PathVariable(&quot;id&quot;) id:Long,@PathVariable username:String):Map&lt;String,String&gt;&#123;</span><br><span class="line"></span><br><span class="line">        var map &#x3D; HashMap&lt;String,String&gt;()</span><br><span class="line">        map[&quot;name&quot;] &#x3D; &quot;Flutter开发指南&quot;</span><br><span class="line">        map[&quot;money&quot;] &#x3D; &quot;13.14&quot;</span><br><span class="line">        map[&quot;username&quot;] &#x3D; username</span><br><span class="line">        return map</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<h1 id="第三章-配置文件"><a href="#第三章-配置文件" class="headerlink" title="第三章 配置文件"></a>第三章 配置文件</h1><blockquote>
+<p><strong>知识概要</strong></p>
+<p>在本章节，你将学习到如下内容：</p>
+<ul>
+<li>application.properties，application.yml 两种配置文件</li>
+<li>常用配置属性<ul>
+<li>server.port    server.context-path</li>
+<li>logging.level.root   logging.level.包名</li>
+<li>logging.file</li>
+</ul>
+</li>
+<li>自定义配置属性</li>
+</ul>
+</blockquote>
+<h2 id="3-1-yml"><a href="#3-1-yml" class="headerlink" title="3.1 yml"></a>3.1 yml</h2><blockquote>
+<p>yml是一种新的配置文件，替代以前用的properties配置文件，主要使用key:(空格)value形式,yml文件放在resources目录下，一般命名为：application.yml</p>
+</blockquote>
+<p><strong>常用属性配置</strong>：</p>
+<ul>
+<li>server.port 端口号</li>
+<li>server.servlet.context-path 配置应用根路径，如：/api/v1</li>
+<li>logging.level.root 根级别日志  logging.level.包名 包级别日志，logging.file：定义log日志文件名和路径</li>
+</ul>
+<p><strong>自定义配置属性</strong>：</p>
+<p>步骤一：在yml文件中定义自定义属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#自定义配置属性</span><br><span class="line">book:</span><br><span class="line">  name: flutter第一行代码</span><br><span class="line">  price: 66.6</span><br><span class="line">  isbn: &quot;$&#123;random.uuid&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>步骤二：在代码中通过@Value注解，引入自定义属性，注意在kotlin中，$是取变量的值，所以这里需要转义字符</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Value(&quot;\$&#123;book.name&#125;&quot;)</span><br><span class="line">private lateinit var name:String</span><br><span class="line"></span><br><span class="line">@Value(&quot;\$&#123;book.price&#125;&quot;)</span><br><span class="line">lateinit var price:String</span><br><span class="line"></span><br><span class="line">@Value(&quot;\$&#123;book.isbn&#125;&quot;)</span><br><span class="line">lateinit var isbn:String</span><br></pre></td></tr></table></figure>
+<p>然后就可以直接使用变量啦！</p>
+<p><strong>自定义配置对象</strong></p>
+<p>步骤一：同上，定义Yml配置属性</p>
+<p>步骤二：新建实体类，使用注解@Component和@ConfigurationProperties(prefix = “xxx”),prefix对应yml配置属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Component</span><br><span class="line">@ConfigurationProperties(prefix &#x3D; &quot;book&quot;)</span><br><span class="line"> class Book&#123;</span><br><span class="line">    lateinit var name:String</span><br><span class="line">    lateinit var price:String</span><br><span class="line">    lateinit var isbn:String</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>步骤三：在代码中，使用Autowired注入对象</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private lateinit var book:Book</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-yml多环境配置"><a href="#3-2-yml多环境配置" class="headerlink" title="3.2 yml多环境配置"></a>3.2 yml多环境配置</h2><p>一般我们会使用多个开发环境，如Dev开发环境，生产环境pro，那么我们如何通过yml来配置多环境呢？</p>
+<p>第一步：首先我们需要定义各个环境的yml文件，如：</p>
+<ul>
+<li>dev开发环境 application-dev.yml</li>
+<li>pro开发环境 application-pro.yml</li>
+</ul>
+<p>第二步：在application.yml中配置使用哪个开发环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">	profiles:</span><br><span class="line">		active: dev 表示当前Dev开发环境处于激活状态</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第四章-数据库"><a href="#第四章-数据库" class="headerlink" title="第四章 数据库"></a>第四章 数据库</h1><blockquote>
+<p>知识概要</p>
+<p>在本章节，你将学习到以下内容</p>
+<ul>
+<li>Springboot-Data-JPA</li>
+<li>MySQL</li>
+</ul>
+</blockquote>
+<h2 id="4-1mysql"><a href="#4-1mysql" class="headerlink" title="4.1mysql"></a>4.1mysql</h2><p><strong>安装</strong></p>
+<p>安装版本：mysql-8.0.22-winx64</p>
+<p>参考博客：<a href="https://blog.csdn.net/qq_44040327/article/details/110420405">https://blog.csdn.net/qq_44040327/article/details/110420405</a></p>
+<p><strong>Navicat连接mysql</strong></p>
+<p>连接失败，错误原因：<strong>mysql8 之前的版本中加密规则是mysql_native_password,而在mysql8之后,加密规则是caching_sha2_password</strong>，而我电脑上装的是最新版的mysql8</p>
+<p><strong>解决办法</strong></p>
+<p><strong>方法1.升级navicat驱动；</strong></p>
+<p><strong>方法2.把mysql用户登录密码加密规则还原成mysql_native_password.</strong> </p>
+<p>这里我们选择第二种方式</p>
+<p>第一步：<strong>mysql -u root -p</strong>，输入密码，进入mysql</p>
+<p>第二步：进入如下操作：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39; PASSWORD EXPIRE NEVER; #修改加密规则 （password就是你的密码）**</span><br><span class="line">**ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;password&#39;; #更新一下用户的密码 password就是你的密码** </span><br><span class="line">**FLUSH PRIVILEGES; #刷新权限**</span><br></pre></td></tr></table></figure>
+<p>参考博客：<a href="https://blog.csdn.net/seventopalsy/article/details/80195246?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control">https://blog.csdn.net/seventopalsy/article/details/80195246?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control</a></p>
+<p><strong>Navicat 创建数据库</strong></p>
+<p>字符集编码选择 utf-8 unicode，排序规则 utf8-bin</p>
+<p><strong>mysql时区问题</strong></p>
+<p>springboot启动报错，错误如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">You must configure either the server or JDBC driver (via the serverTimezone conf）</span><br></pre></td></tr></table></figure>
+<p>错误原因：mysql版本太高，默认时区和当前电脑时区不一致，如何修改时区：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;serverTimezone&#x3D;GMT%2B8 指定中国时区</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;book?useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8&amp;serverTimezone&#x3D;GMT%2B8</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-2-Sping-Data-JPA"><a href="#4-2-Sping-Data-JPA" class="headerlink" title="4.2 Sping-Data-JPA"></a>4.2 Sping-Data-JPA</h2><p>pom.xml添加相关依赖</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>注意，如果是用kotlin，还需要添加一些插件 jpa,all-open</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">  &lt;artifactId&gt;kotlin-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">  &lt;groupId&gt;org.jetbrains.kotlin&lt;&#x2F;groupId&gt;</span><br><span class="line">  &lt;configuration&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;compilerPlugins&gt;</span><br><span class="line">      ...</span><br><span class="line">      &lt;plugin&gt;jpa&lt;&#x2F;plugin&gt;</span><br><span class="line">      &lt;plugin&gt;all-open&lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;compilerPlugins&gt;</span><br><span class="line">    &lt;pluginOptions&gt;</span><br><span class="line">      &lt;option&gt;all-open:annotation&#x3D;javax.persistence.Entity&lt;&#x2F;option&gt;</span><br><span class="line">      &lt;option&gt;all-open:annotation&#x3D;javax.persistence.Embeddable&lt;&#x2F;option&gt;</span><br><span class="line">      &lt;option&gt;all-open:annotation&#x3D;javax.persistence.MappedSuperclass&lt;&#x2F;option&gt;</span><br><span class="line">    &lt;&#x2F;pluginOptions&gt;</span><br><span class="line">  &lt;&#x2F;configuration&gt;</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.jetbrains.kotlin&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;kotlin-maven-allopen&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;kotlin.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.jetbrains.kotlin&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;kotlin-maven-noarg&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;kotlin.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="4-3数据库配置"><a href="#4-3数据库配置" class="headerlink" title="4.3数据库配置"></a>4.3数据库配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#JPA配置,mysql数据库配置</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;book?useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8&amp;serverTimezone&#x3D;GMT%2B8</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">  jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      ddl-auto: update</span><br><span class="line">    show-sql: true</span><br></pre></td></tr></table></figure>
+<h2 id="4-3实战增删改查"><a href="#4-3实战增删改查" class="headerlink" title="4.3实战增删改查"></a>4.3实战增删改查</h2><p>主要分为三层：</p>
+<ul>
+<li>repository层 实际操作数据库</li>
+<li>service层：连接controller和repository层</li>
+<li>controller层：业务层</li>
+</ul>
+<p><strong>repository层</strong></p>
+<p>定义接口，继承JpaRepository，泛型为实体类，Long</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface BookRepository:JpaRepository&lt;Book,Long&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>service层</strong></p>
+<p>service层需要使用@Service标注，使用@Autowired注入BookRepository</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Service</span><br><span class="line">class BookService &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    lateinit var bookRepository: BookRepository</span><br><span class="line"></span><br><span class="line">    fun add(book: Book): Book &#x3D; bookRepository.save(book)</span><br><span class="line"></span><br><span class="line">    fun delete(id: Long) &#x3D; bookRepository.deleteById(id)</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;注意不要使用getOne，如果查询不到数据，会抛出异常</span><br><span class="line">    fun getOne(id:Long):Book? &#x3D; bookRepository.findByIdOrNull(id)</span><br><span class="line"></span><br><span class="line">    fun findAll(): List&lt;Book&gt; &#x3D; bookRepository.findAll()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>controller层</strong></p>
+<p>新增一本书：使用post请求， @PostMapping(“/book”)</p>
+<p>删除一本书：使用delete请求，@DeleteMapping(“/book/{id}”)</p>
+<p>查询书单列表：使用get请求，@GetMapping(“/bookList”)</p>
+<p>更新某本书：使用put请求，@PutMapping(“/update”)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">class BookController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    lateinit var service: BookService</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;添加一本书</span><br><span class="line">    @PostMapping(&quot;&#x2F;book&quot;)</span><br><span class="line">    fun add(book: Book):Book&#123;</span><br><span class="line">        return service.add(book)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;删除某本书</span><br><span class="line">    @DeleteMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    fun deleteById(@PathVariable id:Long)&#123;</span><br><span class="line">        service.delete(id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @PutMapping(&quot;&#x2F;update&quot;)</span><br><span class="line">    fun updateBook(book: Book)&#123;</span><br><span class="line">        service.add(book)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;查询所有书籍</span><br><span class="line">    @GetMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">    fun getBookList():List&lt;Book&gt;&#123;</span><br><span class="line">     return service.findAll()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-3复杂查询"><a href="#4-3复杂查询" class="headerlink" title="4.3复杂查询"></a>4.3复杂查询</h2><blockquote>
+<p>如何查看Spring-Data-JPA查询关键词，在Spring.io官网，找Project,Spring-Data-JPA,点击查看想要查看版本的</p>
+<p>Reference Doc.根据目录，找到<a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords">Appendix C: Repository query keywords</a></p>
+</blockquote>
+<p>Spring-Data-JPA默认提供的只有基于主键ID的增删改查，以及查询全部等方法，并没有提供POJO的其他属性的操作方法，需要自己手动书写，书写有一定的规则，一般有by,and等连接属性，idea会有语法提示，这个不用担心</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;方法名必须按照规则写，参数名称不用和数据库字段一致，一定要写返回值类型</span><br><span class="line">fun findByAuthorAndStatus(author:String,status:Int):List&lt;Book&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>And</strong>查询：findByAuthorAndStatus：根据author和status两个字段查询，都符合的才满足条件</p>
+<p><strong>EndsWith</strong>：以xxx结尾</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;查询description以end结尾</span><br><span class="line">fun findByDescriptionEndsWith(end:String):List&lt;Book&gt;</span><br></pre></td></tr></table></figure>
+<p>contain：包含</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;查询描述中包含某个字符串</span><br><span class="line">fun findByDescriptionContains(content:String):List&lt;Book&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="4-4-自定义查询"><a href="#4-4-自定义查询" class="headerlink" title="4.4 自定义查询"></a>4.4 自定义查询</h2><blockquote>
+<p>自定义查询适用于JPA提供的语法不能满足我们得需求，需要自定义SQL语句的查询，提供两种查询</p>
+<ul>
+<li>JPQL查询</li>
+<li>SQL查询</li>
+</ul>
+</blockquote>
+<p>JPQL查询：这里使用的是类名，同时必须给类名取个别名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Query(&quot;select item from Book item where length(item.name) &gt;?1&quot;)</span><br><span class="line">fun executeJPQL(len: Int): List&lt;Book&gt;</span><br></pre></td></tr></table></figure>
+<p>SQL查询：</p>
+<p>注意即使是原生SQL语句，?后面也要跟占位符，1表示方法的第一个参数，如果有第二个参数，用2占位；原生SQL使用的是表名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Query(&quot;select * from book where length(name) &gt; ?1&quot;, nativeQuery &#x3D; true)</span><br><span class="line">fun executeSQL(len: Int): List&lt;Book&gt;</span><br><span class="line"></span><br><span class="line">@Query(&quot;select u from User u where u.firstname like %?1&quot;)</span><br><span class="line">fun findByFirstnameEndsWith(firstname:String):List&lt;User&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="4-5事务"><a href="#4-5事务" class="headerlink" title="4.5事务"></a>4.5事务</h2><blockquote>
+<p>本小节中，你将学习事务操作的两个注解</p>
+<ul>
+<li>@Modifying</li>
+<li>@Transactional</li>
+</ul>
+</blockquote>
+<p>在spring-data-jpa中，自定义语句没有提供删除和更新的注解，仍然使用@Query来自定义，必须加上**@Modifying**</p>
+<p>来支持更新和删除的语句，同时要支持事务，要添加@Transactional</p>
+<p><strong>案例一</strong>：根据id修改status属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Query(&quot;update Book b set b.status &#x3D; ?2 where b.id &#x3D; ?1&quot;)</span><br><span class="line">@Modifying @Transactional</span><br><span class="line">fun updateByJPQL(id: Long, status: Int):Int</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：这里为什么没有使用jpa默认提供的save方法来更新，是因为save更新，会将实体类的每个属性都更新，而我们的需求只是根据id更新status属性</p>
+<p><strong>案例二</strong>：根据id删除该条数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Query(&quot;delete from Book b where b.id &#x3D; ?1&quot;)</span><br><span class="line">@Modifying @Transactional</span><br><span class="line">fun deleteByJPQL(id:Long):Int</span><br></pre></td></tr></table></figure>
+<p><strong>案例三</strong>：演示事务操作</p>
+<p>在下面的例子中，我们执行了一条更新操作，一条删除操作，中间抛出了一个异常，但是加了事务注解，所以发生异常的时候，第一条更新操作会回滚</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">updateAndDeleteByJPQL</span><span class="params">(uId: <span class="type">Long</span>, status: <span class="type">Int</span>,dId:<span class="type">Long</span>)</span></span>:<span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">val</span> uCount = bookRepository.updateByJPQL(uId,status)</span><br><span class="line">    <span class="keyword">throw</span> Exception()</span><br><span class="line">    <span class="keyword">val</span> dCount = bookRepository.deleteByJPQL(dId)</span><br><span class="line">    <span class="keyword">return</span> uCount + dCount</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第五章-Thymeleaf"><a href="#第五章-Thymeleaf" class="headerlink" title="第五章 Thymeleaf"></a>第五章 Thymeleaf</h1><blockquote>
+<p>知识预览</p>
+<p>在本章节，你将学习到如下内容：</p>
+<ul>
+<li>Thymeleaf配置</li>
+<li>Thymeleaf获取数据</li>
+</ul>
+</blockquote>
+<h2 id="5-1-配置thymeleaf"><a href="#5-1-配置thymeleaf" class="headerlink" title="5.1 配置thymeleaf"></a>5.1 配置thymeleaf</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：默认springboot提供的是2版本，如果需要使用3版本，需要如下操作：</p>
+<p>如果是SpringBoot1.x.x版本配置thymeleaf3</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    ...</span><br><span class="line">    &#x2F;&#x2F;SpringBoot1.x.x版本配置thymeleaf</span><br><span class="line">    &lt;thymeleaf.version&gt;3.0.9.RELEASE&lt;&#x2F;thymeleaf.version&gt;</span><br><span class="line">    &lt;thymeleaf-layout-dialect.version&gt;2.2.2&lt;&#x2F;thymeleaf-layout-dialect.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br></pre></td></tr></table></figure>
+<p>如果是SpringBoot2.x.x版本配置thymeleaf3</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    ...</span><br><span class="line">    &#x2F;&#x2F;SpringBoot2.x.x版本配置thymeleaf</span><br><span class="line">    &lt;springboot-thymeleaf.version&gt;3.0.9.RELEASE&lt;&#x2F;springboot-thymeleaf.version&gt;</span><br><span class="line">    &lt;thymeleaf-layout-dialect.version&gt;2.2.2&lt;&#x2F;thymeleaf-layout-dialect.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：我使用的springboot 2.4.0 ，当使用2.4.1时，找不到css</p>
+<p>yml配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">spring：</span><br><span class="line">	thymeleaf：</span><br><span class="line">		model: HTML</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-thymeleaf取值"><a href="#5-2-thymeleaf取值" class="headerlink" title="5.2 thymeleaf取值"></a>5.2 thymeleaf取值</h2><blockquote>
+<p>本小节你将学习到</p>
+<ul>
+<li>thymeleaf传参：通过springMVC的model</li>
+<li>thymeleaf获取数据：通过th:text</li>
+</ul>
+</blockquote>
+<p><strong>案例一：获取书单详情</strong></p>
+<p>调用service查询数据库，得到书单信息，添加到springMVC的model中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">fun detail(@PathVariable id:Long,model:Model):String&#123;</span><br><span class="line">    val book: Book &#x3D; service.getOne(id)</span><br><span class="line">    model.addAttribute(&quot;book&quot;,book)</span><br><span class="line">    return &quot;book&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在book.html中如何获取数据呢？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;&lt;strong&gt;书单：&lt;&#x2F;strong&gt;&lt;span th:text&#x3D;&quot;$&#123;book.name&#125;&quot;&gt;西游记&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;&lt;strong&gt;作者：&lt;&#x2F;strong&gt;&lt;span th:text&#x3D;&quot;$&#123;book.author&#125;&quot;&gt;吴承恩&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;&lt;strong&gt;描述：&lt;&#x2F;strong&gt;&lt;span th:text&#x3D;&quot;$&#123;book.description&#125;&quot;&gt;这是一本中国古代神话小说&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;&lt;strong&gt;状态：&lt;&#x2F;strong&gt;&lt;span th:text&#x3D;&quot;$&#123;book.status&#125;&quot;&gt;0&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<p>我们可以将数据在body引入，方便在页面各个地方引用，这里使用object</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;body th:object&#x3D;&quot;$&#123;book&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>使用的时候则用星号 *{}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">th:text&#x3D;&quot;*&#123;name&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>注意：th需要导入头文件：xmlns:th=”<a href="http://www.w3.org/1999/xhtml&quot;">http://www.w3.org/1999/xhtml&quot;</a></p>
+<h2 id="5-3静态资源"><a href="#5-3静态资源" class="headerlink" title="5.3静态资源"></a>5.3静态资源</h2><blockquote>
+<p>本小节中，你将学习到</p>
+<ul>
+<li>引入bootstrap资源</li>
+<li>thymeleaf引入静态资源</li>
+</ul>
+</blockquote>
+<p><strong><a href="https://www.bootcss.com/">BootStrap</a></strong></p>
+<p><strong>一：引入资源</strong></p>
+<p>下载bootstrap的zip包，用于生产环境的 Bootstrap，解压，拷贝css,js,fonts文件夹到项目的resources目录下</p>
+<p><strong>二：thymeleaf引入静态资源</strong></p>
+<p>header中引入：</p>
+<p><strong>注意</strong>：</p>
+<ul>
+<li><ol>
+<li>href使用th:href，th:href引入资源只有在项目运行的时候才能有效</li>
+<li>引入语法规则：@{/xxx}  /表示资源的根路径，即static目录</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;bootstrap.min.css&#125;&quot;</span><br><span class="line">href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>body末尾引入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;jquery@1.12.4&#x2F;dist&#x2F;jquery.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script th:src&#x3D;&quot;@&#123;&#x2F;js&#x2F;bootstrap.min.js&#125;&quot; src&#x3D;&quot;..&#x2F;static&#x2F;js&#x2F;bootstrap.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="5-4-判断和循环"><a href="#5-4-判断和循环" class="headerlink" title="5.4 判断和循环"></a>5.4 判断和循环</h2><p><strong>Swtich case</strong>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p th:switch&#x3D;&quot;*&#123;status&#125;&quot;&gt;&lt;strong&gt;状态：&lt;&#x2F;strong&gt;</span><br><span class="line">  &lt;span th:case&#x3D;&quot;0&quot;&gt;想读&lt;&#x2F;span&gt;</span><br><span class="line">  &lt;span th:case&#x3D;&quot;1&quot;&gt;在读&lt;&#x2F;span&gt;</span><br><span class="line">  &lt;span th:case&#x3D;&quot;2&quot;&gt;已读&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<p>If,unless</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;alert alert-success&quot; th:unless&#x3D;&quot;*&#123;status &#x3D;&#x3D; 0&#125;&quot;&gt;</span><br><span class="line">	&lt;strong&gt;不错&lt;&#x2F;strong&gt;，知识就是力量</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;alert alert-warning&quot; th:if&#x3D;&quot;*&#123;status &#x3D;&#x3D; 0&#125;&quot;&gt;</span><br><span class="line">	&lt;strong&gt;注意&lt;&#x2F;strong&gt;，你还没有行动</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>If:表示条件满足的时候显示   unless:表示条件不满足显示</p>
+<p>Each:循环</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table class&#x3D;&quot;table table-bordered&quot;&gt;</span><br><span class="line">  &lt;thead&gt;</span><br><span class="line">  &lt;th&gt;#&lt;&#x2F;th&gt;&lt;th&gt;书名&lt;&#x2F;th&gt;&lt;th&gt;作者&lt;&#x2F;th&gt;&lt;th&gt;描述&lt;&#x2F;th&gt;&lt;th&gt;状态&lt;&#x2F;th&gt;</span><br><span class="line">  &lt;&#x2F;thead&gt;</span><br><span class="line"></span><br><span class="line">  &lt;tbody&gt;</span><br><span class="line">    &lt;tr th:each&#x3D;&quot;book,iterStat:$&#123;books&#125;&quot;&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;iterStat.count&#125;&quot;&gt;#&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;book.name&#125;&quot;&gt;书名&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;book.author&#125;&quot;&gt;作者&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;book.description&#125;&quot;&gt;描述&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;book.status&#125;&quot;&gt;状态&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">  &lt;&#x2F;tbody&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<p>循环： th:each=”book,iterStat:${books}，book表示每个item，iterStat:状态变量(itemStat是第二个参数，变量取名无所谓)</p>
+<p>itemStat的属性有：</p>
+<ul>
+<li>index：索引，从0开始</li>
+<li>count：索引，从1开始</li>
+<li>size：长度</li>
+<li>first：当前循环是否第一个</li>
+<li>last：当前循环是否最后一个</li>
+</ul>
+<h2 id="5-5-URL"><a href="#5-5-URL" class="headerlink" title="5.5 URL"></a>5.5 URL</h2><p>案例一：从书单列表跳转到书单详情</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;td&gt;&lt;a th:text&#x3D;&quot;$&#123;book.name&#125;&quot; href&#x3D;&quot;#&quot; th:href&#x3D;&quot;@&#123;&#39;&#x2F;book&#x2F;&#39;+$&#123;book.id&#125;&#125;&quot;&gt;书名&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;</span><br></pre></td></tr></table></figure>
+<p>th:href=”@{‘/book/‘+${book.id}}” 这里使用的是字符串拼接+变量获取</p>
+<h2 id="5-6提交表单，重定向"><a href="#5-6提交表单，重定向" class="headerlink" title="5.6提交表单，重定向"></a>5.6提交表单，重定向</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;#&quot; th:action&#x3D;&quot;@&#123;&#x2F;book&#x2F;add&#125;&quot; method&#x3D;&quot;post&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的@{/book/add} 表示提交到controller的一个方法，路径是/book/add</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@PostMapping(&quot;&#x2F;book&#x2F;add&quot;)</span><br><span class="line">fun add(book: Book):String&#123;</span><br><span class="line">  service.add(book)</span><br><span class="line">  return &quot;redirect:&#x2F;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>添加成功后，需要重定向到列表页面，重新查询数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;&#x2F;books&quot;)</span><br><span class="line">fun bookList(model: Model):String&#123;</span><br><span class="line">  service.findAll().apply &#123; model.addAttribute(&quot;books&quot;,this) &#125;</span><br><span class="line">  return &quot;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意以下几点：</p>
+<ul>
+<li>表单的name属性值要对应实体类的属性</li>
+<li>controller中接收的实体类前不需要加@requestParam，基本类型属性才加</li>
+</ul>
+<p>thymeleaf表单下拉框回显</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;select name&#x3D;&quot;status&quot; id&#x3D;&quot;statusId&quot; class&#x3D;&quot;form-control&quot;&gt;</span><br><span class="line">  &lt;option value&#x3D;&quot;0&quot; th:selected&#x3D;&quot;*&#123;status&#125; &#x3D;&#x3D; &#39;0&#39;&quot;&gt;想读&lt;&#x2F;option&gt;</span><br><span class="line">  &lt;option value&#x3D;&quot;1&quot; th:selected&#x3D;&quot;*&#123;status&#125; &#x3D;&#x3D; &#39;1&#39;&quot;&gt;在读&lt;&#x2F;option&gt;</span><br><span class="line">  &lt;option value&#x3D;&quot;2&quot; th:selected&#x3D;&quot;*&#123;status&#125; &#x3D;&#x3D; &#39;2&#39;&quot;&gt;已读&lt;&#x2F;option&gt;</span><br><span class="line">&lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>重定向带参数</strong></p>
+<p>使用RedirectAttributes，RedirectAttributes是Spring mvc 3.1版本之后出来的一个功能，专门用于重定向之后还能带参数跳转的</p>
+<p>案例：新增书单后，重定向到列表页，携带参数message</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;新增一本书单，重定向列表页</span><br><span class="line">@PostMapping(&quot;&#x2F;book&#x2F;add&quot;)</span><br><span class="line">fun add(book: Book,ra: RedirectAttributes):String&#123;</span><br><span class="line">  service.add(book)</span><br><span class="line">  ra.addFlashAttribute(&quot;message&quot;,&quot;《$&#123;book.name&#125;》更新成功&quot;)</span><br><span class="line">  return &quot;redirect:&#x2F;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.7 使用内置对象</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;对不起，你访问的资源[&lt;code th:text&#x3D;&quot;$&#123;#httpServletRequest.getAttribute(&#39;javax.servlet.error.request_uri&#39;)&#125;&quot;&gt;&lt;&#x2F;code&gt;]不存在！&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5-7-fragment"><a href="#5-7-fragment" class="headerlink" title="5.7 fragment"></a>5.7 fragment</h2><blockquote>
+<p>片段，即可以将公共部分抽取出来，如博客的导航栏部分，header部分</p>
+</blockquote>
+<ul>
+<li>使用th:fragment标识</li>
+<li>传参：这里需要传入参数title,使用th:replace替换标题</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;head th:fragment&#x3D;&quot;head(title)&quot;&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;!--移动端--&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width,initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title th:replace&#x3D;&quot;$&#123;title&#125;&quot;&gt;首页&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;semantic-ui&#x2F;2.2.10&#x2F;semantic.min.css&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;typo.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;typo.css&#125;&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;animate.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;animate.css&#125;&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;lib&#x2F;prism&#x2F;prism.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;lib&#x2F;prism&#x2F;prism.css&#125;&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;lib&#x2F;tocbot&#x2F;tocbot.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;lib&#x2F;tocbot&#x2F;tocbot.css&#125;&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;me.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;me.css&#125;&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>引入片段</strong>：th:replace=”_fragments :: head(~{::title})”，这里传参就是title标签的博客首页</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;head th:replace&#x3D;&quot;_fragments :: head(~&#123;::title&#125;)&quot;&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;!--移动端--&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width,initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;semantic-ui&#x2F;2.2.10&#x2F;semantic.min.css&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;me.css&quot; &gt;</span><br><span class="line">    &lt;title&gt;博客首页&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第六章-分页查询"><a href="#第六章-分页查询" class="headerlink" title="第六章 分页查询"></a>第六章 分页查询</h1><blockquote>
+<p>知识预览</p>
+<p>本章节，你将学习到以下内容</p>
+<ul>
+<li>分页 Pageable，PageRequest，Sort</li>
+</ul>
+</blockquote>
+<h2 id="6-1分页查询"><a href="#6-1分页查询" class="headerlink" title="6.1分页查询"></a>6.1分页查询</h2><p>分页查询主要使用以下对象， Pageable，PageRequest，Sort</p>
+<p>案例一：查询所有书单</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;Service层</span><br><span class="line">fun findAllByPage(page: Pageable):Page&lt;Book&gt;&#123;</span><br><span class="line">	return bookRepository.findAll(page)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;controller层 查询所有书单,提供默认值，防止不传参数报错,返回JSON数据</span><br><span class="line">@GetMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">fun getBookList(@RequestParam(defaultValue &#x3D; &quot;0&quot;) page: Int, @RequestParam(defaultValue &#x3D; &quot;5&quot;) size: Int): Page&lt;Book&gt; &#123;</span><br><span class="line">  val sort &#x3D; Sort.by(Sort.Direction.ASC, &quot;id&quot;)</span><br><span class="line">  val pageAble: Pageable &#x3D; PageRequest.of(page, size, sort)</span><br><span class="line">  return service.findAllByPage(pageAble)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果是HTML页面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;书单列表</span><br><span class="line">@GetMapping(&quot;&#x2F;books&quot;)</span><br><span class="line">fun bookList(@RequestParam(defaultValue &#x3D; &quot;0&quot;) page: Int,</span><br><span class="line">@RequestParam(defaultValue &#x3D; &quot;5&quot;) size: Int,</span><br><span class="line">model: Model):String&#123;</span><br><span class="line"></span><br><span class="line">  val sort &#x3D; Sort.by(Sort.Direction.ASC, &quot;id&quot;)</span><br><span class="line">  val pageAble: Pageable &#x3D; PageRequest.of(page, size, sort)</span><br><span class="line">  service.findAllByPage(pageAble).apply &#123; model.addAttribute(&quot;page&quot;,this) &#125;</span><br><span class="line">  return &quot;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-PageableDefault"><a href="#6-2-PageableDefault" class="headerlink" title="6.2 PageableDefault"></a>6.2 PageableDefault</h2><p>如何避免page传-1报错,使用PageableDefault注解，当前端页面传递-1的时候，会默认传0到数据库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;书单列表</span><br><span class="line">@GetMapping(&quot;&#x2F;books&quot;)</span><br><span class="line">fun bookList(@PageableDefault(size &#x3D; 5,sort &#x3D; [&quot;id&quot;],direction &#x3D; Sort.Direction.ASC) page:Pageable,</span><br><span class="line">model: Model):String&#123;</span><br><span class="line">  service.findAllByPage(page).apply &#123; model.addAttribute(&quot;page&quot;,this) &#125;</span><br><span class="line">  return &quot;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-3删除书单"><a href="#6-3删除书单" class="headerlink" title="6.3删除书单"></a>6.3删除书单</h2><p>HTML部分</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;#&quot; th:href&#x3D;&quot;@&#123;&#x2F;books&#x2F;&#123;id&#125;&#x2F;delete(id&#x3D;$&#123;book.id&#125;)&#125;&quot;&gt;删除&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+<p>controller层</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;浏览器这里没法直接发起delete请求，所以这里用的GetMapping</span><br><span class="line">@GetMapping(&quot;&#x2F;books&#x2F;&#123;id&#125;&#x2F;delete&quot;)</span><br><span class="line">fun delete(@PathVariable id:Long,ra:RedirectAttributes):String&#123;</span><br><span class="line">  service.delete(id)</span><br><span class="line">  ra.addFlashAttribute(&quot;message&quot;,&quot;删除成功&quot;)</span><br><span class="line">  return &quot;redirect:&#x2F;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第七章-表单验证"><a href="#第七章-表单验证" class="headerlink" title="第七章 表单验证"></a>第七章 表单验证</h1><h2 id="7-1表单注册"><a href="#7-1表单注册" class="headerlink" title="7.1表单注册"></a>7.1表单注册</h2><p><strong>新建实体类</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Entity</span><br><span class="line">class User(</span><br><span class="line">        @Id @GeneratedValue var id: Long? &#x3D; null,</span><br><span class="line">        var username: String? &#x3D; null,</span><br><span class="line">        var password: String? &#x3D; null,</span><br><span class="line">        var phone: String? &#x3D; null,</span><br><span class="line">        var email: String? &#x3D; null</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>注册controller</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;注册</span><br><span class="line">@PostMapping(&quot;&#x2F;register&quot;)</span><br><span class="line">fun register(@RequestParam username: String,</span><br><span class="line">@RequestParam password: String,</span><br><span class="line">@RequestParam email: String,</span><br><span class="line">@RequestParam phone: String) :String&#123;</span><br><span class="line">  val user &#x3D; User(username &#x3D; username,password &#x3D; password,email &#x3D; email,phone &#x3D; phone.toInt())</span><br><span class="line">  repository.save(user)</span><br><span class="line">  return &quot;redirect:&#x2F;login&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>数据传输</strong></p>
+<blockquote>
+<p>表单数据都会提交过来，包括确认密码，所以我们需要新建一个对象，UserForm接收表单数据，然后在User类中提供一个方法，拷贝需要的属性，再存入数据库</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">companion object&#123;</span><br><span class="line">  fun convertUser(form:UserForm):User&#123;</span><br><span class="line">    &#x2F;&#x2F;            val user &#x3D; User()</span><br><span class="line">    &#x2F;&#x2F;            BeanUtils.copyProperties(form,user)</span><br><span class="line">    &#x2F;&#x2F;            return user</span><br><span class="line">    return User().apply &#123; BeanUtils.copyProperties(form,this) &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">...省略</span><br><span class="line">val user &#x3D; User.convertUser(userForm) &#x2F;&#x2F;拷贝需要的属性</span><br><span class="line">repository.save(user)</span><br><span class="line">return &quot;redirect:&#x2F;login&quot;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="7-2-表单验证"><a href="#7-2-表单验证" class="headerlink" title="7.2 表单验证"></a>7.2 表单验证</h2><p>表单验证这里主要是后台验证，使用validation注解处理,最新版本没有引入相关依赖，需要自己引入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-validation&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>遇到问题：SpringBoot Validation + Kotlin校验无效的解决方法</p>
+<p>解决办法：使用 <code>@field</code>,@get</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@field:Min(6,message &#x3D; &quot;密码必须大于6位数&quot;)</span><br><span class="line">var password: String? &#x3D; null,</span><br><span class="line">@field:Pattern(regexp &#x3D; PHONE_REG,message &#x3D; &quot;请输入正确手机号&quot;)</span><br><span class="line">var phone: String? &#x3D; null,</span><br><span class="line">@get:Pattern(regexp &#x3D; EMAIL_REG,message &#x3D; &quot;邮箱格式不对&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：@Email注解，没效果，所以用的正则表达式判断</p>
+<h2 id="7-3-错误数据返回"><a href="#7-3-错误数据返回" class="headerlink" title="7.3 错误数据返回"></a>7.3 错误数据返回</h2><p>如果我们使用@Valid处理错误信息，那么当return “register”的时候，框架自动会将错误信息封装，不需要我们手动添加错误信息到model中返回</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;注册</span><br><span class="line">@PostMapping(&quot;&#x2F;register&quot;)</span><br><span class="line">fun register(@Valid form:UserForm,result:BindingResult) :String&#123;</span><br><span class="line">  if (!form.checkPassword())&#123;</span><br><span class="line">  result.rejectValue(&quot;passwordAgain&quot;,&quot;confirmError&quot;,&quot;两次密码不一致&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (result.hasErrors())&#123;</span><br><span class="line">  return &quot;register&quot;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  val user &#x3D; User.convertUser(form)</span><br><span class="line">  repository.save(user)</span><br><span class="line">  return &quot;redirect:&#x2F;login&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>前端页面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form th:action&#x3D;&quot;@&#123;&#x2F;register&#125;&quot; action&#x3D;&quot;&#x2F;register&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;form-group&quot;&gt;</span><br><span class="line">    &lt;label for&#x3D;&quot;usernameId&quot;&gt;用户名：&lt;&#x2F;label&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; th:field&#x3D;&quot;*&#123;username&#125;&quot; name&#x3D;&quot;username&quot; id&#x3D;&quot;usernameId&quot; class&#x3D;&quot;form-control&quot;&gt;</span><br><span class="line">    &lt;p class&#x3D;&quot;form-control-static text-danger&quot; th:if&#x3D;&quot;$&#123;#fields.hasErrors(&#39;username&#39;)&#125;&quot; th:errors&#x3D;&quot;*&#123;username&#125;&quot;&gt;用户名不能为空&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">判断是否显示错误：th:if&#x3D;&quot;$&#123;#fields.hasErrors(&#39;username&#39;)&#125;&quot;</span><br><span class="line"></span><br><span class="line">显示错误：th:errors&#x3D;&quot;*&#123;username&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第八章：异常处理"><a href="#第八章：异常处理" class="headerlink" title="第八章：异常处理"></a>第八章：异常处理</h1><blockquote>
+<p>知识预览</p>
+<p>本章节，你将学习到如下内容：</p>
+<ul>
+<li>基于thymeleaf模板的异常处理</li>
+<li>基于RESTful API的异常处理</li>
+</ul>
+</blockquote>
+<h2 id="8-1定义错误页面"><a href="#8-1定义错误页面" class="headerlink" title="8.1定义错误页面"></a>8.1定义错误页面</h2><p>分两种情况，项目中是否使用了模板引擎</p>
+<ul>
+<li><p>未使用模板引擎，在static文件下，新建error文件夹，再新建类似404,403,500文件(没有成功，不知道为什么)</p>
+</li>
+<li><p>使用了模板引擎，将error文件夹，移动到templates文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;..&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;bootstrap.min.css&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>案例一：404页面</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot; xmlns:th&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;..&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;bootstrap.min.css&#125;&quot;&gt;</span><br><span class="line">    &lt;title&gt;404&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;container&quot; style&#x3D;&quot;max-width: 600px;margin-top: 50px&quot;&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;jumbotron&quot;&gt;</span><br><span class="line">    &lt;h2&gt;404&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;p&gt;对不起，你访问的资源[&lt;code th:text&#x3D;&quot;$&#123;#httpServletRequest.getAttribute(&#39;javax.servlet.error.request_uri&#39;)&#125;&quot;&gt;&lt;&#x2F;code&gt;]不存在！  &lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="8-2-HTTP状态码处理异常"><a href="#8-2-HTTP状态码处理异常" class="headerlink" title="8.2 HTTP状态码处理异常"></a>8.2 HTTP状态码处理异常</h2><blockquote>
+<p>案例分析：在本小节中的案例中，根据ID查询数据库，没查询到数据，此时book为null，我们得需求是抛出一个自定义异常，BookNotFoundException，并且需要该异常对应到404页面，该如何处理呢？注意：如果我们不处理数据为空，thymeleaf也会抛出异常，最后到500异常页面，现在的需求就是知道是因为查询不到数据，应该是转到404页面</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;书单详情</span><br><span class="line">@GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">fun detail(@PathVariable id: Long, model: Model): String &#123;</span><br><span class="line">  val book &#x3D; service.getOne(id)</span><br><span class="line">  model.addAttribute(&quot;book&quot;, book)</span><br><span class="line">  return &quot;book&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>service层：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun getOne(id:Long):Book? &#x3D; bookRepository.findByIdOrNull(id)?:throw BookNotFoundException(&quot;查找不到该书单&quot;)</span><br></pre></td></tr></table></figure>
+<p>当查询出来的book为null时，抛出自定义异常，并响应到404页面，给用户提示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;HttpStatus.NOT_FOUND 即404</span><br><span class="line">@ResponseStatus(code &#x3D; HttpStatus.NOT_FOUND)</span><br><span class="line">class BookNotFoundException(message: String?) : RuntimeException(message)</span><br></pre></td></tr></table></figure>
+<h2 id="8-3-全局异常处理"><a href="#8-3-全局异常处理" class="headerlink" title="8.3 全局异常处理"></a>8.3 全局异常处理</h2><blockquote>
+<p>在上一章节，我们看到，我们可以在service里面处理异常，其实也可以在<a href="https://zhuanlan.zhihu.com/p/141440703">controller中处理异常</a>，但是controller中，只能处理当前controller中的异常，如果我们处理全局异常，需要使用到ControllerAdvice</p>
+</blockquote>
+<p>可以看到：</p>
+<ul>
+<li>类上面使用了@ControllerAdvice注解</li>
+<li>处理全局异常的方法使用 @ExceptionHandler(value = [Exception::class])注解，参数表示可以处理哪些异常</li>
+<li>参数：request: HttpServletRequest, e: Exception</li>
+<li>返回值：ModelAndView</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@ControllerAdvice</span><br><span class="line">class GlobalExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    private val logger: Logger by lazy &#123; LoggerFactory.getLogger(this.javaClass) &#125;</span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(value &#x3D; [Exception::class])</span><br><span class="line">    fun handleException(request: HttpServletRequest, e: Exception): ModelAndView &#123;</span><br><span class="line">        logger.error(&quot;request url :&#123;&#125;, exception: &#123;&#125;&quot;, request.requestURL, e.message)</span><br><span class="line"></span><br><span class="line">				&#x2F;&#x2F;如果有其他自定义异常，则走自定义逻辑，否则走全局异常处理</span><br><span class="line">        if (AnnotationUtils.findAnnotation(e.javaClass, ResponseStatus::class.java) !&#x3D; null) &#123;</span><br><span class="line">            throw  e</span><br><span class="line">        &#125;</span><br><span class="line">        return ModelAndView().apply &#123;</span><br><span class="line">            addObject(&quot;url&quot;,request.requestURL)</span><br><span class="line">            addObject(&quot;exception&quot;,e)</span><br><span class="line">            viewName &#x3D; &quot;error&#x2F;error&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>前端页面小技巧：将错误信息使用注释异常，用户无法直接看到，但是开发者可以通过查看HTML源码，查看错误信息</p>
+<p>主要是使用了th:utext，它可以转义HTML标签</p>
+<p>用th:text不会解析html，用th:utext会解析html，在页面中显示相应的样式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot; xmlns:th&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;..&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;bootstrap.min.css&#125;&quot;&gt;</span><br><span class="line">    &lt;title&gt;500&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;container&quot; style&#x3D;&quot;max-width: 600px;margin-top: 50px&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;jumbotron&quot;&gt;</span><br><span class="line">            &lt;h2&gt;500&lt;&#x2F;h2&gt;</span><br><span class="line">            &lt;p&gt;对不起，服务异常，请联系管理员！&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div th:utext&#x3D;&quot;&#39;&lt;!--&#39;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div th:utext&#x3D;&quot;&#39;Failed request url : &#39; + $&#123;url&#125;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div th:utext&#x3D;&quot;&#39;Exception message : &#39; + $&#123;exception.message&#125;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;ul th:remove&#x3D;&quot;tag&quot;&gt;</span><br><span class="line">            &lt;li th:each&#x3D;&quot;st:$&#123;exception.stackTrace&#125;&quot; th:remove&#x3D;&quot;tag&quot;&gt;</span><br><span class="line">                &lt;span th:utext&#x3D;&quot;$&#123;st&#125;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">            &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div th:utext&#x3D;&quot;&#39;--&gt;&#39;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="第九章-日志与AOP"><a href="#第九章-日志与AOP" class="headerlink" title="第九章 日志与AOP"></a>第九章 日志与AOP</h1><h2 id="9-1日志"><a href="#9-1日志" class="headerlink" title="9.1日志"></a>9.1日志</h2><p><strong>日志级别</strong></p>
+<p>Springboot 默认使用LogBack来记录日志，日志级别从低到高为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR</span><br></pre></td></tr></table></figure>
+<p>Springboot 默认的日志级别为info，即只会打印info及更高级别的日志，如warn,error</p>
+<p><strong>如何修改日志级别？</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">logging:</span><br><span class="line">  level:</span><br><span class="line">    root: debug</span><br><span class="line">    com.ivan.springboot: debug</span><br></pre></td></tr></table></figure>
+<p>修改为debug级别日志，则控制台只会输出debug及以上的日志</p>
+<p>日志输出到文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">logging.file.path:只能指定路径，默认为spring.log</span><br><span class="line">logging.file.name:可以指定路径和文件名，如果同时指定，则path无效，建议指定name</span><br><span class="line"></span><br><span class="line">logging:</span><br><span class="line">  file:</span><br><span class="line">    path: ttt	&#x2F;&#x2F;同时指定，这个无效，只能指定目录，默认文件名为spring.log</span><br><span class="line">    name: ddd&#x2F;ivan.log &#x2F;&#x2F;这个生效，同时指定目录和文件名</span><br></pre></td></tr></table></figure>
+<p>默认日志输出文件大小为10M，超过10M的时候，会切分，如spring.0 spring.1等多个文件</p>
+<h2 id="9-2-自定义日志配置"><a href="#9-2-自定义日志配置" class="headerlink" title="9.2 自定义日志配置"></a>9.2 自定义日志配置</h2><p>如果我们要进行更多的精细化的日志配置，那么我们需要使用XML来进行配置</p>
+<p><strong>指定日志配置文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">logging:</span><br><span class="line">  config: classpath:logback-dev.xml</span><br><span class="line">  level:</span><br><span class="line">    root: debug</span><br><span class="line">  file:</span><br><span class="line">    name: devlog&#x2F;my.log</span><br></pre></td></tr></table></figure>
+<p>通过logging.config 来指定日志配置文件</p>
+<p>主要包含两部分：</p>
+<ul>
+<li>继承的默认配置</li>
+<li>需要自定义的配置：appender部分</li>
+</ul>
+<p>在以下文件中，我们主要配置日志文件名和分割大小</p>
+<ul>
+<li>日志文件名：fileNamePattern来配置，加上年月日，方便我们查看日志</li>
+<li>日志切分大小：maxFileSize来配置，默认10兆，我们可以根据需要修改</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;!--包含Spring boot对logback日志的默认配置--&gt;</span><br><span class="line">    &lt;include resource&#x3D;&quot;org&#x2F;springframework&#x2F;boot&#x2F;logging&#x2F;logback&#x2F;defaults.xml&quot; &#x2F;&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;LOG_FILE&quot; value&#x3D;&quot;$&#123;LOG_FILE:-$&#123;LOG_PATH:-$&#123;LOG_TEMP:-$&#123;java.io.tmpdir:-&#x2F;tmp&#125;&#125;&#125;&#x2F;spring.log&#125;&quot;&#x2F;&gt;</span><br><span class="line">    &lt;include resource&#x3D;&quot;org&#x2F;springframework&#x2F;boot&#x2F;logging&#x2F;logback&#x2F;console-appender.xml&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--重写了Spring Boot框架 org&#x2F;springframework&#x2F;boot&#x2F;logging&#x2F;logback&#x2F;file-appender.xml 配置--&gt;</span><br><span class="line">    &lt;appender name&#x3D;&quot;TIME_FILE&quot;</span><br><span class="line">              class&#x3D;&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;FILE_LOG_PATTERN&#125;&lt;&#x2F;pattern&gt;</span><br><span class="line">        &lt;&#x2F;encoder&gt;</span><br><span class="line">        &lt;file&gt;$&#123;LOG_FILE&#125;&lt;&#x2F;file&gt;</span><br><span class="line">        &lt;rollingPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;!--LOG_FILE 对应我们在yml中配置的日志文件名--&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;LOG_FILE&#125;.%d&#123;yyyy-MM-dd&#125;.%i&lt;&#x2F;fileNamePattern&gt;</span><br><span class="line">            &lt;!--保留历史日志一年的时间--&gt;</span><br><span class="line">            &lt;maxHistory&gt;30&lt;&#x2F;maxHistory&gt;</span><br><span class="line">            &lt;!--</span><br><span class="line">            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志</span><br><span class="line">            --&gt;</span><br><span class="line">            &lt;timeBasedFileNamingAndTriggeringPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span><br><span class="line">                &lt;maxFileSize&gt;1MB&lt;&#x2F;maxFileSize&gt;</span><br><span class="line">            &lt;&#x2F;timeBasedFileNamingAndTriggeringPolicy&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;rollingPolicy&gt;</span><br><span class="line">    &lt;&#x2F;appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;root level&#x3D;&quot;INFO&quot;&gt;</span><br><span class="line">        &lt;appender-ref ref&#x3D;&quot;CONSOLE&quot; &#x2F;&gt;</span><br><span class="line">        &lt;appender-ref ref&#x3D;&quot;TIME_FILE&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;root&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;configuration&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">            1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）</span><br><span class="line">            2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：</span><br><span class="line"></span><br><span class="line">                my.2017-08-01.0   80MB</span><br><span class="line">                my.2017-08-01.1   10MB</span><br><span class="line">                my.2017-08-02.0   56MB</span><br><span class="line">                my.2017-08-03.0   53MB</span><br><span class="line">                ......</span><br><span class="line">        --&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="9-3-Spring-AOP"><a href="#9-3-Spring-AOP" class="headerlink" title="9.3 Spring AOP"></a>9.3 Spring AOP</h2><p><strong>引入AOP</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-aop&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>使用AOP</p>
+<p>和AOP相关的几个注解：</p>
+<ul>
+<li>@Aspect 标识这是一个AOP</li>
+<li>@Component</li>
+<li>@Pointcut 定义切面</li>
+<li>@Before 方法执行之前</li>
+<li>@After 方法执行之后</li>
+</ul>
+<p>切面定义规则：</p>
+<p>@Pointcut(“execution(返回值 包名.类名.方法名(方法参数))”)，使用* 表示任意值</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Pointcut(&quot;execution(* com.qw.springbootdemo.springbootdemokt.controller.LogTestApi.log(..))&quot;)</span><br></pre></td></tr></table></figure>
+<p>如果是包下面的所有类的所有方法，则：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Pointcut(&quot;execution(* com.qw.springbootdemo.springbootdemokt.controller.*.*(..))&quot;)</span><br></pre></td></tr></table></figure>
+<p>案例一：使用aop在方法执行前后打印日志</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">@Component</span><br><span class="line">class LogAspect &#123;</span><br><span class="line"></span><br><span class="line">  private val logger &#x3D; LoggerFactory.getLogger(this.javaClass)</span><br><span class="line"></span><br><span class="line">  @Pointcut(&quot;execution(* com.qw.springbootdemo.springbootdemokt.controller.LogTestApi.log(..))&quot;)</span><br><span class="line">  fun log()&#123;&#125;</span><br><span class="line"></span><br><span class="line">  @Before(&quot;log()&quot;)</span><br><span class="line">  fun doBefore()&#123;</span><br><span class="line">  logger.info(&quot;------doBefore----------&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">  @After(&quot;log()&quot;)</span><br><span class="line">  fun doAfter()&#123;</span><br><span class="line">  logger.info(&quot;------doAfter----------&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @AfterReturning(pointcut &#x3D; &quot;log()&quot;,returning &#x3D; &quot;result&quot;)</span><br><span class="line">  fun doAfterReturning(result:Any)&#123;</span><br><span class="line">  logger.info(&quot;------doAfterReturning---------- 内容：&#123;&#125;&quot;,result)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">class LogTestApi &#123;</span><br><span class="line"></span><br><span class="line">    private val logger &#x3D; LoggerFactory.getLogger(this.javaClass)</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;log&quot;)</span><br><span class="line">    fun log():String&#123;</span><br><span class="line">        logger.info(&quot;-------------log-------------&quot;)</span><br><span class="line">        return &quot;---logTest---&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>控制台执行结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c.q.s.springbootdemokt.aspect.LogAspect  : ------doBefore----------</span><br><span class="line">c.q.s.s.controller.LogTestApi            : -------------log-------------</span><br><span class="line">c.q.s.springbootdemokt.aspect.LogAspect  : ------doAfterReturning---------- 内容：---logTest---</span><br><span class="line">c.q.s.springbootdemokt.aspect.LogAspect  : ------doAfter----------</span><br></pre></td></tr></table></figure>
+<p><strong>案例2：记录请求与响应</strong></p>
+<p>封装请求数据：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data class RequestLog(</span><br><span class="line">  var url:String,&#x2F;&#x2F;请求的url资源</span><br><span class="line">  var ip:String,&#x2F;&#x2F;请求方的IP地址</span><br><span class="line">  var method:String,&#x2F;&#x2F;请求的控制器和方法</span><br><span class="line">  var args:Array&lt;Any&gt;,&#x2F;&#x2F;请求参数</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Before(&quot;log()&quot;)</span><br><span class="line">    fun doBefore(joinPoint: JoinPoint)&#123;</span><br><span class="line">        &#x2F;&#x2F;经过如下两步，可以拿到request请求</span><br><span class="line">        val attributes &#x3D; RequestContextHolder.getRequestAttributes() as ServletRequestAttributes</span><br><span class="line">        val request &#x3D; attributes.request</span><br><span class="line">        &#x2F;&#x2F;封装请求数据</span><br><span class="line">        val requestLog &#x3D; RequestLog(</span><br><span class="line">                url &#x3D; request.requestURI,</span><br><span class="line">                ip &#x3D; request.remoteAddr,</span><br><span class="line">                method &#x3D; &quot;$&#123;joinPoint.signature.declaringTypeName&#125;.$&#123;joinPoint.signature.name&#125;&quot;,</span><br><span class="line">                args &#x3D; joinPoint.args</span><br><span class="line">        )</span><br><span class="line">        logger.info(&quot;------request-----&#123;&#125;&quot;,requestLog)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@AfterReturning(pointcut &#x3D; &quot;log()&quot;,returning &#x3D; &quot;result&quot;)</span><br><span class="line">fun doAfterReturning(result:Any)&#123;</span><br><span class="line">	logger.info(&quot;------return---------内容：&#123;&#125;&quot;,result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第十章-拦截器Intercepter"><a href="#第十章-拦截器Intercepter" class="headerlink" title="第十章 拦截器Intercepter"></a>第十章 拦截器Intercepter</h1><blockquote>
+<p>知识预览</p>
+<ul>
+<li>实现拦截器</li>
+<li>注册拦截器</li>
+</ul>
+</blockquote>
+<p><strong>实现拦截器</strong></p>
+<p>需要实现HandlerInterceptor接口，里面包含如下三个方法</p>
+<ul>
+<li>preHandle ：从servlet进入controller前拦截</li>
+<li>postHandle ：controller处理完，返回servlet前拦截</li>
+<li>afterCompletion:完成后，一般用于释放资源等</li>
+</ul>
+<p><strong>注册拦截器</strong></p>
+<p>实现WebMvcConfigurer，重写addInterceptors方法，添加拦截器</p>
+<p><strong>案例一：实现登陆拦截</strong></p>
+<p>需求分析：当登陆完成后，可以访问一些页面(这些页面必须要求登陆状态)，等退出登陆后，访问这些页面自动重定向到登陆页面</p>
+<p>实现需求：</p>
+<p>当登陆成功后，添加用户信息到session中：使用httpSession</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@PostMapping(&quot;&#x2F;login&quot;)</span><br><span class="line">fun loginPost(@RequestParam username:String,@RequestParam password:String,httpSession: HttpSession):String&#123;</span><br><span class="line">  val user &#x3D; repository.findUserByUsernameAndPassword(username, password)</span><br><span class="line">  if (user !&#x3D; null)&#123;</span><br><span class="line">  httpSession.setAttribute(&quot;user&quot;,user)</span><br><span class="line">  return &quot;index&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  return &quot;login&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>拦截器逻辑</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class LoginInterceptor : HandlerInterceptor &#123;</span><br><span class="line"></span><br><span class="line">    override fun preHandle(request: HttpServletRequest,</span><br><span class="line">                           response: HttpServletResponse,</span><br><span class="line">                           handler: Any): Boolean &#123;</span><br><span class="line">        &#x2F;&#x2F;如果未登录，返回到登陆页面，否则通过</span><br><span class="line">        val user &#x3D; request.session.getAttribute(&quot;user&quot;)</span><br><span class="line">        if (user &#x3D;&#x3D; null) &#123;</span><br><span class="line">            response.sendRedirect(&quot;$&#123;request.contextPath&#125;&#x2F;login&quot;)</span><br><span class="line">            return false</span><br><span class="line">        &#125;</span><br><span class="line">        return true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注册拦截器：</strong></p>
+<p>需要实现WebMvcConfigurer，重写addInterceptors来添加拦截器</p>
+<ul>
+<li>addInterceptor 添加拦截器</li>
+<li>addPathPatterns：添加需要拦截的页面</li>
+<li>excludePathPatterns：添加不需要拦截的页面，这里登陆页面不需要拦截</li>
+</ul>
+<p>注意：需要使用@Configuration标识</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">class WebConfig : WebMvcConfigurer &#123;</span><br><span class="line"></span><br><span class="line">    override fun addInterceptors(registry: InterceptorRegistry) &#123;</span><br><span class="line">        super.addInterceptors(registry)</span><br><span class="line">        registry.addInterceptor(LoginInterceptor())</span><br><span class="line">                .addPathPatterns(&quot;&#x2F;&quot;)</span><br><span class="line">                .addPathPatterns(&quot;&#x2F;book&#x2F;**&quot;)</span><br><span class="line">                .addPathPatterns(&quot;&#x2F;books&#x2F;**&quot;)</span><br><span class="line">                .excludePathPatterns(&quot;&#x2F;login&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注销：清除session中的用户信息</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;注销</span><br><span class="line">@GetMapping(&quot;&#x2F;logout&quot;)</span><br><span class="line">fun loginOut(session: HttpSession):String&#123;</span><br><span class="line">  session.removeAttribute(&quot;user&quot;)</span><br><span class="line">  return &quot;login&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第十一章-博客项目初始化"><a href="#第十一章-博客项目初始化" class="headerlink" title="第十一章 博客项目初始化"></a>第十一章 博客项目初始化</h1><blockquote>
+<p>本章节开始，我们将开始实战博客项目</p>
+</blockquote>
+<h1 id="第十二章-其他知识"><a href="#第十二章-其他知识" class="headerlink" title="第十二章 其他知识"></a>第十二章 其他知识</h1><h2 id="6-1-JavaScript"><a href="#6-1-JavaScript" class="headerlink" title="6.1 JavaScript"></a>6.1 JavaScript</h2><p><strong>返回上一页</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a class&#x3D;&quot;btn btn-default&quot; href&#x3D;&quot;javascript:history.go(-1)&quot;&gt;返回上一页&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-BootStrap"><a href="#6-2-BootStrap" class="headerlink" title="6.2 BootStrap"></a>6.2 BootStrap</h2><p><a href="https://v3.bootcss.com/components/#alerts">警告框</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;alert alert-success alert-dismissible fade in&quot; role&#x3D;&quot;alert&quot; th:unless&#x3D;&quot;$&#123;#strings.isEmpty(message)&#125;&quot;&gt;</span><br><span class="line">  &lt;a class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;alert&quot;&gt;&lt;span&gt;&amp;times;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;</span><br><span class="line">  &lt;strong&gt;恭喜，&lt;&#x2F;strong&gt;</span><br><span class="line">  &lt;span th:text&#x3D;&quot;$&#123;message&#125;&quot;&gt;信息提交成功&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：遇到一个坑，以上代码中的关闭没有关闭成功，关闭行为是由jquery提供的，最后发现引入jQuery的Script标签，没有闭合造成JS无效，html5要求太严格啦</p>
+<p>分页</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;nav&gt;</span><br><span class="line">&lt;ul class&#x3D;&quot;pager&quot;&gt;</span><br><span class="line">&lt;li class&#x3D;&quot;previous&quot;&gt;&lt;a href&#x3D;&quot;#&quot; th:href&#x3D;&quot;@&#123;&#39;&#x2F;books?page&#x3D;&#39;+$&#123;page.number-1&#125;&#125;&quot; th:unless&#x3D;&quot;$&#123;page.first&#125;&quot;&gt;上一页&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;li class&#x3D;&quot;next&quot;&gt;&lt;a href&#x3D;&quot;#&quot; th:href&#x3D;&quot;@&#123;&#x2F;books(page&#x3D;$&#123;page.number&#125;+1)&#125;&quot; th:unless&#x3D;&quot;$&#123;page.last&#125;&quot;&gt;下一页&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;nav&gt;</span><br></pre></td></tr></table></figure>
+<p>标题：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;h3 class&#x3D;&quot;page-header&quot;&gt;注册&lt;&#x2F;h3&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="第十三章：Kotlin-SpringBoot"><a href="#第十三章：Kotlin-SpringBoot" class="headerlink" title="第十三章：Kotlin SpringBoot"></a>第十三章：Kotlin SpringBoot</h1><h2 id="10-1-常见问题"><a href="#10-1-常见问题" class="headerlink" title="10.1 常见问题"></a>10.1 常见问题</h2><p><strong>SpringBoot Validation + Kotlin校验无效的解决方法</strong></p>
+<p>参考博客：<a href="https://www.jianshu.com/p/239ec85b6bdd?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">https://www.jianshu.com/p/239ec85b6bdd?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a></p>
+<p>解决办法：使用@field @get标识符</p>
+]]></content>
+      <categories>
+        <category>JavaEE</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flutter笔记</title>
-    <url>/2021/01/09/Flutter%E7%AC%94%E8%AE%B0/</url>
+    <url>/2021/01/09/flutter/Flutter%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="第一章-Flutter环境搭建"><a href="#第一章-Flutter环境搭建" class="headerlink" title="第一章 Flutter环境搭建"></a>第一章 Flutter环境搭建</h1><blockquote>
 <p>在第一章，我们将学习如下内容</p>
 <ul>
@@ -2175,568 +2759,6 @@
       </categories>
       <tags>
         <tag>Flutter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>spring-boot入门笔记</title>
-    <url>/2021/01/09/spring-boot%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="第一章-HelloWorld"><a href="#第一章-HelloWorld" class="headerlink" title="第一章 HelloWorld"></a>第一章 HelloWorld</h1><h2 id="1-0-idea工具破解"><a href="#1-0-idea工具破解" class="headerlink" title="1.0 idea工具破解"></a>1.0 idea工具破解</h2><p>参考博客：<a href="https://www.cnblogs.com/sujw/p/14025767.html">https://www.cnblogs.com/sujw/p/14025767.html</a></p>
-<ul>
-<li>下载安装</li>
-<li>启动IDEA,首次启动，选择第二个选项，然后<strong>OK</strong>，选择免费试用，进入软件界面，创建一个新项目</li>
-<li>然后直接将刚才解压好的**<code>jetbrains-agent.jar</code><strong>文件用鼠标</strong><code>拖进</code><strong>idea 界面，出现如下界面，点击</strong>Restart**</li>
-<li>重启成功后，会跳出如下界面，直接点击**<code>为IDEA安装</code><strong>，继续点击</strong><code>是</code>**安装，破解就成功了</li>
-</ul>
-<h2 id="1-1创建项目"><a href="#1-1创建项目" class="headerlink" title="1.1创建项目"></a>1.1创建项目</h2><p>springboot入门，我们从一个hello world开始入门，首先我们新建一个springboot项目</p>
-<ul>
-<li>新建项目，选择Spring Initializer,SDK选择Java1.8，Service URL就使用默认的，配置项目信息</li>
-<li>Group:包名  Artifact:项目名称；</li>
-<li>依赖部分：选择Web - Spring Web</li>
-<li>配置项目名称和路径</li>
-</ul>
-<p><strong>idea和maven版本问题</strong></p>
-<p>如果版本不一致，则可能无法使用maven下载依赖，我们可以使用idea提供的默认maven(会显示出版本号)</p>
-<p><strong>端口号被占用问题</strong></p>
-<p>可以使用如下命令查找被占用8080端口的pid，然后杀掉</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lsof -i tcp:8080  查找8080端口</span><br><span class="line">kill 999 或者 kill -9 999 杀掉查找出来的pid</span><br></pre></td></tr></table></figure>
-<p>手动修改端口号：</p>
-<p>在Mac下占用8080端口的pid老是杀不掉，杀死了又重启，所以这里选择修改版本号，在application.properties中配置如下语句：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server.port&#x3D;8081</span><br></pre></td></tr></table></figure>
-<h2 id="1-2配置国内仓库"><a href="#1-2配置国内仓库" class="headerlink" title="1.2配置国内仓库"></a>1.2配置国内仓库</h2><p>打开idea的设置maven，有如下三个设置</p>
-<ul>
-<li>Maven home directory：maven路径</li>
-<li>User setting file：配置文件，我们可以复制一份源文件，放在我们自己定义的目录，配置国内仓库也是修改这个文件</li>
-<li>local repository：下载依赖本地存放路径，这个路径，我们最好自己定义</li>
-</ul>
-<p>settings.xml里面如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">   &lt;mirror&gt;  </span><br><span class="line">		&lt;id&gt;alimaven&lt;&#x2F;id&gt;  </span><br><span class="line">		&lt;name&gt;aliyun maven&lt;&#x2F;name&gt;  </span><br><span class="line">		&lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt;  </span><br><span class="line">		&lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;          </span><br><span class="line">    &lt;&#x2F;mirror&gt;  </span><br><span class="line">  &lt;&#x2F;mirrors&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="1-3HelloWorld"><a href="#1-3HelloWorld" class="headerlink" title="1.3HelloWorld"></a>1.3HelloWorld</h2><p>创建一个包controller,创建HelloController，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&quot;)</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;&#x2F;say&quot;)</span><br><span class="line">    public String sayHello()&#123;</span><br><span class="line">        return &quot;hello springboot&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>创建kotlin版本</p>
-<p><strong>启动类</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">class SpringBootKotlinApplication</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    runApplication&lt;SpringBootKotlinApplication&gt;(*args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>controller</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&quot;)</span><br><span class="line">class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;&#x2F;say&quot;)</span><br><span class="line">    fun sayHello():String&#123;</span><br><span class="line">        return &quot;hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="第二章-请求响应"><a href="#第二章-请求响应" class="headerlink" title="第二章 请求响应"></a>第二章 请求响应</h1><h2 id="2-1注解讲解"><a href="#2-1注解讲解" class="headerlink" title="2.1注解讲解"></a>2.1注解讲解</h2><p>在上面的例子中，我们使用了两个注解</p>
-<p>@RestController: 这个注解相当于@ResponseBody ＋ @Controller合在一起的作用，即两个作用：首先表示该类是一个controller，第二，它可以返回JSON数据</p>
-<p>@RequestMapping：定义请求的URL路径，可以标识在controller上面，也可以标识在方法上面</p>
-<p>在上面的例子中，如果我们要在浏览器里访问sayHello方法，请求的URL地址为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;say</span><br></pre></td></tr></table></figure>
-<p><strong>请求类型</strong></p>
-<p>@RequestMapping可以定义请求的类型，是GET请求，还是POST请求，PUT请求，DELETE请求，如果省略不写，则默认支持所有类型的请求，显示定义请求类型</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RequestMapping(value &#x3D; [&quot;&#x2F;say&quot;],method &#x3D; [RequestMethod.GET])</span><br></pre></td></tr></table></figure>
-<p>简写形式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@PostMapping(&quot;&#x2F;say&quot;)  &#x2F;&#x2F;POST请求</span><br><span class="line">@GetMapping(&quot;&#x2F;say&quot;)  &#x2F;&#x2F;GET请求</span><br></pre></td></tr></table></figure>
-<p><strong>返回HTML</strong></p>
-<p>在上面的例子中，返回的是字符串或者说JSON格式的数据，如果是要返回一个HTML，应该怎么做呢？这里就需要用到thymeleaf</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>然后不能使用@RestController,应该使用@Controller，html文件在resources/templates下新建</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Controller</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&quot;)</span><br><span class="line">class BookListController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">    fun getBookList():String&#123;</span><br><span class="line">        return &quot;bookList&quot; &#x2F;&#x2F;这里并不是返回bookList字符串，而是bookList.html</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @RequestMapping(&quot;&#x2F;getAll&quot;)</span><br><span class="line">    @ResponseBody &#x2F;&#x2F;如果要返回字符串数据，则这里就要使用@ResponseBody</span><br><span class="line">    fun  getAll():String &#x3D; &quot;get All&quot; &#x2F;&#x2F;这里返回的就是字符串数据</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-2参数处理"><a href="#2-2参数处理" class="headerlink" title="2.2参数处理"></a>2.2参数处理</h2><blockquote>
-<p>知识预览</p>
-<p>在本小节，你将学习到如何获取get请求和post请求的参数，主要使用以下两个注解</p>
-<ul>
-<li>@PathVariable：处理路径参数，如/{id}</li>
-<li>@RequestParam：获取post请求表单数据，get请求？参数</li>
-</ul>
-</blockquote>
-<p><strong>PathVariable 案例一：获取请求参数</strong></p>
-<p>需求分析：如下是一个restful风格的请求，请求URL如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;v1&#x2F;book&#x2F;&#123;id&#125;  如：http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;v1&#x2F;book&#x2F;12</span><br></pre></td></tr></table></figure>
-<p>在后端我们需要解析出末尾值为12的id参数，需要使用@PathVariable这个注解，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&#x2F;v1&quot;)</span><br><span class="line">class BookController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    fun getOne(@PathVariable id:Long):Map&lt;String,String&gt;&#123;</span><br><span class="line"></span><br><span class="line">        var map &#x3D; HashMap&lt;String,String&gt;()</span><br><span class="line">        map[&quot;name&quot;] &#x3D; &quot;Flutter开发指南&quot;</span><br><span class="line">        map[&quot;money&quot;] &#x3D; &quot;13.14&quot;</span><br><span class="line">        return map</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>需要注意的是参数路径中的名称需要和方法中的参数名称一致，否则无法解析，如果确实需要不一致，需要在注解中声明</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">		&#x2F;&#x2F;这里因为id和ids不一致，所以必须在注解中声明</span><br><span class="line">    fun getOne(@PathVariable(&quot;id&quot;) ids:Long):Map&lt;String,String&gt;&#123;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><strong>RequestParam 案例一</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;创建一本书</span><br><span class="line">    @PostMapping(&quot;&#x2F;book&quot;)</span><br><span class="line">    fun crateBook(@RequestParam book: String,</span><br><span class="line">                  @RequestParam price: String,</span><br><span class="line">                  @RequestParam isbn: String): Map&lt;String, String&gt; &#123;</span><br><span class="line"></span><br><span class="line">        return mapOf(</span><br><span class="line">                &quot;name&quot; to book,</span><br><span class="line">                &quot;price&quot; to price,</span><br><span class="line">                &quot;isbn&quot; to isbn</span><br><span class="line">        ).apply &#123; println(this) &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>在浏览器中输入：127.0.0.1:8080/api/v1/book，添加表单参数：book，price,isbn,请求成功，返回数据：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;name&quot;: &quot;Flutter第一行代码&quot;,</span><br><span class="line">    &quot;price&quot;: &quot;68.0&quot;,</span><br><span class="line">    &quot;isbn&quot;: &quot;124646455612&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>RequestParam 案例二</strong></p>
-<p>如何获取请求url后面跟着？的参数呢？如：?page=2&amp;pageNum=10，请看代码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;获取书单列表</span><br><span class="line">@GetMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">fun getBookList(@RequestParam page: Int, @RequestParam pageNum:Int):Map&lt;String,Any&gt;&#123;</span><br><span class="line">    val map &#x3D; mapOf(</span><br><span class="line">            &quot;name&quot; to &quot;Flutter第一行代码&quot;,</span><br><span class="line">            &quot;price&quot; to 68.0,</span><br><span class="line">            &quot;isbn&quot; to &quot;124564545654&quot;</span><br><span class="line">    )</span><br><span class="line">    val bookList &#x3D; listOf&lt;Map&lt;String,Any&gt;&gt;(</span><br><span class="line">            map,</span><br><span class="line">            map</span><br><span class="line">    )</span><br><span class="line">    return mapOf(</span><br><span class="line">            &quot;page&quot; to page,</span><br><span class="line">            &quot;pageNum&quot; to pageNum,</span><br><span class="line">            &quot;data&quot; to bookList</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在浏览器如何访问呢？输入：127.0.0.1:8080/api/v1/bookList?page=2&amp;pageNum=10，得到 响应：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;page&quot;: 2,</span><br><span class="line">    &quot;pageNum&quot;: 10,</span><br><span class="line">    &quot;data&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Flutter第一行代码&quot;,</span><br><span class="line">            &quot;price&quot;: 68.0,</span><br><span class="line">            &quot;isbn&quot;: &quot;124564545654&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Flutter第一行代码&quot;,</span><br><span class="line">            &quot;price&quot;: 68.0,</span><br><span class="line">            &quot;isbn&quot;: &quot;124564545654&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-<p>参数正则表达式**</p>
-<p>需求：现在要求末尾请求参数为小写字母和下划线</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正确的请求路径：http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;v1&#x2F;book&#x2F;12&#x2F;ivan_</span><br><span class="line">错误的请求路径：http:&#x2F;&#x2F;127.0.0.1:8081&#x2F;api&#x2F;v1&#x2F;book&#x2F;12&#x2F;ivan_123</span><br></pre></td></tr></table></figure>
-<p>那么应该如何做呢？</p>
-<p>路径参数的正则表达式规则：{路径参数名:正则表达式}</p>
-<p>请看代码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;&#x2F;api&#x2F;v1&quot;)</span><br><span class="line">class BookController &#123;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;username使用正则表达式,限制为小写字母和下划线</span><br><span class="line">    @GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&#x2F;&#123;username:[a-z_]+&#125;&quot;)</span><br><span class="line">    fun getOne(@PathVariable(&quot;id&quot;) id:Long,@PathVariable username:String):Map&lt;String,String&gt;&#123;</span><br><span class="line"></span><br><span class="line">        var map &#x3D; HashMap&lt;String,String&gt;()</span><br><span class="line">        map[&quot;name&quot;] &#x3D; &quot;Flutter开发指南&quot;</span><br><span class="line">        map[&quot;money&quot;] &#x3D; &quot;13.14&quot;</span><br><span class="line">        map[&quot;username&quot;] &#x3D; username</span><br><span class="line">        return map</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-<h1 id="第三章-配置文件"><a href="#第三章-配置文件" class="headerlink" title="第三章 配置文件"></a>第三章 配置文件</h1><blockquote>
-<p><strong>知识概要</strong></p>
-<p>在本章节，你将学习到如下内容：</p>
-<ul>
-<li>application.properties，application.yml 两种配置文件</li>
-<li>常用配置属性<ul>
-<li>server.port    server.context-path</li>
-<li>logging.level.root   logging.level.包名</li>
-<li>logging.file</li>
-</ul>
-</li>
-<li>自定义配置属性</li>
-</ul>
-</blockquote>
-<h2 id="3-1-yml"><a href="#3-1-yml" class="headerlink" title="3.1 yml"></a>3.1 yml</h2><blockquote>
-<p>yml是一种新的配置文件，替代以前用的properties配置文件，主要使用key:(空格)value形式,yml文件放在resources目录下，一般命名为：application.yml</p>
-</blockquote>
-<p><strong>常用属性配置</strong>：</p>
-<ul>
-<li>server.port 端口号</li>
-<li>server.servlet.context-path 配置应用根路径，如：/api/v1</li>
-<li>logging.level.root 根级别日志  logging.level.包名 包级别日志，logging.file：定义log日志文件名和路径</li>
-</ul>
-<p><strong>自定义配置属性</strong>：</p>
-<p>步骤一：在yml文件中定义自定义属性</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#自定义配置属性</span><br><span class="line">book:</span><br><span class="line">  name: flutter第一行代码</span><br><span class="line">  price: 66.6</span><br><span class="line">  isbn: &quot;$&#123;random.uuid&#125;&quot;</span><br></pre></td></tr></table></figure>
-<p>步骤二：在代码中通过@Value注解，引入自定义属性，注意在kotlin中，$是取变量的值，所以这里需要转义字符</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Value(&quot;\$&#123;book.name&#125;&quot;)</span><br><span class="line">private lateinit var name:String</span><br><span class="line"></span><br><span class="line">@Value(&quot;\$&#123;book.price&#125;&quot;)</span><br><span class="line">lateinit var price:String</span><br><span class="line"></span><br><span class="line">@Value(&quot;\$&#123;book.isbn&#125;&quot;)</span><br><span class="line">lateinit var isbn:String</span><br></pre></td></tr></table></figure>
-<p>然后就可以直接使用变量啦！</p>
-<p><strong>自定义配置对象</strong></p>
-<p>步骤一：同上，定义Yml配置属性</p>
-<p>步骤二：新建实体类，使用注解@Component和@ConfigurationProperties(prefix = “xxx”),prefix对应yml配置属性</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Component</span><br><span class="line">@ConfigurationProperties(prefix &#x3D; &quot;book&quot;)</span><br><span class="line"> class Book&#123;</span><br><span class="line">    lateinit var name:String</span><br><span class="line">    lateinit var price:String</span><br><span class="line">    lateinit var isbn:String</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>步骤三：在代码中，使用Autowired注入对象</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private lateinit var book:Book</span><br></pre></td></tr></table></figure>
-<h2 id="3-2-yml多环境配置"><a href="#3-2-yml多环境配置" class="headerlink" title="3.2 yml多环境配置"></a>3.2 yml多环境配置</h2><p>一般我们会使用多个开发环境，如Dev开发环境，生产环境pro，那么我们如何通过yml来配置多环境呢？</p>
-<p>第一步：首先我们需要定义各个环境的yml文件，如：</p>
-<ul>
-<li>dev开发环境 application-dev.yml</li>
-<li>pro开发环境 application-pro.yml</li>
-</ul>
-<p>第二步：在application.yml中配置使用哪个开发环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">	profiles:</span><br><span class="line">		active: dev 表示当前Dev开发环境处于激活状态</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第四章-数据库"><a href="#第四章-数据库" class="headerlink" title="第四章 数据库"></a>第四章 数据库</h1><blockquote>
-<p>知识概要</p>
-<p>在本章节，你将学习到以下内容</p>
-<ul>
-<li>Springboot-Data-JPA</li>
-<li>MySQL</li>
-</ul>
-</blockquote>
-<h2 id="4-1mysql"><a href="#4-1mysql" class="headerlink" title="4.1mysql"></a>4.1mysql</h2><p><strong>安装</strong></p>
-<p>安装版本：mysql-8.0.22-winx64</p>
-<p>参考博客：<a href="https://blog.csdn.net/qq_44040327/article/details/110420405">https://blog.csdn.net/qq_44040327/article/details/110420405</a></p>
-<p><strong>Navicat连接mysql</strong></p>
-<p>连接失败，错误原因：<strong>mysql8 之前的版本中加密规则是mysql_native_password,而在mysql8之后,加密规则是caching_sha2_password</strong>，而我电脑上装的是最新版的mysql8</p>
-<p><strong>解决办法</strong></p>
-<p><strong>方法1.升级navicat驱动；</strong></p>
-<p><strong>方法2.把mysql用户登录密码加密规则还原成mysql_native_password.</strong> </p>
-<p>这里我们选择第二种方式</p>
-<p>第一步：<strong>mysql -u root -p</strong>，输入密码，进入mysql</p>
-<p>第二步：进入如下操作：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39; PASSWORD EXPIRE NEVER; #修改加密规则 （password就是你的密码）**</span><br><span class="line">**ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;password&#39;; #更新一下用户的密码 password就是你的密码** </span><br><span class="line">**FLUSH PRIVILEGES; #刷新权限**</span><br></pre></td></tr></table></figure>
-<p>参考博客：<a href="https://blog.csdn.net/seventopalsy/article/details/80195246?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control">https://blog.csdn.net/seventopalsy/article/details/80195246?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control</a></p>
-<p><strong>Navicat 创建数据库</strong></p>
-<p>字符集编码选择 utf-8 unicode，排序规则 utf8-bin</p>
-<p><strong>mysql时区问题</strong></p>
-<p>springboot启动报错，错误如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">You must configure either the server or JDBC driver (via the serverTimezone conf）</span><br></pre></td></tr></table></figure>
-<p>错误原因：mysql版本太高，默认时区和当前电脑时区不一致，如何修改时区：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;serverTimezone&#x3D;GMT%2B8 指定中国时区</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;book?useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8&amp;serverTimezone&#x3D;GMT%2B8</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="4-2-Sping-Data-JPA"><a href="#4-2-Sping-Data-JPA" class="headerlink" title="4.2 Sping-Data-JPA"></a>4.2 Sping-Data-JPA</h2><p>pom.xml添加相关依赖</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>注意，如果是用kotlin，还需要添加一些插件 jpa,all-open</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">  &lt;artifactId&gt;kotlin-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">  &lt;groupId&gt;org.jetbrains.kotlin&lt;&#x2F;groupId&gt;</span><br><span class="line">  &lt;configuration&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;compilerPlugins&gt;</span><br><span class="line">      ...</span><br><span class="line">      &lt;plugin&gt;jpa&lt;&#x2F;plugin&gt;</span><br><span class="line">      &lt;plugin&gt;all-open&lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;compilerPlugins&gt;</span><br><span class="line">    &lt;pluginOptions&gt;</span><br><span class="line">      &lt;option&gt;all-open:annotation&#x3D;javax.persistence.Entity&lt;&#x2F;option&gt;</span><br><span class="line">      &lt;option&gt;all-open:annotation&#x3D;javax.persistence.Embeddable&lt;&#x2F;option&gt;</span><br><span class="line">      &lt;option&gt;all-open:annotation&#x3D;javax.persistence.MappedSuperclass&lt;&#x2F;option&gt;</span><br><span class="line">    &lt;&#x2F;pluginOptions&gt;</span><br><span class="line">  &lt;&#x2F;configuration&gt;</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.jetbrains.kotlin&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;kotlin-maven-allopen&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;kotlin.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.jetbrains.kotlin&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;kotlin-maven-noarg&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;kotlin.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="4-3数据库配置"><a href="#4-3数据库配置" class="headerlink" title="4.3数据库配置"></a>4.3数据库配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#JPA配置,mysql数据库配置</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;book?useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8&amp;serverTimezone&#x3D;GMT%2B8</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">  jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      ddl-auto: update</span><br><span class="line">    show-sql: true</span><br></pre></td></tr></table></figure>
-<h2 id="4-3实战增删改查"><a href="#4-3实战增删改查" class="headerlink" title="4.3实战增删改查"></a>4.3实战增删改查</h2><p>主要分为三层：</p>
-<ul>
-<li>repository层 实际操作数据库</li>
-<li>service层：连接controller和repository层</li>
-<li>controller层：业务层</li>
-</ul>
-<p><strong>repository层</strong></p>
-<p>定义接口，继承JpaRepository，泛型为实体类，Long</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface BookRepository:JpaRepository&lt;Book,Long&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>service层</strong></p>
-<p>service层需要使用@Service标注，使用@Autowired注入BookRepository</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Service</span><br><span class="line">class BookService &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    lateinit var bookRepository: BookRepository</span><br><span class="line"></span><br><span class="line">    fun add(book: Book): Book &#x3D; bookRepository.save(book)</span><br><span class="line"></span><br><span class="line">    fun delete(id: Long) &#x3D; bookRepository.deleteById(id)</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;注意不要使用getOne，如果查询不到数据，会抛出异常</span><br><span class="line">    fun getOne(id:Long):Book? &#x3D; bookRepository.findByIdOrNull(id)</span><br><span class="line"></span><br><span class="line">    fun findAll(): List&lt;Book&gt; &#x3D; bookRepository.findAll()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>controller层</strong></p>
-<p>新增一本书：使用post请求， @PostMapping(“/book”)</p>
-<p>删除一本书：使用delete请求，@DeleteMapping(“/book/{id}”)</p>
-<p>查询书单列表：使用get请求，@GetMapping(“/bookList”)</p>
-<p>更新某本书：使用put请求，@PutMapping(“/update”)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">class BookController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    lateinit var service: BookService</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;添加一本书</span><br><span class="line">    @PostMapping(&quot;&#x2F;book&quot;)</span><br><span class="line">    fun add(book: Book):Book&#123;</span><br><span class="line">        return service.add(book)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;删除某本书</span><br><span class="line">    @DeleteMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    fun deleteById(@PathVariable id:Long)&#123;</span><br><span class="line">        service.delete(id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @PutMapping(&quot;&#x2F;update&quot;)</span><br><span class="line">    fun updateBook(book: Book)&#123;</span><br><span class="line">        service.add(book)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;查询所有书籍</span><br><span class="line">    @GetMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">    fun getBookList():List&lt;Book&gt;&#123;</span><br><span class="line">     return service.findAll()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-3复杂查询"><a href="#4-3复杂查询" class="headerlink" title="4.3复杂查询"></a>4.3复杂查询</h2><blockquote>
-<p>如何查看Spring-Data-JPA查询关键词，在Spring.io官网，找Project,Spring-Data-JPA,点击查看想要查看版本的</p>
-<p>Reference Doc.根据目录，找到<a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords">Appendix C: Repository query keywords</a></p>
-</blockquote>
-<p>Spring-Data-JPA默认提供的只有基于主键ID的增删改查，以及查询全部等方法，并没有提供POJO的其他属性的操作方法，需要自己手动书写，书写有一定的规则，一般有by,and等连接属性，idea会有语法提示，这个不用担心</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;方法名必须按照规则写，参数名称不用和数据库字段一致，一定要写返回值类型</span><br><span class="line">fun findByAuthorAndStatus(author:String,status:Int):List&lt;Book&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>And</strong>查询：findByAuthorAndStatus：根据author和status两个字段查询，都符合的才满足条件</p>
-<p><strong>EndsWith</strong>：以xxx结尾</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;查询description以end结尾</span><br><span class="line">fun findByDescriptionEndsWith(end:String):List&lt;Book&gt;</span><br></pre></td></tr></table></figure>
-<p>contain：包含</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;查询描述中包含某个字符串</span><br><span class="line">fun findByDescriptionContains(content:String):List&lt;Book&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="4-4-自定义查询"><a href="#4-4-自定义查询" class="headerlink" title="4.4 自定义查询"></a>4.4 自定义查询</h2><blockquote>
-<p>自定义查询适用于JPA提供的语法不能满足我们得需求，需要自定义SQL语句的查询，提供两种查询</p>
-<ul>
-<li>JPQL查询</li>
-<li>SQL查询</li>
-</ul>
-</blockquote>
-<p>JPQL查询：这里使用的是类名，同时必须给类名取个别名</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Query(&quot;select item from Book item where length(item.name) &gt;?1&quot;)</span><br><span class="line">fun executeJPQL(len: Int): List&lt;Book&gt;</span><br></pre></td></tr></table></figure>
-<p>SQL查询：</p>
-<p>注意即使是原生SQL语句，?后面也要跟占位符，1表示方法的第一个参数，如果有第二个参数，用2占位；原生SQL使用的是表名</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Query(&quot;select * from book where length(name) &gt; ?1&quot;, nativeQuery &#x3D; true)</span><br><span class="line">fun executeSQL(len: Int): List&lt;Book&gt;</span><br><span class="line"></span><br><span class="line">@Query(&quot;select u from User u where u.firstname like %?1&quot;)</span><br><span class="line">fun findByFirstnameEndsWith(firstname:String):List&lt;User&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="4-5事务"><a href="#4-5事务" class="headerlink" title="4.5事务"></a>4.5事务</h2><blockquote>
-<p>本小节中，你将学习事务操作的两个注解</p>
-<ul>
-<li>@Modifying</li>
-<li>@Transactional</li>
-</ul>
-</blockquote>
-<p>在spring-data-jpa中，自定义语句没有提供删除和更新的注解，仍然使用@Query来自定义，必须加上**@Modifying**</p>
-<p>来支持更新和删除的语句，同时要支持事务，要添加@Transactional</p>
-<p><strong>案例一</strong>：根据id修改status属性</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Query(&quot;update Book b set b.status &#x3D; ?2 where b.id &#x3D; ?1&quot;)</span><br><span class="line">@Modifying @Transactional</span><br><span class="line">fun updateByJPQL(id: Long, status: Int):Int</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong>：这里为什么没有使用jpa默认提供的save方法来更新，是因为save更新，会将实体类的每个属性都更新，而我们的需求只是根据id更新status属性</p>
-<p><strong>案例二</strong>：根据id删除该条数据</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Query(&quot;delete from Book b where b.id &#x3D; ?1&quot;)</span><br><span class="line">@Modifying @Transactional</span><br><span class="line">fun deleteByJPQL(id:Long):Int</span><br></pre></td></tr></table></figure>
-<p><strong>案例三</strong>：演示事务操作</p>
-<p>在下面的例子中，我们执行了一条更新操作，一条删除操作，中间抛出了一个异常，但是加了事务注解，所以发生异常的时候，第一条更新操作会回滚</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">updateAndDeleteByJPQL</span><span class="params">(uId: <span class="type">Long</span>, status: <span class="type">Int</span>,dId:<span class="type">Long</span>)</span></span>:<span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">val</span> uCount = bookRepository.updateByJPQL(uId,status)</span><br><span class="line">    <span class="keyword">throw</span> Exception()</span><br><span class="line">    <span class="keyword">val</span> dCount = bookRepository.deleteByJPQL(dId)</span><br><span class="line">    <span class="keyword">return</span> uCount + dCount</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="第五章-Thymeleaf"><a href="#第五章-Thymeleaf" class="headerlink" title="第五章 Thymeleaf"></a>第五章 Thymeleaf</h1><blockquote>
-<p>知识预览</p>
-<p>在本章节，你将学习到如下内容：</p>
-<ul>
-<li>Thymeleaf配置</li>
-<li>Thymeleaf获取数据</li>
-</ul>
-</blockquote>
-<h2 id="5-1-配置thymeleaf"><a href="#5-1-配置thymeleaf" class="headerlink" title="5.1 配置thymeleaf"></a>5.1 配置thymeleaf</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>注意：默认springboot提供的是2版本，如果需要使用3版本，需要如下操作：</p>
-<p>如果是SpringBoot1.x.x版本配置thymeleaf3</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    ...</span><br><span class="line">    &#x2F;&#x2F;SpringBoot1.x.x版本配置thymeleaf</span><br><span class="line">    &lt;thymeleaf.version&gt;3.0.9.RELEASE&lt;&#x2F;thymeleaf.version&gt;</span><br><span class="line">    &lt;thymeleaf-layout-dialect.version&gt;2.2.2&lt;&#x2F;thymeleaf-layout-dialect.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br></pre></td></tr></table></figure>
-<p>如果是SpringBoot2.x.x版本配置thymeleaf3</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    ...</span><br><span class="line">    &#x2F;&#x2F;SpringBoot2.x.x版本配置thymeleaf</span><br><span class="line">    &lt;springboot-thymeleaf.version&gt;3.0.9.RELEASE&lt;&#x2F;springboot-thymeleaf.version&gt;</span><br><span class="line">    &lt;thymeleaf-layout-dialect.version&gt;2.2.2&lt;&#x2F;thymeleaf-layout-dialect.version&gt;</span><br><span class="line">&lt;&#x2F;properties&gt;</span><br></pre></td></tr></table></figure>
-<p>注意：我使用的springboot 2.4.0 ，当使用2.4.1时，找不到css</p>
-<p>yml配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">spring：</span><br><span class="line">	thymeleaf：</span><br><span class="line">		model: HTML</span><br></pre></td></tr></table></figure>
-<h2 id="5-2-thymeleaf取值"><a href="#5-2-thymeleaf取值" class="headerlink" title="5.2 thymeleaf取值"></a>5.2 thymeleaf取值</h2><blockquote>
-<p>本小节你将学习到</p>
-<ul>
-<li>thymeleaf传参：通过springMVC的model</li>
-<li>thymeleaf获取数据：通过th:text</li>
-</ul>
-</blockquote>
-<p><strong>案例一：获取书单详情</strong></p>
-<p>调用service查询数据库，得到书单信息，添加到springMVC的model中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">fun detail(@PathVariable id:Long,model:Model):String&#123;</span><br><span class="line">    val book: Book &#x3D; service.getOne(id)</span><br><span class="line">    model.addAttribute(&quot;book&quot;,book)</span><br><span class="line">    return &quot;book&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在book.html中如何获取数据呢？</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;&lt;strong&gt;书单：&lt;&#x2F;strong&gt;&lt;span th:text&#x3D;&quot;$&#123;book.name&#125;&quot;&gt;西游记&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;&lt;strong&gt;作者：&lt;&#x2F;strong&gt;&lt;span th:text&#x3D;&quot;$&#123;book.author&#125;&quot;&gt;吴承恩&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;&lt;strong&gt;描述：&lt;&#x2F;strong&gt;&lt;span th:text&#x3D;&quot;$&#123;book.description&#125;&quot;&gt;这是一本中国古代神话小说&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;&lt;strong&gt;状态：&lt;&#x2F;strong&gt;&lt;span th:text&#x3D;&quot;$&#123;book.status&#125;&quot;&gt;0&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-<p>我们可以将数据在body引入，方便在页面各个地方引用，这里使用object</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;body th:object&#x3D;&quot;$&#123;book&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>使用的时候则用星号 *{}</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">th:text&#x3D;&quot;*&#123;name&#125;&quot;</span><br></pre></td></tr></table></figure>
-<p>注意：th需要导入头文件：xmlns:th=”<a href="http://www.w3.org/1999/xhtml&quot;">http://www.w3.org/1999/xhtml&quot;</a></p>
-<h2 id="5-3静态资源"><a href="#5-3静态资源" class="headerlink" title="5.3静态资源"></a>5.3静态资源</h2><blockquote>
-<p>本小节中，你将学习到</p>
-<ul>
-<li>引入bootstrap资源</li>
-<li>thymeleaf引入静态资源</li>
-</ul>
-</blockquote>
-<p><strong><a href="https://www.bootcss.com/">BootStrap</a></strong></p>
-<p><strong>一：引入资源</strong></p>
-<p>下载bootstrap的zip包，用于生产环境的 Bootstrap，解压，拷贝css,js,fonts文件夹到项目的resources目录下</p>
-<p><strong>二：thymeleaf引入静态资源</strong></p>
-<p>header中引入：</p>
-<p><strong>注意</strong>：</p>
-<ul>
-<li><ol>
-<li>href使用th:href，th:href引入资源只有在项目运行的时候才能有效</li>
-<li>引入语法规则：@{/xxx}  /表示资源的根路径，即static目录</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;bootstrap.min.css&#125;&quot;</span><br><span class="line">href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>body末尾引入：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;jquery@1.12.4&#x2F;dist&#x2F;jquery.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script th:src&#x3D;&quot;@&#123;&#x2F;js&#x2F;bootstrap.min.js&#125;&quot; src&#x3D;&quot;..&#x2F;static&#x2F;js&#x2F;bootstrap.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="5-4-判断和循环"><a href="#5-4-判断和循环" class="headerlink" title="5.4 判断和循环"></a>5.4 判断和循环</h2><p><strong>Swtich case</strong>用法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p th:switch&#x3D;&quot;*&#123;status&#125;&quot;&gt;&lt;strong&gt;状态：&lt;&#x2F;strong&gt;</span><br><span class="line">  &lt;span th:case&#x3D;&quot;0&quot;&gt;想读&lt;&#x2F;span&gt;</span><br><span class="line">  &lt;span th:case&#x3D;&quot;1&quot;&gt;在读&lt;&#x2F;span&gt;</span><br><span class="line">  &lt;span th:case&#x3D;&quot;2&quot;&gt;已读&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-<p>If,unless</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;alert alert-success&quot; th:unless&#x3D;&quot;*&#123;status &#x3D;&#x3D; 0&#125;&quot;&gt;</span><br><span class="line">	&lt;strong&gt;不错&lt;&#x2F;strong&gt;，知识就是力量</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;alert alert-warning&quot; th:if&#x3D;&quot;*&#123;status &#x3D;&#x3D; 0&#125;&quot;&gt;</span><br><span class="line">	&lt;strong&gt;注意&lt;&#x2F;strong&gt;，你还没有行动</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<p>If:表示条件满足的时候显示   unless:表示条件不满足显示</p>
-<p>Each:循环</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;table class&#x3D;&quot;table table-bordered&quot;&gt;</span><br><span class="line">  &lt;thead&gt;</span><br><span class="line">  &lt;th&gt;#&lt;&#x2F;th&gt;&lt;th&gt;书名&lt;&#x2F;th&gt;&lt;th&gt;作者&lt;&#x2F;th&gt;&lt;th&gt;描述&lt;&#x2F;th&gt;&lt;th&gt;状态&lt;&#x2F;th&gt;</span><br><span class="line">  &lt;&#x2F;thead&gt;</span><br><span class="line"></span><br><span class="line">  &lt;tbody&gt;</span><br><span class="line">    &lt;tr th:each&#x3D;&quot;book,iterStat:$&#123;books&#125;&quot;&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;iterStat.count&#125;&quot;&gt;#&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;book.name&#125;&quot;&gt;书名&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;book.author&#125;&quot;&gt;作者&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;book.description&#125;&quot;&gt;描述&lt;&#x2F;td&gt;</span><br><span class="line">      &lt;td th:text&#x3D;&quot;$&#123;book.status&#125;&quot;&gt;状态&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">  &lt;&#x2F;tbody&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<p>循环： th:each=”book,iterStat:${books}，book表示每个item，iterStat:状态变量(itemStat是第二个参数，变量取名无所谓)</p>
-<p>itemStat的属性有：</p>
-<ul>
-<li>index：索引，从0开始</li>
-<li>count：索引，从1开始</li>
-<li>size：长度</li>
-<li>first：当前循环是否第一个</li>
-<li>last：当前循环是否最后一个</li>
-</ul>
-<h2 id="5-5-URL"><a href="#5-5-URL" class="headerlink" title="5.5 URL"></a>5.5 URL</h2><p>案例一：从书单列表跳转到书单详情</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;td&gt;&lt;a th:text&#x3D;&quot;$&#123;book.name&#125;&quot; href&#x3D;&quot;#&quot; th:href&#x3D;&quot;@&#123;&#39;&#x2F;book&#x2F;&#39;+$&#123;book.id&#125;&#125;&quot;&gt;书名&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;</span><br></pre></td></tr></table></figure>
-<p>th:href=”@{‘/book/‘+${book.id}}” 这里使用的是字符串拼接+变量获取</p>
-<h2 id="5-6提交表单，重定向"><a href="#5-6提交表单，重定向" class="headerlink" title="5.6提交表单，重定向"></a>5.6提交表单，重定向</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;#&quot; th:action&#x3D;&quot;@&#123;&#x2F;book&#x2F;add&#125;&quot; method&#x3D;&quot;post&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>这里的@{/book/add} 表示提交到controller的一个方法，路径是/book/add</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@PostMapping(&quot;&#x2F;book&#x2F;add&quot;)</span><br><span class="line">fun add(book: Book):String&#123;</span><br><span class="line">  service.add(book)</span><br><span class="line">  return &quot;redirect:&#x2F;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>添加成功后，需要重定向到列表页面，重新查询数据</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;&#x2F;books&quot;)</span><br><span class="line">fun bookList(model: Model):String&#123;</span><br><span class="line">  service.findAll().apply &#123; model.addAttribute(&quot;books&quot;,this) &#125;</span><br><span class="line">  return &quot;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意以下几点：</p>
-<ul>
-<li>表单的name属性值要对应实体类的属性</li>
-<li>controller中接收的实体类前不需要加@requestParam，基本类型属性才加</li>
-</ul>
-<p>thymeleaf表单下拉框回显</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;select name&#x3D;&quot;status&quot; id&#x3D;&quot;statusId&quot; class&#x3D;&quot;form-control&quot;&gt;</span><br><span class="line">  &lt;option value&#x3D;&quot;0&quot; th:selected&#x3D;&quot;*&#123;status&#125; &#x3D;&#x3D; &#39;0&#39;&quot;&gt;想读&lt;&#x2F;option&gt;</span><br><span class="line">  &lt;option value&#x3D;&quot;1&quot; th:selected&#x3D;&quot;*&#123;status&#125; &#x3D;&#x3D; &#39;1&#39;&quot;&gt;在读&lt;&#x2F;option&gt;</span><br><span class="line">  &lt;option value&#x3D;&quot;2&quot; th:selected&#x3D;&quot;*&#123;status&#125; &#x3D;&#x3D; &#39;2&#39;&quot;&gt;已读&lt;&#x2F;option&gt;</span><br><span class="line">&lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>重定向带参数</strong></p>
-<p>使用RedirectAttributes，RedirectAttributes是Spring mvc 3.1版本之后出来的一个功能，专门用于重定向之后还能带参数跳转的</p>
-<p>案例：新增书单后，重定向到列表页，携带参数message</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;新增一本书单，重定向列表页</span><br><span class="line">@PostMapping(&quot;&#x2F;book&#x2F;add&quot;)</span><br><span class="line">fun add(book: Book,ra: RedirectAttributes):String&#123;</span><br><span class="line">  service.add(book)</span><br><span class="line">  ra.addFlashAttribute(&quot;message&quot;,&quot;《$&#123;book.name&#125;》更新成功&quot;)</span><br><span class="line">  return &quot;redirect:&#x2F;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5.7 使用内置对象</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;对不起，你访问的资源[&lt;code th:text&#x3D;&quot;$&#123;#httpServletRequest.getAttribute(&#39;javax.servlet.error.request_uri&#39;)&#125;&quot;&gt;&lt;&#x2F;code&gt;]不存在！&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="5-7-fragment"><a href="#5-7-fragment" class="headerlink" title="5.7 fragment"></a>5.7 fragment</h2><blockquote>
-<p>片段，即可以将公共部分抽取出来，如博客的导航栏部分，header部分</p>
-</blockquote>
-<ul>
-<li>使用th:fragment标识</li>
-<li>传参：这里需要传入参数title,使用th:replace替换标题</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;head th:fragment&#x3D;&quot;head(title)&quot;&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;!--移动端--&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width,initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title th:replace&#x3D;&quot;$&#123;title&#125;&quot;&gt;首页&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;semantic-ui&#x2F;2.2.10&#x2F;semantic.min.css&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;typo.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;typo.css&#125;&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;animate.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;animate.css&#125;&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;lib&#x2F;prism&#x2F;prism.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;lib&#x2F;prism&#x2F;prism.css&#125;&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;lib&#x2F;tocbot&#x2F;tocbot.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;lib&#x2F;tocbot&#x2F;tocbot.css&#125;&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;me.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;me.css&#125;&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>引入片段</strong>：th:replace=”_fragments :: head(~{::title})”，这里传参就是title标签的博客首页</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;head th:replace&#x3D;&quot;_fragments :: head(~&#123;::title&#125;)&quot;&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;!--移动端--&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width,initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;semantic-ui&#x2F;2.2.10&#x2F;semantic.min.css&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;static&#x2F;css&#x2F;me.css&quot; &gt;</span><br><span class="line">    &lt;title&gt;博客首页&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第六章-分页查询"><a href="#第六章-分页查询" class="headerlink" title="第六章 分页查询"></a>第六章 分页查询</h1><blockquote>
-<p>知识预览</p>
-<p>本章节，你将学习到以下内容</p>
-<ul>
-<li>分页 Pageable，PageRequest，Sort</li>
-</ul>
-</blockquote>
-<h2 id="6-1分页查询"><a href="#6-1分页查询" class="headerlink" title="6.1分页查询"></a>6.1分页查询</h2><p>分页查询主要使用以下对象， Pageable，PageRequest，Sort</p>
-<p>案例一：查询所有书单</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;Service层</span><br><span class="line">fun findAllByPage(page: Pageable):Page&lt;Book&gt;&#123;</span><br><span class="line">	return bookRepository.findAll(page)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;controller层 查询所有书单,提供默认值，防止不传参数报错,返回JSON数据</span><br><span class="line">@GetMapping(&quot;&#x2F;bookList&quot;)</span><br><span class="line">fun getBookList(@RequestParam(defaultValue &#x3D; &quot;0&quot;) page: Int, @RequestParam(defaultValue &#x3D; &quot;5&quot;) size: Int): Page&lt;Book&gt; &#123;</span><br><span class="line">  val sort &#x3D; Sort.by(Sort.Direction.ASC, &quot;id&quot;)</span><br><span class="line">  val pageAble: Pageable &#x3D; PageRequest.of(page, size, sort)</span><br><span class="line">  return service.findAllByPage(pageAble)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果是HTML页面：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;书单列表</span><br><span class="line">@GetMapping(&quot;&#x2F;books&quot;)</span><br><span class="line">fun bookList(@RequestParam(defaultValue &#x3D; &quot;0&quot;) page: Int,</span><br><span class="line">@RequestParam(defaultValue &#x3D; &quot;5&quot;) size: Int,</span><br><span class="line">model: Model):String&#123;</span><br><span class="line"></span><br><span class="line">  val sort &#x3D; Sort.by(Sort.Direction.ASC, &quot;id&quot;)</span><br><span class="line">  val pageAble: Pageable &#x3D; PageRequest.of(page, size, sort)</span><br><span class="line">  service.findAllByPage(pageAble).apply &#123; model.addAttribute(&quot;page&quot;,this) &#125;</span><br><span class="line">  return &quot;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="6-2-PageableDefault"><a href="#6-2-PageableDefault" class="headerlink" title="6.2 PageableDefault"></a>6.2 PageableDefault</h2><p>如何避免page传-1报错,使用PageableDefault注解，当前端页面传递-1的时候，会默认传0到数据库</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;书单列表</span><br><span class="line">@GetMapping(&quot;&#x2F;books&quot;)</span><br><span class="line">fun bookList(@PageableDefault(size &#x3D; 5,sort &#x3D; [&quot;id&quot;],direction &#x3D; Sort.Direction.ASC) page:Pageable,</span><br><span class="line">model: Model):String&#123;</span><br><span class="line">  service.findAllByPage(page).apply &#123; model.addAttribute(&quot;page&quot;,this) &#125;</span><br><span class="line">  return &quot;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="6-3删除书单"><a href="#6-3删除书单" class="headerlink" title="6.3删除书单"></a>6.3删除书单</h2><p>HTML部分</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;#&quot; th:href&#x3D;&quot;@&#123;&#x2F;books&#x2F;&#123;id&#125;&#x2F;delete(id&#x3D;$&#123;book.id&#125;)&#125;&quot;&gt;删除&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<p>controller层</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;浏览器这里没法直接发起delete请求，所以这里用的GetMapping</span><br><span class="line">@GetMapping(&quot;&#x2F;books&#x2F;&#123;id&#125;&#x2F;delete&quot;)</span><br><span class="line">fun delete(@PathVariable id:Long,ra:RedirectAttributes):String&#123;</span><br><span class="line">  service.delete(id)</span><br><span class="line">  ra.addFlashAttribute(&quot;message&quot;,&quot;删除成功&quot;)</span><br><span class="line">  return &quot;redirect:&#x2F;books&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第七章-表单验证"><a href="#第七章-表单验证" class="headerlink" title="第七章 表单验证"></a>第七章 表单验证</h1><h2 id="7-1表单注册"><a href="#7-1表单注册" class="headerlink" title="7.1表单注册"></a>7.1表单注册</h2><p><strong>新建实体类</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Entity</span><br><span class="line">class User(</span><br><span class="line">        @Id @GeneratedValue var id: Long? &#x3D; null,</span><br><span class="line">        var username: String? &#x3D; null,</span><br><span class="line">        var password: String? &#x3D; null,</span><br><span class="line">        var phone: String? &#x3D; null,</span><br><span class="line">        var email: String? &#x3D; null</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p><strong>注册controller</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;注册</span><br><span class="line">@PostMapping(&quot;&#x2F;register&quot;)</span><br><span class="line">fun register(@RequestParam username: String,</span><br><span class="line">@RequestParam password: String,</span><br><span class="line">@RequestParam email: String,</span><br><span class="line">@RequestParam phone: String) :String&#123;</span><br><span class="line">  val user &#x3D; User(username &#x3D; username,password &#x3D; password,email &#x3D; email,phone &#x3D; phone.toInt())</span><br><span class="line">  repository.save(user)</span><br><span class="line">  return &quot;redirect:&#x2F;login&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>数据传输</strong></p>
-<blockquote>
-<p>表单数据都会提交过来，包括确认密码，所以我们需要新建一个对象，UserForm接收表单数据，然后在User类中提供一个方法，拷贝需要的属性，再存入数据库</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">companion object&#123;</span><br><span class="line">  fun convertUser(form:UserForm):User&#123;</span><br><span class="line">    &#x2F;&#x2F;            val user &#x3D; User()</span><br><span class="line">    &#x2F;&#x2F;            BeanUtils.copyProperties(form,user)</span><br><span class="line">    &#x2F;&#x2F;            return user</span><br><span class="line">    return User().apply &#123; BeanUtils.copyProperties(form,this) &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">...省略</span><br><span class="line">val user &#x3D; User.convertUser(userForm) &#x2F;&#x2F;拷贝需要的属性</span><br><span class="line">repository.save(user)</span><br><span class="line">return &quot;redirect:&#x2F;login&quot;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="7-2-表单验证"><a href="#7-2-表单验证" class="headerlink" title="7.2 表单验证"></a>7.2 表单验证</h2><p>表单验证这里主要是后台验证，使用validation注解处理,最新版本没有引入相关依赖，需要自己引入：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-validation&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>遇到问题：SpringBoot Validation + Kotlin校验无效的解决方法</p>
-<p>解决办法：使用 <code>@field</code>,@get</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@field:Min(6,message &#x3D; &quot;密码必须大于6位数&quot;)</span><br><span class="line">var password: String? &#x3D; null,</span><br><span class="line">@field:Pattern(regexp &#x3D; PHONE_REG,message &#x3D; &quot;请输入正确手机号&quot;)</span><br><span class="line">var phone: String? &#x3D; null,</span><br><span class="line">@get:Pattern(regexp &#x3D; EMAIL_REG,message &#x3D; &quot;邮箱格式不对&quot;)</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong>：@Email注解，没效果，所以用的正则表达式判断</p>
-<h2 id="7-3-错误数据返回"><a href="#7-3-错误数据返回" class="headerlink" title="7.3 错误数据返回"></a>7.3 错误数据返回</h2><p>如果我们使用@Valid处理错误信息，那么当return “register”的时候，框架自动会将错误信息封装，不需要我们手动添加错误信息到model中返回</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;注册</span><br><span class="line">@PostMapping(&quot;&#x2F;register&quot;)</span><br><span class="line">fun register(@Valid form:UserForm,result:BindingResult) :String&#123;</span><br><span class="line">  if (!form.checkPassword())&#123;</span><br><span class="line">  result.rejectValue(&quot;passwordAgain&quot;,&quot;confirmError&quot;,&quot;两次密码不一致&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (result.hasErrors())&#123;</span><br><span class="line">  return &quot;register&quot;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  val user &#x3D; User.convertUser(form)</span><br><span class="line">  repository.save(user)</span><br><span class="line">  return &quot;redirect:&#x2F;login&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>前端页面：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form th:action&#x3D;&quot;@&#123;&#x2F;register&#125;&quot; action&#x3D;&quot;&#x2F;register&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;form-group&quot;&gt;</span><br><span class="line">    &lt;label for&#x3D;&quot;usernameId&quot;&gt;用户名：&lt;&#x2F;label&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; th:field&#x3D;&quot;*&#123;username&#125;&quot; name&#x3D;&quot;username&quot; id&#x3D;&quot;usernameId&quot; class&#x3D;&quot;form-control&quot;&gt;</span><br><span class="line">    &lt;p class&#x3D;&quot;form-control-static text-danger&quot; th:if&#x3D;&quot;$&#123;#fields.hasErrors(&#39;username&#39;)&#125;&quot; th:errors&#x3D;&quot;*&#123;username&#125;&quot;&gt;用户名不能为空&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">判断是否显示错误：th:if&#x3D;&quot;$&#123;#fields.hasErrors(&#39;username&#39;)&#125;&quot;</span><br><span class="line"></span><br><span class="line">显示错误：th:errors&#x3D;&quot;*&#123;username&#125;&quot;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第八章：异常处理"><a href="#第八章：异常处理" class="headerlink" title="第八章：异常处理"></a>第八章：异常处理</h1><blockquote>
-<p>知识预览</p>
-<p>本章节，你将学习到如下内容：</p>
-<ul>
-<li>基于thymeleaf模板的异常处理</li>
-<li>基于RESTful API的异常处理</li>
-</ul>
-</blockquote>
-<h2 id="8-1定义错误页面"><a href="#8-1定义错误页面" class="headerlink" title="8.1定义错误页面"></a>8.1定义错误页面</h2><p>分两种情况，项目中是否使用了模板引擎</p>
-<ul>
-<li><p>未使用模板引擎，在static文件下，新建error文件夹，再新建类似404,403,500文件(没有成功，不知道为什么)</p>
-</li>
-<li><p>使用了模板引擎，将error文件夹，移动到templates文件夹</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;..&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;bootstrap.min.css&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>案例一：404页面</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot; xmlns:th&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;..&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;bootstrap.min.css&#125;&quot;&gt;</span><br><span class="line">    &lt;title&gt;404&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;container&quot; style&#x3D;&quot;max-width: 600px;margin-top: 50px&quot;&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;jumbotron&quot;&gt;</span><br><span class="line">    &lt;h2&gt;404&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;p&gt;对不起，你访问的资源[&lt;code th:text&#x3D;&quot;$&#123;#httpServletRequest.getAttribute(&#39;javax.servlet.error.request_uri&#39;)&#125;&quot;&gt;&lt;&#x2F;code&gt;]不存在！  &lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="8-2-HTTP状态码处理异常"><a href="#8-2-HTTP状态码处理异常" class="headerlink" title="8.2 HTTP状态码处理异常"></a>8.2 HTTP状态码处理异常</h2><blockquote>
-<p>案例分析：在本小节中的案例中，根据ID查询数据库，没查询到数据，此时book为null，我们得需求是抛出一个自定义异常，BookNotFoundException，并且需要该异常对应到404页面，该如何处理呢？注意：如果我们不处理数据为空，thymeleaf也会抛出异常，最后到500异常页面，现在的需求就是知道是因为查询不到数据，应该是转到404页面</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;书单详情</span><br><span class="line">@GetMapping(&quot;&#x2F;book&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">fun detail(@PathVariable id: Long, model: Model): String &#123;</span><br><span class="line">  val book &#x3D; service.getOne(id)</span><br><span class="line">  model.addAttribute(&quot;book&quot;, book)</span><br><span class="line">  return &quot;book&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>service层：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fun getOne(id:Long):Book? &#x3D; bookRepository.findByIdOrNull(id)?:throw BookNotFoundException(&quot;查找不到该书单&quot;)</span><br></pre></td></tr></table></figure>
-<p>当查询出来的book为null时，抛出自定义异常，并响应到404页面，给用户提示</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;HttpStatus.NOT_FOUND 即404</span><br><span class="line">@ResponseStatus(code &#x3D; HttpStatus.NOT_FOUND)</span><br><span class="line">class BookNotFoundException(message: String?) : RuntimeException(message)</span><br></pre></td></tr></table></figure>
-<h2 id="8-3-全局异常处理"><a href="#8-3-全局异常处理" class="headerlink" title="8.3 全局异常处理"></a>8.3 全局异常处理</h2><blockquote>
-<p>在上一章节，我们看到，我们可以在service里面处理异常，其实也可以在<a href="https://zhuanlan.zhihu.com/p/141440703">controller中处理异常</a>，但是controller中，只能处理当前controller中的异常，如果我们处理全局异常，需要使用到ControllerAdvice</p>
-</blockquote>
-<p>可以看到：</p>
-<ul>
-<li>类上面使用了@ControllerAdvice注解</li>
-<li>处理全局异常的方法使用 @ExceptionHandler(value = [Exception::class])注解，参数表示可以处理哪些异常</li>
-<li>参数：request: HttpServletRequest, e: Exception</li>
-<li>返回值：ModelAndView</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@ControllerAdvice</span><br><span class="line">class GlobalExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    private val logger: Logger by lazy &#123; LoggerFactory.getLogger(this.javaClass) &#125;</span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(value &#x3D; [Exception::class])</span><br><span class="line">    fun handleException(request: HttpServletRequest, e: Exception): ModelAndView &#123;</span><br><span class="line">        logger.error(&quot;request url :&#123;&#125;, exception: &#123;&#125;&quot;, request.requestURL, e.message)</span><br><span class="line"></span><br><span class="line">				&#x2F;&#x2F;如果有其他自定义异常，则走自定义逻辑，否则走全局异常处理</span><br><span class="line">        if (AnnotationUtils.findAnnotation(e.javaClass, ResponseStatus::class.java) !&#x3D; null) &#123;</span><br><span class="line">            throw  e</span><br><span class="line">        &#125;</span><br><span class="line">        return ModelAndView().apply &#123;</span><br><span class="line">            addObject(&quot;url&quot;,request.requestURL)</span><br><span class="line">            addObject(&quot;exception&quot;,e)</span><br><span class="line">            viewName &#x3D; &quot;error&#x2F;error&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>前端页面小技巧：将错误信息使用注释异常，用户无法直接看到，但是开发者可以通过查看HTML源码，查看错误信息</p>
-<p>主要是使用了th:utext，它可以转义HTML标签</p>
-<p>用th:text不会解析html，用th:utext会解析html，在页面中显示相应的样式</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot; xmlns:th&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;..&#x2F;..&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot; th:href&#x3D;&quot;@&#123;&#x2F;css&#x2F;bootstrap.min.css&#125;&quot;&gt;</span><br><span class="line">    &lt;title&gt;500&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;container&quot; style&#x3D;&quot;max-width: 600px;margin-top: 50px&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;jumbotron&quot;&gt;</span><br><span class="line">            &lt;h2&gt;500&lt;&#x2F;h2&gt;</span><br><span class="line">            &lt;p&gt;对不起，服务异常，请联系管理员！&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div th:utext&#x3D;&quot;&#39;&lt;!--&#39;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div th:utext&#x3D;&quot;&#39;Failed request url : &#39; + $&#123;url&#125;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div th:utext&#x3D;&quot;&#39;Exception message : &#39; + $&#123;exception.message&#125;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;ul th:remove&#x3D;&quot;tag&quot;&gt;</span><br><span class="line">            &lt;li th:each&#x3D;&quot;st:$&#123;exception.stackTrace&#125;&quot; th:remove&#x3D;&quot;tag&quot;&gt;</span><br><span class="line">                &lt;span th:utext&#x3D;&quot;$&#123;st&#125;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">            &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div th:utext&#x3D;&quot;&#39;--&gt;&#39;&quot; th:remove&#x3D;&quot;tag&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h1 id="第九章-日志与AOP"><a href="#第九章-日志与AOP" class="headerlink" title="第九章 日志与AOP"></a>第九章 日志与AOP</h1><h2 id="9-1日志"><a href="#9-1日志" class="headerlink" title="9.1日志"></a>9.1日志</h2><p><strong>日志级别</strong></p>
-<p>Springboot 默认使用LogBack来记录日志，日志级别从低到高为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR</span><br></pre></td></tr></table></figure>
-<p>Springboot 默认的日志级别为info，即只会打印info及更高级别的日志，如warn,error</p>
-<p><strong>如何修改日志级别？</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">logging:</span><br><span class="line">  level:</span><br><span class="line">    root: debug</span><br><span class="line">    com.ivan.springboot: debug</span><br></pre></td></tr></table></figure>
-<p>修改为debug级别日志，则控制台只会输出debug及以上的日志</p>
-<p>日志输出到文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">logging.file.path:只能指定路径，默认为spring.log</span><br><span class="line">logging.file.name:可以指定路径和文件名，如果同时指定，则path无效，建议指定name</span><br><span class="line"></span><br><span class="line">logging:</span><br><span class="line">  file:</span><br><span class="line">    path: ttt	&#x2F;&#x2F;同时指定，这个无效，只能指定目录，默认文件名为spring.log</span><br><span class="line">    name: ddd&#x2F;ivan.log &#x2F;&#x2F;这个生效，同时指定目录和文件名</span><br></pre></td></tr></table></figure>
-<p>默认日志输出文件大小为10M，超过10M的时候，会切分，如spring.0 spring.1等多个文件</p>
-<h2 id="9-2-自定义日志配置"><a href="#9-2-自定义日志配置" class="headerlink" title="9.2 自定义日志配置"></a>9.2 自定义日志配置</h2><p>如果我们要进行更多的精细化的日志配置，那么我们需要使用XML来进行配置</p>
-<p><strong>指定日志配置文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">logging:</span><br><span class="line">  config: classpath:logback-dev.xml</span><br><span class="line">  level:</span><br><span class="line">    root: debug</span><br><span class="line">  file:</span><br><span class="line">    name: devlog&#x2F;my.log</span><br></pre></td></tr></table></figure>
-<p>通过logging.config 来指定日志配置文件</p>
-<p>主要包含两部分：</p>
-<ul>
-<li>继承的默认配置</li>
-<li>需要自定义的配置：appender部分</li>
-</ul>
-<p>在以下文件中，我们主要配置日志文件名和分割大小</p>
-<ul>
-<li>日志文件名：fileNamePattern来配置，加上年月日，方便我们查看日志</li>
-<li>日志切分大小：maxFileSize来配置，默认10兆，我们可以根据需要修改</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;!--包含Spring boot对logback日志的默认配置--&gt;</span><br><span class="line">    &lt;include resource&#x3D;&quot;org&#x2F;springframework&#x2F;boot&#x2F;logging&#x2F;logback&#x2F;defaults.xml&quot; &#x2F;&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;LOG_FILE&quot; value&#x3D;&quot;$&#123;LOG_FILE:-$&#123;LOG_PATH:-$&#123;LOG_TEMP:-$&#123;java.io.tmpdir:-&#x2F;tmp&#125;&#125;&#125;&#x2F;spring.log&#125;&quot;&#x2F;&gt;</span><br><span class="line">    &lt;include resource&#x3D;&quot;org&#x2F;springframework&#x2F;boot&#x2F;logging&#x2F;logback&#x2F;console-appender.xml&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--重写了Spring Boot框架 org&#x2F;springframework&#x2F;boot&#x2F;logging&#x2F;logback&#x2F;file-appender.xml 配置--&gt;</span><br><span class="line">    &lt;appender name&#x3D;&quot;TIME_FILE&quot;</span><br><span class="line">              class&#x3D;&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;FILE_LOG_PATTERN&#125;&lt;&#x2F;pattern&gt;</span><br><span class="line">        &lt;&#x2F;encoder&gt;</span><br><span class="line">        &lt;file&gt;$&#123;LOG_FILE&#125;&lt;&#x2F;file&gt;</span><br><span class="line">        &lt;rollingPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;!--LOG_FILE 对应我们在yml中配置的日志文件名--&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;LOG_FILE&#125;.%d&#123;yyyy-MM-dd&#125;.%i&lt;&#x2F;fileNamePattern&gt;</span><br><span class="line">            &lt;!--保留历史日志一年的时间--&gt;</span><br><span class="line">            &lt;maxHistory&gt;30&lt;&#x2F;maxHistory&gt;</span><br><span class="line">            &lt;!--</span><br><span class="line">            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志</span><br><span class="line">            --&gt;</span><br><span class="line">            &lt;timeBasedFileNamingAndTriggeringPolicy class&#x3D;&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span><br><span class="line">                &lt;maxFileSize&gt;1MB&lt;&#x2F;maxFileSize&gt;</span><br><span class="line">            &lt;&#x2F;timeBasedFileNamingAndTriggeringPolicy&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;rollingPolicy&gt;</span><br><span class="line">    &lt;&#x2F;appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;root level&#x3D;&quot;INFO&quot;&gt;</span><br><span class="line">        &lt;appender-ref ref&#x3D;&quot;CONSOLE&quot; &#x2F;&gt;</span><br><span class="line">        &lt;appender-ref ref&#x3D;&quot;TIME_FILE&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;root&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;configuration&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">            1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）</span><br><span class="line">            2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：</span><br><span class="line"></span><br><span class="line">                my.2017-08-01.0   80MB</span><br><span class="line">                my.2017-08-01.1   10MB</span><br><span class="line">                my.2017-08-02.0   56MB</span><br><span class="line">                my.2017-08-03.0   53MB</span><br><span class="line">                ......</span><br><span class="line">        --&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="9-3-Spring-AOP"><a href="#9-3-Spring-AOP" class="headerlink" title="9.3 Spring AOP"></a>9.3 Spring AOP</h2><p><strong>引入AOP</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-aop&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>使用AOP</p>
-<p>和AOP相关的几个注解：</p>
-<ul>
-<li>@Aspect 标识这是一个AOP</li>
-<li>@Component</li>
-<li>@Pointcut 定义切面</li>
-<li>@Before 方法执行之前</li>
-<li>@After 方法执行之后</li>
-</ul>
-<p>切面定义规则：</p>
-<p>@Pointcut(“execution(返回值 包名.类名.方法名(方法参数))”)，使用* 表示任意值</p>
-<p>如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Pointcut(&quot;execution(* com.qw.springbootdemo.springbootdemokt.controller.LogTestApi.log(..))&quot;)</span><br></pre></td></tr></table></figure>
-<p>如果是包下面的所有类的所有方法，则：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Pointcut(&quot;execution(* com.qw.springbootdemo.springbootdemokt.controller.*.*(..))&quot;)</span><br></pre></td></tr></table></figure>
-<p>案例一：使用aop在方法执行前后打印日志</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">@Component</span><br><span class="line">class LogAspect &#123;</span><br><span class="line"></span><br><span class="line">  private val logger &#x3D; LoggerFactory.getLogger(this.javaClass)</span><br><span class="line"></span><br><span class="line">  @Pointcut(&quot;execution(* com.qw.springbootdemo.springbootdemokt.controller.LogTestApi.log(..))&quot;)</span><br><span class="line">  fun log()&#123;&#125;</span><br><span class="line"></span><br><span class="line">  @Before(&quot;log()&quot;)</span><br><span class="line">  fun doBefore()&#123;</span><br><span class="line">  logger.info(&quot;------doBefore----------&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">  @After(&quot;log()&quot;)</span><br><span class="line">  fun doAfter()&#123;</span><br><span class="line">  logger.info(&quot;------doAfter----------&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @AfterReturning(pointcut &#x3D; &quot;log()&quot;,returning &#x3D; &quot;result&quot;)</span><br><span class="line">  fun doAfterReturning(result:Any)&#123;</span><br><span class="line">  logger.info(&quot;------doAfterReturning---------- 内容：&#123;&#125;&quot;,result)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">class LogTestApi &#123;</span><br><span class="line"></span><br><span class="line">    private val logger &#x3D; LoggerFactory.getLogger(this.javaClass)</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;log&quot;)</span><br><span class="line">    fun log():String&#123;</span><br><span class="line">        logger.info(&quot;-------------log-------------&quot;)</span><br><span class="line">        return &quot;---logTest---&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>控制台执行结果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c.q.s.springbootdemokt.aspect.LogAspect  : ------doBefore----------</span><br><span class="line">c.q.s.s.controller.LogTestApi            : -------------log-------------</span><br><span class="line">c.q.s.springbootdemokt.aspect.LogAspect  : ------doAfterReturning---------- 内容：---logTest---</span><br><span class="line">c.q.s.springbootdemokt.aspect.LogAspect  : ------doAfter----------</span><br></pre></td></tr></table></figure>
-<p><strong>案例2：记录请求与响应</strong></p>
-<p>封装请求数据：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data class RequestLog(</span><br><span class="line">  var url:String,&#x2F;&#x2F;请求的url资源</span><br><span class="line">  var ip:String,&#x2F;&#x2F;请求方的IP地址</span><br><span class="line">  var method:String,&#x2F;&#x2F;请求的控制器和方法</span><br><span class="line">  var args:Array&lt;Any&gt;,&#x2F;&#x2F;请求参数</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Before(&quot;log()&quot;)</span><br><span class="line">    fun doBefore(joinPoint: JoinPoint)&#123;</span><br><span class="line">        &#x2F;&#x2F;经过如下两步，可以拿到request请求</span><br><span class="line">        val attributes &#x3D; RequestContextHolder.getRequestAttributes() as ServletRequestAttributes</span><br><span class="line">        val request &#x3D; attributes.request</span><br><span class="line">        &#x2F;&#x2F;封装请求数据</span><br><span class="line">        val requestLog &#x3D; RequestLog(</span><br><span class="line">                url &#x3D; request.requestURI,</span><br><span class="line">                ip &#x3D; request.remoteAddr,</span><br><span class="line">                method &#x3D; &quot;$&#123;joinPoint.signature.declaringTypeName&#125;.$&#123;joinPoint.signature.name&#125;&quot;,</span><br><span class="line">                args &#x3D; joinPoint.args</span><br><span class="line">        )</span><br><span class="line">        logger.info(&quot;------request-----&#123;&#125;&quot;,requestLog)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@AfterReturning(pointcut &#x3D; &quot;log()&quot;,returning &#x3D; &quot;result&quot;)</span><br><span class="line">fun doAfterReturning(result:Any)&#123;</span><br><span class="line">	logger.info(&quot;------return---------内容：&#123;&#125;&quot;,result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第十章-拦截器Intercepter"><a href="#第十章-拦截器Intercepter" class="headerlink" title="第十章 拦截器Intercepter"></a>第十章 拦截器Intercepter</h1><blockquote>
-<p>知识预览</p>
-<ul>
-<li>实现拦截器</li>
-<li>注册拦截器</li>
-</ul>
-</blockquote>
-<p><strong>实现拦截器</strong></p>
-<p>需要实现HandlerInterceptor接口，里面包含如下三个方法</p>
-<ul>
-<li>preHandle ：从servlet进入controller前拦截</li>
-<li>postHandle ：controller处理完，返回servlet前拦截</li>
-<li>afterCompletion:完成后，一般用于释放资源等</li>
-</ul>
-<p><strong>注册拦截器</strong></p>
-<p>实现WebMvcConfigurer，重写addInterceptors方法，添加拦截器</p>
-<p><strong>案例一：实现登陆拦截</strong></p>
-<p>需求分析：当登陆完成后，可以访问一些页面(这些页面必须要求登陆状态)，等退出登陆后，访问这些页面自动重定向到登陆页面</p>
-<p>实现需求：</p>
-<p>当登陆成功后，添加用户信息到session中：使用httpSession</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@PostMapping(&quot;&#x2F;login&quot;)</span><br><span class="line">fun loginPost(@RequestParam username:String,@RequestParam password:String,httpSession: HttpSession):String&#123;</span><br><span class="line">  val user &#x3D; repository.findUserByUsernameAndPassword(username, password)</span><br><span class="line">  if (user !&#x3D; null)&#123;</span><br><span class="line">  httpSession.setAttribute(&quot;user&quot;,user)</span><br><span class="line">  return &quot;index&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  return &quot;login&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>拦截器逻辑</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class LoginInterceptor : HandlerInterceptor &#123;</span><br><span class="line"></span><br><span class="line">    override fun preHandle(request: HttpServletRequest,</span><br><span class="line">                           response: HttpServletResponse,</span><br><span class="line">                           handler: Any): Boolean &#123;</span><br><span class="line">        &#x2F;&#x2F;如果未登录，返回到登陆页面，否则通过</span><br><span class="line">        val user &#x3D; request.session.getAttribute(&quot;user&quot;)</span><br><span class="line">        if (user &#x3D;&#x3D; null) &#123;</span><br><span class="line">            response.sendRedirect(&quot;$&#123;request.contextPath&#125;&#x2F;login&quot;)</span><br><span class="line">            return false</span><br><span class="line">        &#125;</span><br><span class="line">        return true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注册拦截器：</strong></p>
-<p>需要实现WebMvcConfigurer，重写addInterceptors来添加拦截器</p>
-<ul>
-<li>addInterceptor 添加拦截器</li>
-<li>addPathPatterns：添加需要拦截的页面</li>
-<li>excludePathPatterns：添加不需要拦截的页面，这里登陆页面不需要拦截</li>
-</ul>
-<p>注意：需要使用@Configuration标识</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">class WebConfig : WebMvcConfigurer &#123;</span><br><span class="line"></span><br><span class="line">    override fun addInterceptors(registry: InterceptorRegistry) &#123;</span><br><span class="line">        super.addInterceptors(registry)</span><br><span class="line">        registry.addInterceptor(LoginInterceptor())</span><br><span class="line">                .addPathPatterns(&quot;&#x2F;&quot;)</span><br><span class="line">                .addPathPatterns(&quot;&#x2F;book&#x2F;**&quot;)</span><br><span class="line">                .addPathPatterns(&quot;&#x2F;books&#x2F;**&quot;)</span><br><span class="line">                .excludePathPatterns(&quot;&#x2F;login&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注销：清除session中的用户信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;注销</span><br><span class="line">@GetMapping(&quot;&#x2F;logout&quot;)</span><br><span class="line">fun loginOut(session: HttpSession):String&#123;</span><br><span class="line">  session.removeAttribute(&quot;user&quot;)</span><br><span class="line">  return &quot;login&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第十一章-博客项目初始化"><a href="#第十一章-博客项目初始化" class="headerlink" title="第十一章 博客项目初始化"></a>第十一章 博客项目初始化</h1><blockquote>
-<p>本章节开始，我们将开始实战博客项目</p>
-</blockquote>
-<h1 id="第十二章-其他知识"><a href="#第十二章-其他知识" class="headerlink" title="第十二章 其他知识"></a>第十二章 其他知识</h1><h2 id="6-1-JavaScript"><a href="#6-1-JavaScript" class="headerlink" title="6.1 JavaScript"></a>6.1 JavaScript</h2><p><strong>返回上一页</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a class&#x3D;&quot;btn btn-default&quot; href&#x3D;&quot;javascript:history.go(-1)&quot;&gt;返回上一页&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="6-2-BootStrap"><a href="#6-2-BootStrap" class="headerlink" title="6.2 BootStrap"></a>6.2 BootStrap</h2><p><a href="https://v3.bootcss.com/components/#alerts">警告框</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;alert alert-success alert-dismissible fade in&quot; role&#x3D;&quot;alert&quot; th:unless&#x3D;&quot;$&#123;#strings.isEmpty(message)&#125;&quot;&gt;</span><br><span class="line">  &lt;a class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;alert&quot;&gt;&lt;span&gt;&amp;times;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;</span><br><span class="line">  &lt;strong&gt;恭喜，&lt;&#x2F;strong&gt;</span><br><span class="line">  &lt;span th:text&#x3D;&quot;$&#123;message&#125;&quot;&gt;信息提交成功&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<p>注意：遇到一个坑，以上代码中的关闭没有关闭成功，关闭行为是由jquery提供的，最后发现引入jQuery的Script标签，没有闭合造成JS无效，html5要求太严格啦</p>
-<p>分页</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;nav&gt;</span><br><span class="line">&lt;ul class&#x3D;&quot;pager&quot;&gt;</span><br><span class="line">&lt;li class&#x3D;&quot;previous&quot;&gt;&lt;a href&#x3D;&quot;#&quot; th:href&#x3D;&quot;@&#123;&#39;&#x2F;books?page&#x3D;&#39;+$&#123;page.number-1&#125;&#125;&quot; th:unless&#x3D;&quot;$&#123;page.first&#125;&quot;&gt;上一页&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;li class&#x3D;&quot;next&quot;&gt;&lt;a href&#x3D;&quot;#&quot; th:href&#x3D;&quot;@&#123;&#x2F;books(page&#x3D;$&#123;page.number&#125;+1)&#125;&quot; th:unless&#x3D;&quot;$&#123;page.last&#125;&quot;&gt;下一页&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;nav&gt;</span><br></pre></td></tr></table></figure>
-<p>标题：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;h3 class&#x3D;&quot;page-header&quot;&gt;注册&lt;&#x2F;h3&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="第十三章：Kotlin-SpringBoot"><a href="#第十三章：Kotlin-SpringBoot" class="headerlink" title="第十三章：Kotlin SpringBoot"></a>第十三章：Kotlin SpringBoot</h1><h2 id="10-1-常见问题"><a href="#10-1-常见问题" class="headerlink" title="10.1 常见问题"></a>10.1 常见问题</h2><p><strong>SpringBoot Validation + Kotlin校验无效的解决方法</strong></p>
-<p>参考博客：<a href="https://www.jianshu.com/p/239ec85b6bdd?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">https://www.jianshu.com/p/239ec85b6bdd?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a></p>
-<p>解决办法：使用@field @get标识符</p>
-]]></content>
-      <categories>
-        <category>JavaEE</category>
-      </categories>
-      <tags>
-        <tag>SpringBoot</tag>
       </tags>
   </entry>
 </search>
